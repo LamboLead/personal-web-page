@@ -1,0 +1,97 @@
+PERSONAL WEB PAGE - REQUIREMENTS & TECHNOLOGIES
+
+This web page will be able to fulfill the following requirements:
+
+> It must have a contact form to send an email for contacting me. Consider adding social media and WhatsApp.
+> It must feature interesting 3D forms using Three.js
+> It must support English and Spanish languages that will change at the flip of a switch.
+> Investigate and offer some free consulting on how to make a business grow.
+
+Design ideas
+
+Build the most visually-appealing website that the world has ever seen.
+
+> Make use of 3D forms by implementing Three.js.
+> Make use of optical illusions.
+> Implement different themes for users to customize (especially useful for blog or heavy-usage sections of the page).
+
+> Implement interactive images and visual components.
+  Interactive logos for skillset.
+
+> Implement fancy-looking loading screens and widgets
+> Implement colorful word-selection.
+
+> Implement a minimalistic music player (compose some music for your web page?). Elements in the web page move according to the music GODDAMN.
+
+Sections:
+
+* Main page: "/"
+  > Large phrase that tells what can I do for people.
+  > Button 'See my work' that links to 'My portfolio'.
+  > On scrolling, some testimonies from people.
+
+* About me: /about-me
+  > Well revised version of the most relevant information about me
+  > Show past experience in the field by explaining projects briefly
+  > Show skillset using , past work, and where did you study.
+
+* My portfolio: /my-portfolio
+  > Various cards that show past projects on an interactive way
+  > Testimonies from past clients/ coworkers.
+
+  - Inside each project /my-portfolio/project-name
+    > Describe the process for each project. Communicate your thinking and explain design or technical choices you've made.
+
+* Contact: /contact
+  > E-mail address, social media links, contact form
+
+* Frequently Asked Questions: /faqs
+  > Form for the user to ask a question. Review and answer the most FAQs.
+
+# For later...
+* Other projects
+  > Other projects that you may be involved in (Academy, discount finder, ...)
+
+* Some thoughts: /blog
+  > Blog with different posts about different things.
+
+Tips:
+> Keep it simple but effective: Ask what the user wants and what might he be interested in.
+> Present unusual design features that will make the user want to explore the page.
+
+3. Some inspiration:z
+
+https://rubenkuipers.design/
+> Changing theme changes content from the UI.
+> Content appears smoothly as user scrolls.
+> He uses some devices to show his projects on their display.
+
+https://jennielakenan.com/
+> Notable blog articles in her main page.
+
+https://stefivanov.com/
+> Beautiful animations with artistic merits.
+> Interesting element animations on hover.
+
+https://fla.my/
+> Goddamn awesome and interactive animations.
+> Branding based on characters
+
+https://www.erikasenftmiller.com/
+> Interesting background-morphing as mouse passes over.
+> Make requests to the server without reloading the page.
+> User can move through the application by drag & drop.
+> Cursor has changed.
+> Gotta look at her menu.
+
+https://ivomynttinen.com/
+> Make requests to the server without reloading the page.
+> Content appears smoothly as user scrolls.
+> Blog supports Facebook comments.
+
+https://jessicahainesdesign.com
+> Simple yet informative layout
+
+https://www.fromthemountain.co.za/
+> Tells the user right away what can he do to improve his business.
+> Created custom graphics to accompany the page.

@@ -1,0 +1,29 @@
+1. Requirements
+  > Must have a functional contact form to send an email to contact me.
+  > Must support Spanish language.
+  > Must have sections: 'Main page', 'About me', 'My portfolio', and 'Contact'.
+  > Must include an appealing logo.
+
+2. Sections
+
+* Main page:
+  > Tell easily what can you do for people.
+  > Button 'See my work' that links to 'My portfolio'.
+  > Some people's testimonies.
+
+* About me:
+  > Most relevant information about me.
+  > Skillset with logos.
+
+* My portfolio:
+  > Each past project must have a card that contains short explanation about design and technical decisions.
+
+* Contact
+  > Form for user to get in touch.
+  > Social media links.
+
+3. Design ideas
+  > Implement themes that change by the flip of a switch (build it so it can be personalized in the future).
+  > Implement fancy-looking loading screens and widgets.
+  > Make requests to the server without reloading the page.
+  > Implement scrolling in an innovative way.
