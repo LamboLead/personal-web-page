@@ -1,0 +1,12 @@
+#main-page
+  display: flex
+  
+  @include screen-width($phone...)
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  @include screen-width($desktop...)
+    flex-direction: row
+    justify-content: center
+    align-items: center

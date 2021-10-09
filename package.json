@@ -1,0 +1,26 @@
+{
+  "name": "personal-web-page",
+  "version": "1.0.0",
+  "description": "Project containing my website",
+  "keywords": [
+    "Landing page",
+    "Personal website"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-compile": "sass --watch 'src/styles/main-styles.sass':'src/styles/main-styles.css'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LamboLead/personal-web-page.git"
+  },
+  "author": "LamboLead",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.42.1"
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

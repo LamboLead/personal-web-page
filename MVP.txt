@@ -26,4 +26,22 @@
   > Implement themes that change by the flip of a switch (build it so it can be personalized in the future).
   > Implement fancy-looking loading screens and widgets.
   > Make requests to the server without reloading the page.
-  > Implement scrolling in an innovative way.
+  
+  > Investigate ScrollMagic, AnimateOnScroll
+
+  - Loaders:
+
+
+  - Scrolling effects:
+  > Parallax: Move the background at a different pace than the content of the page.
+  > Stacking cards: When a certain section of the page is shown, stack different cards to show the content instead of scrolling down as normal.
+  > Snap scrolling: When the user scrolls to a certain region, the page snaps the full region in the screen, leaving no gaps between regions.
+  > Element animation: When the user scrolls on a row or column of elements, they are enlarged or shrinked.
+  > Text reveal: When the user scrolls, some text is revealed with a background image on its background
+
+  > Class toggles
+  > Reveal on scroll
+  > 
+
+  - Footer:
+  > Copyright Juan David López López...

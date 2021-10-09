@@ -1,0 +1,49 @@
+@mixin screen-width($min, $max)
+  @media (min-width: $min) and (max-width: $max)
+    @content
+
+$phone: (min: 0px, max: 768px)
+$tablet: (min: 501px, max: 768px)
+$desktop: (min: 769px, max: 1500px)
+$largeDesktop: (min: 1501px, max:4000px)
+
+:root
+  font-family: 'Roboto Mono', monospace
+  @include screen-width($phone...)
+    font-size: 13px
+
+  @include screen-width($desktop...)
+    font-size: 15px
+
+  @include screen-width($largeDesktop...)
+    font-size: 25px
+  
+
+body
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 500vh
+
+  background: var(--background)
+  background-size: cover
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: end
+
+  &::-webkit-scrollbar
+    width: 0.5rem
+    background: var(--someDarkColor)
+
+  &::-webkit-scrollbar-thumb
+    background: var(--buttonColor)
+    border-top-left-radius: 0.25rem
+    border-bottom-left-radius: 0.25rem
+  &::-webkit-scrollbar-thumb:hover
+    background: yellow
+    cursor: grab
+
+
+

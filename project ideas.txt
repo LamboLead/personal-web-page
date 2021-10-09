@@ -1,0 +1,54 @@
+1. Web page that shows cool CSS & JS tricks and effects (design).
+
+> Parallax:
+  https://www.barcosorriso.com.br/home
+  https://www.akaivyc.com/
+  https://www.chriswcovert.com/
+
+> Stacking cards-images-information:
+  https://codepen.io/bramus/pen/PobmGme
+  https://codepen.io/HenryZarza/pen/VwYagOO
+  https://codepen.io/borntofrappe/pen/NWPGvjW
+
+> Text mask:
+  https://codepen.io/argyleink/pen/wvMxEXM
+  https://codepen.io/blakeeric/pen/MWwGpmR
+
+> Moving banners:
+  https://codepen.io/thebabydino/pen/JVEKvJ
+
+> Smooth scrolling:
+  https://codepen.io/andrejsharapov/pen/WWQEpP
+
+> Snap scrolling:
+  https://codepen.io/andrejsharapov/pen/xBGKrr
+
+> Scroll-reveal:
+  https://codepen.io/hexagoncircle/pen/PXVEVZ
+
+> Scrolling animations for elements:
+  https://codepen.io/knyttneve/pen/EGyQqN
+
+> Skew scrolling:
+  https://codepen.io/rauldronca/pen/yQrmeE
+
+> Awesome text reveal on scroll:
+  https://codepen.io/magnificode/pen/JedJPO
+  https://dribbble.com/shots/5488119-Text-Reveal-on-Scroll
+
+> Scrolling gradient:
+  https://codepen.io/MadeByMike/pen/eKPZZz
+
+> Intersection observer:
+  https://codepen.io/meodai/pen/mMRzQa
+
+> Scrolling half by half:
+  https://codepen.io/Kseso/pen/JyEWoP
+
+> Blend:
+  https://codepen.io/giana/pen/PqVbRr
+
+> Everything related to ScrollMagic
+  https://scrollmagic.io/examples/advanced/svg_drawing.html
+
+2. E-commerce site

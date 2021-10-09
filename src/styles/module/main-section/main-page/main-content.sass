@@ -1,0 +1,118 @@
+.main-content
+  position: relative
+  // border: 2px dashed yellow
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+
+  @include screen-width($phone...)
+    width: 100%
+    height: 60%
+    align-items: end
+
+  @include screen-width($desktop...)
+    order: 1
+    width: 70%
+    min-height: 40%
+    max-height: 60%
+    align-items: center
+
+  .main-title
+    color: var(--mainFontColor)
+    font-weight: 900
+    // border: 2px dashed red
+    margin-top: 2rem
+    text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
+
+    @include screen-width($phone...)
+      width: 95%
+      min-height: 10%
+      max-height: 60%
+      font-size: 380%
+      text-align: right
+      margin-right: 1.5rem
+
+    @include screen-width($desktop...)
+      width: 100%
+      min-height: 30%
+      max-height: 70%
+      font-size: 400%
+      text-align: right
+      align-self: end
+
+  .subtitle
+    width: 90%
+    text-align: right
+    font-size: 1.2rem
+    color: var(--darkerFontColor)
+    display: flex
+    // border: 2px dashed aqua
+    margin-bottom: auto
+
+    span
+      margin-inline: 0.5ch
+
+    @include screen-width($phone...)
+      height: 10%
+      flex-direction: column
+      justify-content: center
+      align-items: end
+      margin-right: 1.5rem
+
+      span:nth-child(2)
+          display: none
+
+    @include screen-width($desktop...)
+      height: 15%
+      margin-inline-start: 0.5ch
+      flex-direction: row
+      justify-content: end
+      align-items: center
+      align-self: end
+
+  .button-wrapper
+    width: 100%
+    min-height: 25%
+    max-height: 30%
+    margin-top: 1.5rem
+    // border: 2px dashed lightgreen
+    display: flex
+
+    @include screen-width($phone...)
+      flex-direction: column
+      justify-content: space-around
+      align-items: center
+      margin-bottom: 13%
+
+    @include screen-width($desktop...)
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      margin-bottom: 5%
+
+    .call-to-action
+      padding: 5px
+      background-color: var(--buttonColor)
+      border: none
+      border-radius: 1.5rem
+      color: var(--mainFontColor)
+      font-family: 'Roboto Mono', monospace
+
+      @include screen-width($phone...)
+        width: 70%
+        height: 3rem
+
+      @include screen-width($desktop...)
+        width: 40%
+        height: 2.5rem
+
+.scrolling-arrows
+  position: absolute
+  width: 85%
+  height: 5%
+  bottom: 0
+  border: 1px dashed aqua
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center

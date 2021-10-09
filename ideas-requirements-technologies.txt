@@ -1,5 +1,7 @@
 PERSONAL WEB PAGE - REQUIREMENTS & TECHNOLOGIES
 
+1. Requirements
+
 This web page will be able to fulfill the following requirements:
 
 > It must have a contact form to send an email for contacting me. Consider adding social media and WhatsApp.
@@ -7,23 +9,7 @@ This web page will be able to fulfill the following requirements:
 > It must support English and Spanish languages that will change at the flip of a switch.
 > Investigate and offer some free consulting on how to make a business grow.
 
-Design ideas
-
-Build the most visually-appealing website that the world has ever seen.
-
-> Make use of 3D forms by implementing Three.js.
-> Make use of optical illusions.
-> Implement different themes for users to customize (especially useful for blog or heavy-usage sections of the page).
-
-> Implement interactive images and visual components.
-  Interactive logos for skillset.
-
-> Implement fancy-looking loading screens and widgets
-> Implement colorful word-selection.
-
-> Implement a minimalistic music player (compose some music for your web page?). Elements in the web page move according to the music GODDAMN.
-
-Sections:
+2. Sections:
 
 * Main page: "/"
   > Large phrase that tells what can I do for people.
@@ -59,7 +45,36 @@ Tips:
 > Keep it simple but effective: Ask what the user wants and what might he be interested in.
 > Present unusual design features that will make the user want to explore the page.
 
-3. Some inspiration:z
+3. Design ideas
+
+Build the most visually-appealing website that the world has ever seen.
+
+- Background
+> Make use of 3D forms by implementing Three.js.
+> Make use of optical illusions.
+
+- Colors
+> Implement different themes for users to customize (especially useful for blog or heavy-usage sections of the page).
+> Implement colorful word-selection and highlighting.
+
+- Animations
+> Interactive logos for skillset section.
+> Implement interactive images and visual components.
+> Implement fancy-looking loading screens and widgets.
+
+- Scrolling animations
+> Animate logo on scroll.
+> Implement snap and smooth scrolling.
+
+- Other
+> Implement a minimalistic music player (compose some music for your web page?). Elements in the web page move according to the music GODDAMN.
+
+4. Technology ideas
+
+> Use good old HTML, CSS & JavaScript to keep the control over the functionality of the webpage.
+> Use AJAX & XMLHttpRequest() to render HTML dynamically without reloading the page. This can be implemented if the different sections of your webpage aren't going to be accessed by scrolling. (investigate AJAX, XMLHttpRequest(), watch https://www.youtube.com/watch?v=cva5NQTnbu4)
+
+5. Some inspiration:
 
 https://rubenkuipers.design/
 > Changing theme changes content from the UI.

@@ -1,0 +1,18 @@
+#main-section
+  height: 500vh
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  border-left: dashed 2px var(--buttonColor)
+  border-right: dashed 2px var(--buttonColor)
+
+  @include screen-width($phone...)
+    width: 95vw
+    flex-direction: column
+
+  @include screen-width($desktop...)
+    width: 80%
+
