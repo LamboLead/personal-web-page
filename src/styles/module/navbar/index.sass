@@ -1,0 +1,47 @@
+#index
+  width: 95%
+  
+
+  border: 2px dashed pink
+
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  align-self: flex-end
+
+  @include screen-width($phone...)
+    height: 14rem
+
+  @include screen-width($desktop...)
+    height: 12rem
+
+  .link
+    width: 100%
+    height: 30%
+
+    // background: orange
+    display: flex
+    flex-direction: row
+    justify-content: start
+    align-items: center
+
+    .link-logo
+      width: 20%
+      height: fit-content
+      background: white
+      margin-inline: 1rem
+
+    .link-text
+      display: block
+      width: fit-content
+      height: 70%
+
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      font-style: italic
+      color: var(--mainFontColor)
+      font-weight: 500
+      font-size: 1.2rem

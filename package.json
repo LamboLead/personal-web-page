@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-compile": "sass --watch 'src/styles/main-styles.sass':'src/styles/main-styles.css'"
+    "sass-compile": "sass --watch src/styles/main-styles.sass:src/styles/main-styles.css"
   },
   "repository": {
     "type": "git",

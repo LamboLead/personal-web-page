@@ -1,16 +1,21 @@
 #navbar
   position: fixed
-  background-color: var(--navbarColor)
+  border: 2px dashed white
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   @include screen-width($phone...)
-    top: 1rem
-    left: 1rem
+    top: 0
+    // left: -190px
+    left: 0
 
-    width: 3rem
-    height: 3rem
+    width: 200px
+    height: 100%
 
   @include screen-width($desktop...)
     top: 0
     left: 0
-
     width: 20%
     height: 100vh
+

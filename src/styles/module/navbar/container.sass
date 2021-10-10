@@ -1,0 +1,36 @@
+.navbar-container
+  position: absolute
+  background: var(--navbarColor)
+  width: 100%
+  z-index: -1
+  
+#container1
+  border-top-right-radius: 5px
+  @include screen-width($desktop...)
+    top: 15vh
+    left: 0
+    height: 100%
+
+  @include screen-width($phone...)
+    top: 17vh
+    left: 0
+    height: 100vh
+
+  
+
+#container2
+  border-bottom-right-radius: 5px
+  @include screen-width($desktop...)
+    top: -15vh
+    left: 0
+    height: 15vh
+
+  @include screen-width($phone...)
+    top: -115vh
+    left: 0
+    height: 100vh
+
+
+
+
+
