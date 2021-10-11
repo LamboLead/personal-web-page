@@ -67,7 +67,7 @@ a {
   #navbar {
     top: 0;
     left: 0;
-    width: 20%;
+    width: 300px;
     height: 100vh;
   }
 }
@@ -377,10 +377,15 @@ a {
   align-items: center;
 }
 #index .link .link-logo {
-  width: 20%;
+  width: 10%;
   height: fit-content;
-  background: white;
   margin-inline: 1rem;
+  fill: var(--mainFontColor);
+}
+#index .link .link-logo svg {
+  width: 100%;
+  height: fit-content;
+  vertical-align: middle;
 }
 #index .link .link-text {
   display: block;
@@ -392,7 +397,11 @@ a {
   font-style: italic;
   color: var(--mainFontColor);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 20px;
+}
+
+#me {
+  stroke: var(--mainFontColor);
 }
 
 #customization {
@@ -414,7 +423,7 @@ a {
 
 #social {
   width: 90%;
-  height: 7%;
+  height: 8%;
   border-top: 1px solid var(--darkestFontColor);
   margin-top: auto;
   display: flex;
@@ -425,8 +434,22 @@ a {
 #social .social-logo {
   display: block;
   width: 20%;
-  height: fit-content;
-  background: white;
+  height: 30px;
+}
+#social .social-logo svg {
+  height: 80%;
+  width: 100%;
+}
+#social .social-logo #twitter-logo {
+  fill: var(--twitterLogoColor);
+}
+#social .social-logo #linked-logo {
+  fill: var(--linkedLogoColor);
+}
+#social .social-logo #github-logo {
+  height: 100%;
+  width: fit-content;
+  fill: var(--githubLogoColor);
 }
 
 .dark-theme {
@@ -437,6 +460,9 @@ a {
   --darkerFontColor: #A1A1A1;
   --darkestFontColor: #4E4E4E;
   --someDarkColor: rgba(0, 0, 0, 0.4);
+  --twitterLogoColor: #4da6ff;
+  --linkedLogoColor: blue;
+  --githubLogoColor: #E8E8E8;
 }
 
 /*# sourceMappingURL=main-styles.css.map */
