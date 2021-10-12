@@ -1,6 +1,10 @@
 #logo
   border: 2px dashed blue
   margin-bottom: auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   
   @include screen-width($desktop...)
     width: 100%
@@ -10,3 +14,17 @@
     height: 15vh
 
     transform: translateX(100%)
+
+#main-logo
+  height: 70%
+  width: fit-content
+  #tyre
+    fill: var(--darkerFontColor)
+  #rim
+    fill: var(--mainFontColor)
+  #bright-L, #ambo
+    fill: var(--mainFontColor)
+  #dark-L, #ead
+    fill: var(--darkerFontColor)
+  #back-rectangle
+    fill: var(--background)
