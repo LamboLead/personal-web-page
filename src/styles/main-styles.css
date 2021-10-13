@@ -11,11 +11,6 @@
     font-size: 15px;
   }
 }
-@media (min-width: 1501px) and (max-width: 4000px) {
-  :root {
-    font-size: 25px;
-  }
-}
 
 body {
   margin: 0;
@@ -122,19 +117,17 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: end;
+  height: clamp(200px, 40%, 360px);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-main-page {
     width: 100%;
-    min-height: 40%;
-    max-height: 57%;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-main-page {
     order: 1;
-    width: 70%;
-    height: 40%;
+    width: 75%;
   }
 }
 .main-content-main-page .main-title {
@@ -144,46 +137,40 @@ a {
   margin-top: 2rem;
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   word-spacing: -0.4ch;
-  line-height: 1.5ch;
+  font-size: clamp(33px, 6vw, 115px);
+  text-align: right;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-main-page .main-title {
-    width: 95%;
-    height: 15%;
-    font-size: 9vw;
-    text-align: right;
-    margin-right: 5%;
+    width: 97%;
+    margin-right: 3%;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-main-page .main-title {
     width: 100%;
-    height: 30%;
-    font-size: 400%;
     text-align: right;
   }
 }
 .main-content-main-page .subtitle {
-  width: 90%;
+  width: 100%;
   text-align: right;
   color: var(--darkerFontColor);
   display: flex;
   border: 2px dashed aqua;
   margin-bottom: auto;
+  font-size: clamp(1.2rem, 2vw, 20px);
+  margin-top: 0.7rem;
 }
 .main-content-main-page .subtitle span {
   margin-inline: 0.5ch;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-main-page .subtitle {
-    height: 15%;
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    margin-right: 5%;
-    margin-top: 0.7rem;
-    font-size: 4vw;
-    line-height: 100%;
+    margin-right: 3%;
   }
   .main-content-main-page .subtitle span:nth-child(2) {
     display: none;
@@ -191,61 +178,40 @@ a {
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-main-page .subtitle {
-    height: 10%;
-    margin-inline-start: 0.5ch;
     flex-direction: row;
     justify-content: end;
     align-items: center;
   }
 }
 .main-content-main-page .button-wrapper {
+  width: clamp(450px, 90%, 950px);
   height: 25%;
   border: 2px dashed lightgreen;
+  margin-right: 3%;
   display: flex;
+  justify-content: space-between;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-main-page .button-wrapper {
-    width: 95%;
     flex-direction: column;
-    justify-content: space-between;
     align-items: end;
-    margin-right: 5%;
-    margin-bottom: 5%;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-main-page .button-wrapper {
-    width: 80%;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 10%;
-    margin-right: 1rem;
   }
 }
 .main-content-main-page .button-wrapper .call-to-action {
+  width: clamp(215px, 42%, 420px);
   padding: 5px;
   background-color: var(--buttonColor);
   border: none;
   border-radius: 1.5rem;
   color: var(--mainFontColor);
   font-family: "Roboto Mono", monospace;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .main-content-main-page .button-wrapper .call-to-action {
-    width: 75%;
-    height: 40%;
-    line-height: 1rem;
-    font-size: 3.5vw;
-  }
-}
-@media (min-width: 769px) and (max-width: 4000px) {
-  .main-content-main-page .button-wrapper .call-to-action {
-    width: 45%;
-    height: 2.5rem;
-    font-size: 1rem;
-  }
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
 }
 
 #title-animation {
@@ -261,8 +227,8 @@ a {
 @media (min-width: 769px) and (max-width: 4000px) {
   #title-animation {
     order: 2;
-    width: 10rem;
-    height: 25rem;
+    width: clamp(200px, 45%, 400px);
+    aspect-ratio: 1/2;
   }
 }
 
@@ -273,16 +239,17 @@ a {
   align-items: center;
   border: 2px dashed red;
   width: 90%;
+  height: 80%;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-contact {
-    height: 85%;
-    margin-top: 5rem;
+    height: 75%;
+    margin-top: auto;
+    margin-bottom: 5%;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-contact {
-    height: 80%;
     margin-top: 5%;
   }
 }
@@ -297,37 +264,30 @@ a {
   word-spacing: -0.4ch;
   line-height: 1.5ch;
   margin-bottom: auto;
+  font-size: clamp(40px, 6vw, 110px);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-contact .contact-title {
-    font-size: 6vh;
     text-align: right;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .main-content-contact .contact-title {
-    font-size: 400%;
     text-align: left;
   }
 }
 .main-content-contact .form-animation-wrapper {
   width: 100%;
+  height: clamp(270px, 65%, 540px);
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: start;
   border: 2px dashed aqua;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .main-content-contact .form-animation-wrapper {
-    height: 70%;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-@media (min-width: 769px) and (max-width: 4000px) {
-  .main-content-contact .form-animation-wrapper {
-    height: 60%;
-    flex-direction: row;
-    justify-content: start;
+    margin-bottom: 10%;
   }
 }
 
@@ -344,22 +304,20 @@ a {
 @media (min-width: 0px) and (max-width: 768px) {
   .contact-form {
     width: 100%;
-    font-size: 120%;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .contact-form {
     width: 70%;
-    font-size: 98%;
   }
 }
 .contact-form .field-wrapper {
   width: 90%;
-  height: 10%;
+  margin-bottom: 0.1rem;
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   border: 2px solid lightgreen;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -375,26 +333,32 @@ a {
     margin-block: 0.2rem;
   }
 }
+.contact-form .field-wrapper label {
+  font-size: clamp(1rem, 1.5vw, 26px);
+}
 @media (min-width: 0px) and (max-width: 768px) {
   .contact-form .field-wrapper label {
     width: 100%;
-    height: 2rem;
     height: fit-content;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
   }
 }
 @media (min-width: 769px) and (max-width: 4000px) {
   .contact-form .field-wrapper label {
-    width: 20%;
-    height: 50%;
-    height: fit-content;
+    width: 24%;
   }
 }
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
-  font-size: 100%;
+  padding: 5px 0 3px 1ch;
   background: var(--navbarColor);
-  border: none;
+  font-size: clamp(0.9rem, 1.5vw, 20px);
   font-family: "Roboto Mono", monospace;
+  color: var(--mainFontColor);
+  border: none;
+  resize: none;
+}
+.contact-form .field-wrapper input::placeholder, .contact-form .field-wrapper textarea::placeholder {
+  color: var(--darkestFontColor);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
@@ -407,50 +371,38 @@ a {
 @media (min-width: 769px) and (max-width: 4000px) {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
     margin-left: auto;
-    width: 77%;
+    width: 75%;
     height: 80%;
   }
 }
 .contact-form .textarea-wrapper {
   height: 40%;
 }
+.contact-form .textarea-wrapper label {
+  margin-top: 0.2rem;
+  align-self: start;
+}
 .contact-form .button-wrapper {
   justify-content: end;
   align-items: center;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .contact-form .button-wrapper {
-    height: 10%;
-    margin-top: 1rem;
-  }
-}
-@media (min-width: 769px) and (max-width: 4000px) {
-  .contact-form .button-wrapper {
-    height: 15%;
-  }
+  margin-top: 1rem;
+  height: 10%;
 }
 .contact-form .button-wrapper button {
+  width: clamp(200px, 90%, 250px);
   height: 100%;
   color: var(--mainFontColor);
+  font-family: "Roboto Mono", monospace;
   font-size: 1.2rem;
   background: var(--buttonColor);
+  border: none;
   border-radius: 3rem;
   cursor: pointer;
 }
-@media (min-width: 0px) and (max-width: 768px) {
-  .contact-form .button-wrapper button {
-    width: 100%;
-  }
-}
-@media (min-width: 769px) and (max-width: 4000px) {
-  .contact-form .button-wrapper button {
-    width: 40%;
-  }
-}
 
 .contact-animation {
-  width: 15rem;
   height: 100%;
+  aspect-ratio: 1/2;
   background: rgba(255, 255, 255, 0.5);
 }
 @media (min-width: 0px) and (max-width: 768px) {
