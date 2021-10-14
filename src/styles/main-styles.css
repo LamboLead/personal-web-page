@@ -1,12 +1,12 @@
 :root {
   font-family: "Roboto Mono", monospace;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   :root {
     font-size: 13px;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   :root {
     font-size: 15px;
   }
@@ -50,7 +50,7 @@ a {
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #navbar {
     top: 0;
     left: -190px;
@@ -58,7 +58,7 @@ a {
     height: 100%;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #navbar {
     top: 0;
     left: 0;
@@ -76,14 +76,14 @@ a {
   border-left: dashed 2px var(--buttonColor);
   border-right: dashed 2px var(--buttonColor);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #main-section {
     width: 95vw;
     flex-direction: column;
     z-index: -2;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #main-section {
     width: 80%;
   }
@@ -92,14 +92,14 @@ a {
 #main-page {
   display: flex;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #main-page {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #main-page {
     flex-direction: row;
     justify-content: center;
@@ -119,12 +119,12 @@ a {
   align-items: end;
   height: clamp(200px, 40%, 360px);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page {
     width: 100%;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-main-page {
     order: 1;
     width: 75%;
@@ -140,13 +140,13 @@ a {
   font-size: clamp(33px, 6vw, 115px);
   text-align: right;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page .main-title {
     width: 97%;
     margin-right: 3%;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-main-page .main-title {
     width: 100%;
     text-align: right;
@@ -165,7 +165,7 @@ a {
 .main-content-main-page .subtitle span {
   margin-inline: 0.5ch;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page .subtitle {
     flex-direction: column;
     justify-content: center;
@@ -176,7 +176,7 @@ a {
     display: none;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-main-page .subtitle {
     flex-direction: row;
     justify-content: end;
@@ -191,13 +191,13 @@ a {
   display: flex;
   justify-content: space-between;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page .button-wrapper {
     flex-direction: column;
     align-items: end;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-main-page .button-wrapper {
     flex-direction: row;
     align-items: center;
@@ -217,17 +217,17 @@ a {
 #title-animation {
   background: #FFFFFF99;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #title-animation {
     width: 100%;
     height: 15%;
     align-self: flex-end;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #title-animation {
     order: 2;
-    width: clamp(200px, 45%, 400px);
+    width: clamp(160px, 20%, 300px);
     aspect-ratio: 1/2;
   }
 }
@@ -241,14 +241,14 @@ a {
   width: 90%;
   height: 80%;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact {
-    height: 75%;
+    height: clamp(300px, 75%, 900px);
     margin-top: auto;
     margin-bottom: 5%;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-contact {
     margin-top: 5%;
   }
@@ -266,12 +266,12 @@ a {
   margin-bottom: auto;
   font-size: clamp(40px, 6vw, 110px);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact .contact-title {
     text-align: right;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-contact .contact-title {
     text-align: left;
   }
@@ -285,7 +285,7 @@ a {
   justify-content: start;
   border: 2px dashed aqua;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact .form-animation-wrapper {
     margin-bottom: 10%;
   }
@@ -301,12 +301,12 @@ a {
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .contact-form {
     width: 100%;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form {
     width: 70%;
   }
@@ -315,18 +315,17 @@ a {
   width: 90%;
   margin-bottom: 0.1rem;
   display: flex;
-  flex-direction: row;
   justify-content: start;
   align-items: center;
   border: 2px solid lightgreen;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper {
-    height: 15%;
+    height: 18%;
     flex-direction: column;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form .field-wrapper {
     height: 10%;
     flex-direction: row;
@@ -334,24 +333,24 @@ a {
   }
 }
 .contact-form .field-wrapper label {
-  font-size: clamp(1rem, 1.5vw, 26px);
+  font-size: clamp(1.1rem, 2vw, 20px);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper label {
-    width: 100%;
+    width: 95%;
     height: fit-content;
     margin-bottom: 0.2rem;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form .field-wrapper label {
-    width: 24%;
+    width: clamp(128px, 16%, 145px);
   }
 }
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
   background: var(--navbarColor);
-  font-size: clamp(0.9rem, 1.5vw, 20px);
+  font-size: clamp(1.1rem, 2.2vw, 20px);
   font-family: "Roboto Mono", monospace;
   color: var(--mainFontColor);
   border: none;
@@ -360,7 +359,7 @@ a {
 .contact-form .field-wrapper input::placeholder, .contact-form .field-wrapper textarea::placeholder {
   color: var(--darkestFontColor);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
     width: 90%;
     margin-left: 1rem;
@@ -368,15 +367,18 @@ a {
     align-self: stretch;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
     margin-left: auto;
-    width: 75%;
+    flex: 2 2 82%;
     height: 80%;
   }
 }
 .contact-form .textarea-wrapper {
   height: 40%;
+}
+.contact-form .textarea-wrapper textarea {
+  height: 80%;
 }
 .contact-form .textarea-wrapper label {
   margin-top: 0.2rem;
@@ -389,7 +391,7 @@ a {
   height: 10%;
 }
 .contact-form .button-wrapper button {
-  width: clamp(200px, 90%, 250px);
+  width: clamp(200px, 90%, 300px);
   height: 100%;
   color: var(--mainFontColor);
   font-family: "Roboto Mono", monospace;
@@ -402,10 +404,10 @@ a {
 
 .contact-animation {
   height: 100%;
-  aspect-ratio: 1/2;
+  aspect-ratio: 1/2.3;
   background: rgba(255, 255, 255, 0.5);
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   .contact-animation {
     display: none;
   }
@@ -460,14 +462,14 @@ a {
 #container1 {
   border-top-right-radius: 5px;
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #container1 {
     top: 15vh;
     left: 0;
     height: 100%;
   }
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #container1 {
     top: 17vh;
     left: 0;
@@ -478,14 +480,14 @@ a {
 #container2 {
   border-bottom-right-radius: 5px;
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #container2 {
     top: -15vh;
     left: 0;
     height: 15vh;
   }
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #container2 {
     top: -115vh;
     left: 0;
@@ -501,13 +503,13 @@ a {
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #logo {
     width: 100%;
     height: 15vh;
   }
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #logo {
     width: 100%;
     height: 15vh;
@@ -544,12 +546,12 @@ a {
   align-items: center;
   align-self: flex-end;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #index {
     height: 14rem;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #index {
     height: 12rem;
   }
@@ -598,12 +600,12 @@ a {
   border-top: 1px solid var(--darkestFontColor);
   background: darkgrey;
 }
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1024px) {
   #customization {
     height: 16rem;
   }
 }
-@media (min-width: 769px) and (max-width: 4000px) {
+@media (min-width: 1025px) and (max-width: 4000px) {
   #customization {
     height: 15rem;
   }
