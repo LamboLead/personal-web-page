@@ -232,6 +232,179 @@ a {
   }
 }
 
+#my-portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-portfolio-title {
+  display: block;
+  width: 80%;
+  align-self: flex-end;
+  margin-top: 1rem;
+  margin-bottom: auto;
+  color: var(--mainFontColor);
+  text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
+  font-size: clamp(33px, 6vw, 115px);
+  word-spacing: -0.4ch;
+  text-align: right;
+  border: 2px dashed red;
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .my-portfolio-title {
+    display: none;
+  }
+}
+
+.main-content-my-portfolio {
+  width: 90%;
+  border: 2px dashed lightgreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .main-content-my-portfolio {
+    justify-content: start;
+    height: 70%;
+    margin-bottom: 5rem;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .main-content-my-portfolio {
+    justify-content: center;
+    height: 90%;
+  }
+}
+.main-content-my-portfolio .a-project {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .main-content-my-portfolio .a-project {
+    height: 75%;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .main-content-my-portfolio .a-project {
+    height: 45%;
+    border-radius: 10px;
+  }
+}
+
+#tutdl {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl {
+    background: linear-gradient(0deg, #FFE500 0%, #FFF386 100%);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl {
+    background: linear-gradient(83.65deg, #FFE500 0%, #FFF386 100%);
+  }
+}
+#tutdl img {
+  height: clamp(0px, 95%, 400px);
+  align-self: flex-end;
+  border: 2px solid blue;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl img {
+    position: absolute;
+    order: 2;
+    width: 66%;
+    aspect-ratio: 1/2;
+    right: -70px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl img {
+    margin-left: 1%;
+  }
+}
+#tutdl .project-description {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid green;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl .project-description {
+    width: 75%;
+    height: 95%;
+    justify-content: start;
+    align-items: center;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl .project-description {
+    width: clamp(200px, 60%, 620px);
+    height: 100%;
+    margin-inline: 1% 1rem;
+    justify-content: center;
+    align-items: start;
+  }
+}
+#tutdl .project-description #tutdl-logo {
+  border: 2px solid red;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl .project-description #tutdl-logo {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-left: 2%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl .project-description #tutdl-logo {
+    width: 27vw;
+    margin-left: 1rem;
+  }
+}
+#tutdl .project-description .slogan {
+  display: block;
+  font-weight: 900;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl .project-description .slogan {
+    font-size: 1rem;
+    margin-left: 2%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl .project-description .slogan {
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
+    margin-top: 1rem;
+    margin-left: 2%;
+  }
+}
+#tutdl .project-description .learn-more {
+  font-size: clamp(1rem, 1.2vw, 2rem);
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl .project-description .learn-more {
+    width: clamp(145px, 40%, 270px);
+    align-self: flex-end;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl .project-description .learn-more {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
 .main-content-contact {
   display: flex;
   flex-direction: column;
@@ -452,6 +625,18 @@ a {
   fill: var(--scrollLogoColor);
 }
 
+.emphasis-button {
+  font-family: "Roboto Mono", monospace;
+  color: var(--mainFontColor);
+  background: var(--buttonColor);
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+}
+.emphasis-button:hover {
+  background: var(--buttonHoverColor);
+}
+
 .navbar-container {
   position: absolute;
   background: var(--navbarColor);
@@ -513,7 +698,6 @@ a {
   #logo {
     width: 100%;
     height: 15vh;
-    transform: translateX(100%);
   }
 }
 
@@ -647,6 +831,7 @@ a {
   --cardColor: #00000088;
   --background: #313131;
   --buttonColor: #4da6ff;
+  --buttonHoverColor: #0060c0;
   --mainFontColor: #E8E8E8;
   --darkerFontColor: #A0A0A0;
   --darkestFontColor: #4E4E4E;

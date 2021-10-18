@@ -1,0 +1,22 @@
+#my-portfolio
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.my-portfolio-title
+  display: block
+  width: 80%
+  align-self: flex-end
+  margin-top: 1rem
+  margin-bottom: auto
+  color: var(--mainFontColor)
+  text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
+  font-size: clamp(33px, 6vw, 115px)
+  word-spacing: -0.4ch
+  text-align: right
+
+  border: 2px dashed red
+
+  @include screen-width($desktop...)
+    display: none
