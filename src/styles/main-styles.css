@@ -135,6 +135,7 @@ a {
   font-weight: 900;
   border: 2px dashed red;
   margin-top: 2rem;
+  margin-bottom: 0;
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   word-spacing: -0.4ch;
   font-size: clamp(33px, 6vw, 115px);
@@ -206,11 +207,7 @@ a {
 .main-content-main-page .button-wrapper .call-to-action {
   width: clamp(215px, 42%, 420px);
   padding: 5px;
-  background-color: var(--buttonColor);
-  border: none;
   border-radius: 1.5rem;
-  color: var(--mainFontColor);
-  font-family: "Roboto Mono", monospace;
   font-size: clamp(1rem, 1.5vw, 1.8rem);
 }
 
@@ -250,6 +247,7 @@ a {
   font-size: clamp(33px, 6vw, 115px);
   word-spacing: -0.4ch;
   text-align: right;
+  font-weight: 900;
   border: 2px dashed red;
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -301,15 +299,18 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background: var(--tutdlEmphasisColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl {
-    background: linear-gradient(0deg, #FFE500 0%, #FFF386 100%);
+    justify-content: start;
+    align-items: start;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl {
-    background: linear-gradient(83.65deg, #FFE500 0%, #FFF386 100%);
+    justify-content: center;
+    align-items: center;
   }
 }
 #tutdl img {
@@ -320,10 +321,11 @@ a {
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl img {
     position: absolute;
-    order: 2;
-    width: 66%;
-    aspect-ratio: 1/2;
-    right: -70px;
+    width: fit-content;
+    height: 90%;
+    left: 58%;
+    align-self: center;
+    justify-self: center;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -334,14 +336,17 @@ a {
 #tutdl .project-description {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border: 2px solid green;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description {
-    width: 75%;
-    height: 95%;
-    justify-content: start;
-    align-items: center;
+    width: clamp(100px, 53%, 430px);
+    height: 100%;
+    align-items: flex-start;
+    margin-left: 3%;
+    background: var(--tutdlEmphasisColor);
+    box-shadow: 10px 0px 20px var(--tutdlEmphasisColor);
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -349,20 +354,17 @@ a {
     width: clamp(200px, 60%, 620px);
     height: 100%;
     margin-inline: 1% 1rem;
-    justify-content: center;
     align-items: start;
   }
 }
 #tutdl .project-description #tutdl-logo {
   border: 2px solid red;
+  height: fit-content;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description #tutdl-logo {
     width: 100%;
-    height: fit-content;
-    margin-bottom: 3rem;
-    margin-top: 1rem;
-    margin-left: 2%;
+    margin-bottom: 20%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -374,34 +376,38 @@ a {
 #tutdl .project-description .slogan {
   display: block;
   font-weight: 900;
+  font-style: italic;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description .slogan {
-    font-size: 1rem;
-    margin-left: 2%;
+    font-size: clamp(0.8rem, 2vw, 2rem);
+    margin-left: 5%;
+    width: 100%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .slogan {
     font-size: clamp(0.9rem, 1vw, 1.5rem);
     margin-top: 1rem;
-    margin-left: 2%;
+    margin-left: 5%;
   }
 }
 #tutdl .project-description .learn-more {
-  font-size: clamp(1rem, 1.2vw, 2rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl .project-description .learn-more {
+    width: 87%;
+    align-self: start;
+    margin-top: 5rem;
+    margin-left: 5%;
+  }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .learn-more {
     width: clamp(145px, 40%, 270px);
     align-self: flex-end;
     margin-top: 5%;
-  }
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #tutdl .project-description .learn-more {
-    width: 90%;
-    margin-top: 2rem;
   }
 }
 
@@ -566,13 +572,8 @@ a {
 .contact-form .button-wrapper button {
   width: clamp(200px, 90%, 300px);
   height: 100%;
-  color: var(--mainFontColor);
-  font-family: "Roboto Mono", monospace;
   font-size: 1.2rem;
-  background: var(--buttonColor);
-  border: none;
   border-radius: 3rem;
-  cursor: pointer;
 }
 
 .contact-animation {
@@ -840,6 +841,7 @@ a {
   --linkedLogoColor: #0033cc;
   --githubLogoColor: #E8E8E8;
   --scrollLogoColor: #C6E3FF;
+  --tutdlEmphasisColor: #FFFFFF;
 }
 
 /*# sourceMappingURL=main-styles.css.map */

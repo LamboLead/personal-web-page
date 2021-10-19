@@ -32,11 +32,15 @@
   flex-direction: row
   justify-content: center
   align-items: center
+  background: var(--tutdlEmphasisColor)
 
   @include screen-width($phone...)
-    background: linear-gradient(0deg, #FFE500 0%, #FFF386 100%)
+    justify-content: start
+    align-items: start
+
   @include screen-width($desktop...)
-    background: linear-gradient(83.65deg, #FFE500 0%, #FFF386 100%)
+    justify-content: center
+    align-items: center
 
   img
     height: clamp(0px, 95%, 400px)
@@ -45,12 +49,11 @@
 
     @include screen-width($phone...)
       position: absolute
-      order: 2
-      width: 66%
-      aspect-ratio: 1/2
-      right: -70px
-
-
+      width: fit-content
+      height: 90%
+      left: 58%
+      align-self: center
+      justify-self: center
 
     @include screen-width($desktop...)
       margin-left: 1%
@@ -58,30 +61,31 @@
   .project-description
     display: flex
     flex-direction: column
+    justify-content: center
 
     border: 2px solid green
 
     @include screen-width($phone...)
-      width: 75%
-      height: 95%
-      justify-content: start
-      align-items: center
+      width: clamp(100px, 53%, 430px)
+      height: 100%
+      align-items: flex-start
+      margin-left: 3%
+      background: var(--tutdlEmphasisColor)
+      box-shadow: 10px 0px 20px var(--tutdlEmphasisColor)
+
     @include screen-width($desktop...)
       width: clamp(200px, 60%, 620px)
       height: 100%
       margin-inline: 1% 1rem
-      justify-content: center
       align-items: start
 
     #tutdl-logo
       border: 2px solid red
+      height: fit-content
 
       @include screen-width($phone...)
         width: 100%
-        height: fit-content
-        margin-bottom: 3rem
-        margin-top: 1rem
-        margin-left: 2%
+        margin-bottom: 20%
 
       @include screen-width($desktop...)
         width: 27vw
@@ -90,25 +94,27 @@
     .slogan
       display: block
       font-weight: 900
+      font-style: italic
 
       @include screen-width($phone...)
-        font-size: 1rem
-        margin-left: 2%
+        font-size: clamp(0.8rem, 2vw, 2rem)
+        margin-left: 5%
+        width: 100%
 
       @include screen-width($desktop...)
         font-size: clamp(0.9rem, 1vw, 1.5rem)
         margin-top: 1rem
-        margin-left: 2%
+        margin-left: 5%
 
     .learn-more
-      font-size: clamp(1rem, 1.2vw, 2rem)
+      font-size: clamp(0.9rem, 1.5vw, 1.5rem)
 
+      @include screen-width($phone...)
+        width: 87%
+        align-self: start
+        margin-top: 5rem
+        margin-left: 5%
       @include screen-width($desktop...)
         width: clamp(145px, 40%, 270px)
         align-self: flex-end
         margin-top: 5%
-
-      @include screen-width($phone...)
-        width: 90%
-        margin-top: 2rem
-    
