@@ -1,0 +1,80 @@
+.main-content-about-me
+  width: 90%
+  height: 95%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+  border: 2px dashed lightgreen
+
+  .about-me-card
+    width: 100%
+    background: var(--cardColor)
+    border-radius: 10px
+    overflow: hidden
+
+#who-am-i
+  height: 80%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+
+  .info-wrapper
+    width: 100%
+    height: fit-content
+    display: flex
+    border: 2px dashed blue
+    @include screen-width($phone...)
+      flex-direction: column
+      justify-content: center
+      align-items: start
+
+    @include screen-width($desktop...)
+      flex-direction: row
+      justify-content: space-around
+      align-items: start
+      padding-block: 1rem
+      margin-block: 2%
+
+    .about-me-title
+      display: block
+      height: fit-content
+      color: var(--mainFontColor)
+      font-weight: 900
+      word-spacing: -0.1ch
+      line-height: 1.5ch
+      font-size: clamp(30px, 3.5vw, 60px)
+      border: 2px dashed yellow
+
+      @include screen-width($phone...)
+        width: 100%
+
+      @include screen-width($desktop...)
+        width: 27%
+
+    .about-me-info
+      display: block
+      height: fit-content
+      color: var(--darkerFontColor)
+      font-size: clamp(1rem, 1.5vw, 1.6rem)
+      border: 2px dotted white
+
+      @include screen-width($phone...)
+        width: 90%
+        margin-left: 5%
+
+      @include screen-width($desktop...)
+        width: 60%
+
+  .animation-wrapper
+    height: 30%
+    background: rgba(255, 255, 255, 0.5)
+
+.scrolling-arrows-about-me
+  position: relative !important
+  width: 100% !important
+
+#skillset
+  display: block
+  height: 10%

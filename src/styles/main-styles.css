@@ -12,16 +12,22 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 500vh;
+  height: fit-content;
   background: var(--background);
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: end;
 }
 body::-webkit-scrollbar {
@@ -68,7 +74,7 @@ a {
 }
 
 #main-section {
-  height: 500vh;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,6 +93,12 @@ a {
   #main-section {
     width: 80%;
   }
+}
+
+#footer {
+  width: 100%;
+  height: 25vh;
+  background: var(--navbarColor);
 }
 
 #main-page {
@@ -229,6 +241,111 @@ a {
   }
 }
 
+#about-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content-about-me {
+  width: 90%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px dashed lightgreen;
+}
+.main-content-about-me .about-me-card {
+  width: 100%;
+  background: var(--cardColor);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#who-am-i {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#who-am-i .info-wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  border: 2px dashed blue;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i .info-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i .info-wrapper {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    padding-block: 1rem;
+    margin-block: 2%;
+  }
+}
+#who-am-i .info-wrapper .about-me-title {
+  display: block;
+  height: fit-content;
+  color: var(--mainFontColor);
+  font-weight: 900;
+  word-spacing: -0.1ch;
+  line-height: 1.5ch;
+  font-size: clamp(30px, 3.5vw, 60px);
+  border: 2px dashed yellow;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i .info-wrapper .about-me-title {
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i .info-wrapper .about-me-title {
+    width: 27%;
+  }
+}
+#who-am-i .info-wrapper .about-me-info {
+  display: block;
+  height: fit-content;
+  color: var(--darkerFontColor);
+  font-size: clamp(1rem, 1.5vw, 1.6rem);
+  border: 2px dotted white;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i .info-wrapper .about-me-info {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i .info-wrapper .about-me-info {
+    width: 60%;
+  }
+}
+#who-am-i .animation-wrapper {
+  height: 30%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.scrolling-arrows-about-me {
+  position: relative !important;
+  width: 100% !important;
+}
+
+#skillset {
+  display: block;
+  height: 10%;
+}
+
 #my-portfolio {
   display: flex;
   flex-direction: column;
@@ -351,7 +468,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description {
-    width: clamp(200px, 60%, 620px);
+    width: clamp(200px, 60%, 680px);
     height: 100%;
     margin-inline: 1% 1rem;
     align-items: start;
@@ -369,7 +486,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description #tutdl-logo {
-    width: 27vw;
+    width: 25vw;
     margin-left: 1rem;
   }
 }
@@ -387,13 +504,13 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .slogan {
-    font-size: clamp(0.9rem, 1vw, 1.5rem);
-    margin-top: 1rem;
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+    margin-top: 2%;
     margin-left: 5%;
   }
 }
 #tutdl .project-description .learn-more {
-  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.3vw, 1.5rem);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description .learn-more {
@@ -405,9 +522,10 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .learn-more {
-    width: clamp(145px, 40%, 270px);
+    width: clamp(145px, 40%, 200px);
     align-self: flex-end;
-    margin-top: 5%;
+    margin-top: 3%;
+    margin-right: 8%;
   }
 }
 
@@ -492,7 +610,7 @@ a {
 }
 .contact-form .field-wrapper {
   width: 90%;
-  margin-bottom: 0.1rem;
+  padding-block: 3px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -502,17 +620,18 @@ a {
   .contact-form .field-wrapper {
     height: 18%;
     flex-direction: column;
+    margin-block: 0.1rem;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form .field-wrapper {
     height: 10%;
     flex-direction: row;
-    margin-block: 0.2rem;
+    margin-block: 0.5%;
   }
 }
 .contact-form .field-wrapper label {
-  font-size: clamp(1.1rem, 2vw, 20px);
+  font-size: clamp(1rem, 2vw, 1.3rem);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper label {
@@ -523,13 +642,13 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .contact-form .field-wrapper label {
-    width: clamp(128px, 16%, 145px);
+    width: clamp(140px, 16%, 145px);
   }
 }
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
   background: var(--navbarColor);
-  font-size: clamp(1.1rem, 2.2vw, 20px);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-family: "Roboto Mono", monospace;
   color: var(--mainFontColor);
   border: none;
@@ -550,17 +669,13 @@ a {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
     margin-left: auto;
     flex: 2 2 82%;
-    height: 80%;
+    height: 100%;
   }
 }
 .contact-form .textarea-wrapper {
   height: 40%;
 }
-.contact-form .textarea-wrapper textarea {
-  height: 80%;
-}
 .contact-form .textarea-wrapper label {
-  margin-top: 0.2rem;
   align-self: start;
 }
 .contact-form .button-wrapper {
@@ -613,7 +728,7 @@ a {
 .scrolling-arrows {
   position: absolute;
   width: 85%;
-  height: 2rem;
+  height: 1.6rem;
   border: 1px dashed aqua;
   display: flex;
   flex-direction: row;
@@ -622,7 +737,7 @@ a {
 }
 .scrolling-arrows svg {
   width: fit-content;
-  height: 80%;
+  height: 100%;
   fill: var(--scrollLogoColor);
 }
 

@@ -19,18 +19,23 @@ $desktop: (min: 1025px, max: 4000px)
   @include screen-width($desktop...)
     font-size: 15px
 
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
 body
   margin: 0
   padding: 0
   width: 100%
-  height: 500vh
+  height: fit-content
 
   background: var(--background)
   background-size: cover
 
   display: flex
   flex-direction: column
-  justify-content: center
+  justify-content: start
   align-items: end
 
   &::-webkit-scrollbar
