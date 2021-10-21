@@ -59,9 +59,20 @@ a {
 @media (min-width: 0px) and (max-width: 1024px) {
   #navbar {
     top: 0;
-    left: -190px;
-    width: 200px;
+    left: -46%;
+    width: clamp(0px, 50%, 350px);
     height: 100%;
+  }
+  #navbar::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 3rem;
+    right: -1.5rem;
+    border-radius: 5px;
+    border-top: 2px dashed white;
+    border-right: 2px dashed white;
+    border-bottom: 2px dashed white;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -258,6 +269,7 @@ a {
   border: 2px dashed lightgreen;
 }
 .main-content-about-me .about-me-card {
+  position: relative;
   width: 100%;
   background: var(--cardColor);
   border-radius: 10px;
@@ -265,11 +277,22 @@ a {
 }
 
 #who-am-i {
-  height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  padding-block: 2%;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i {
+    justify-content: space-around;
+    height: 15%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i {
+    justify-content: space-between;
+    height: 10%;
+  }
 }
 #who-am-i .info-wrapper {
   width: 100%;
@@ -282,6 +305,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    padding-left: 4%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -290,26 +314,15 @@ a {
     justify-content: space-around;
     align-items: start;
     padding-block: 1rem;
-    margin-block: 2%;
   }
 }
-#who-am-i .info-wrapper .about-me-title {
-  display: block;
-  height: fit-content;
-  color: var(--mainFontColor);
-  font-weight: 900;
-  word-spacing: -0.1ch;
-  line-height: 1.5ch;
-  font-size: clamp(30px, 3.5vw, 60px);
-  border: 2px dashed yellow;
-}
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .info-wrapper .about-me-title {
+  #who-am-i .info-wrapper .who-am-i-subtitle {
     width: 100%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  #who-am-i .info-wrapper .about-me-title {
+  #who-am-i .info-wrapper .who-am-i-subtitle {
     width: 27%;
   }
 }
@@ -317,23 +330,35 @@ a {
   display: block;
   height: fit-content;
   color: var(--darkerFontColor);
-  font-size: clamp(1rem, 1.5vw, 1.6rem);
   border: 2px dotted white;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .info-wrapper .about-me-info {
-    width: 90%;
+    width: 92%;
+    margin-top: 5%;
     margin-left: 5%;
+    font-size: clamp(1.1rem, 2.5vw, 2.6rem);
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #who-am-i .info-wrapper .about-me-info {
     width: 60%;
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
   }
 }
 #who-am-i .animation-wrapper {
-  height: 30%;
   background: rgba(255, 255, 255, 0.5);
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i .animation-wrapper {
+    height: 30%;
+    margin-block: 0.5rem;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i .animation-wrapper {
+    height: 30%;
+  }
 }
 
 .scrolling-arrows-about-me {
@@ -342,8 +367,133 @@ a {
 }
 
 #skillset {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #skillset {
+    height: 80%;
+    flex-direction: column;
+    padding-block: 2vh;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #skillset {
+    height: 80%;
+    flex-direction: row;
+    padding-block: 6vh;
+  }
+}
+#skillset svg {
+  display: none;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+#skillset #logos-skillset {
+  bottom: 0;
+  height: 85%;
+  width: fit-content;
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #skillset #logos-skillset {
+    display: block;
+  }
+}
+#skillset #mobile-logos-skillset {
+  bottom: 5%;
+  width: 100%;
+  height: fit-content;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #skillset #mobile-logos-skillset {
+    display: block;
+  }
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #skillset .skillset-subtitle {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #skillset .skillset-subtitle {
+    width: 33%;
+    margin-left: 5%;
+  }
+}
+
+.skillset-info-wrapper {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  color: var(--darkerFontColor);
+  z-index: 2;
+  border: 2px dashed red;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .skillset-info-wrapper {
+    width: 85%;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .skillset-info-wrapper {
+    width: 60%;
+  }
+}
+.skillset-info-wrapper .skill-subtitle {
+  width: 50%;
+  height: fit-content;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .skillset-info-wrapper .skill-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2.1rem);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .skillset-info-wrapper .skill-subtitle {
+    font-size: clamp(1.2rem, 1.5vw, 2.1rem);
+  }
+}
+.skillset-info-wrapper ul {
+  width: 90%;
+  margin-left: clamp(0px, 7vw, 35px);
+  margin-block: 1% 4%;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .skillset-info-wrapper ul {
+    font-size: clamp(0.9rem, 2vh, 2rem);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .skillset-info-wrapper ul {
+    font-size: clamp(0.9rem, 1.3vw, 1.9rem);
+  }
+}
+
+.about-me-subtitle {
   display: block;
-  height: 10%;
+  height: fit-content;
+  color: var(--mainFontColor);
+  font-weight: 900;
+  word-spacing: -0.1ch;
+  line-height: 1.5ch;
+  border: 2px dashed yellow;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .about-me-subtitle {
+    font-size: clamp(30px, 6vw, 60px);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .about-me-subtitle {
+    font-size: clamp(30px, 3.5vw, 60px);
+  }
 }
 
 #my-portfolio {
@@ -357,8 +507,7 @@ a {
   display: block;
   width: 80%;
   align-self: flex-end;
-  margin-top: 1rem;
-  margin-bottom: auto;
+  margin: 1rem 5% auto 0;
   color: var(--mainFontColor);
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   font-size: clamp(33px, 6vw, 115px);
@@ -540,7 +689,7 @@ a {
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact {
-    height: clamp(300px, 75%, 900px);
+    height: clamp(300px, 80%, 900px);
     margin-top: auto;
     margin-bottom: 5%;
   }
@@ -797,23 +946,18 @@ a {
 }
 
 #logo {
+  width: 100%;
+  height: 15vh;
   border: 2px dashed blue;
-  margin-bottom: auto;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #logo {
-    width: 100%;
-    height: 15vh;
-  }
-}
 @media (min-width: 0px) and (max-width: 1024px) {
   #logo {
-    width: 100%;
-    height: 15vh;
+    transform: translateX(100%);
   }
 }
 
@@ -848,12 +992,12 @@ a {
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #index {
-    height: 14rem;
+    height: 25%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #index {
-    height: 12rem;
+    height: 20%;
   }
 }
 #index .link {
@@ -863,20 +1007,23 @@ a {
   flex-direction: row;
   justify-content: start;
   align-items: center;
+  cursor: pointer;
+  border: 1px dashed yellow;
 }
 #index .link .link-logo {
-  width: 17%;
+  width: 25%;
   height: fit-content;
-  margin-inline: 1rem;
+  margin-right: 1rem;
   fill: var(--mainFontColor);
+  border: 1px dotted white;
 }
 #index .link .link-logo svg {
   width: 80%;
   height: fit-content;
   vertical-align: middle;
+  background: red;
 }
 #index .link .link-text {
-  display: block;
   width: fit-content;
   height: 70%;
   display: flex;
@@ -885,30 +1032,20 @@ a {
   font-style: italic;
   color: var(--mainFontColor);
   font-weight: 500;
-  font-size: 110%;
+  font-size: clamp(1rem, 2vh, 2rem);
 }
 
 #me {
   stroke: var(--mainFontColor);
-  stroke-width: 20px;
-  width: 100% !important;
+  stroke-width: 15px;
 }
 
 #customization {
   width: 90%;
-  margin-top: 2rem;
+  height: 30%;
+  margin-top: 30%;
   border-top: 1px solid var(--darkestFontColor);
-  background: darkgrey;
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #customization {
-    height: 16rem;
-  }
-}
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #customization {
-    height: 15rem;
-  }
+  background: rgba(255, 255, 255, 0.3);
 }
 
 #social {

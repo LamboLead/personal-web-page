@@ -7,11 +7,22 @@
   align-items: center
   @include screen-width($phone...)
     top: 0
-    left: -190px
+    left: -46%
     // left: 0
 
-    width: 200px
+    width: clamp(0px, 50%, 350px)
     height: 100%
+
+    &::after
+      content: ""
+      position: absolute
+      width: 1.5rem
+      height: 3rem
+      right: -1.5rem
+      border-radius: 5px
+      border-top: 2px dashed white
+      border-right: 2px dashed white
+      border-bottom: 2px dashed white
 
   @include screen-width($desktop...)
     top: 0

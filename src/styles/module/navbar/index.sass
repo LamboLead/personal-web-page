@@ -1,7 +1,5 @@
 #index
   width: 95%
-  
-
   border: 2px dashed pink
 
   display: flex
@@ -11,33 +9,35 @@
   align-self: flex-end
 
   @include screen-width($phone...)
-    height: 14rem
+    height: 25%
 
   @include screen-width($desktop...)
-    height: 12rem
+    height: 20%
 
   .link
     width: 100%
     height: 30%
 
-    // background: orange
     display: flex
     flex-direction: row
     justify-content: start
     align-items: center
+    cursor: pointer
+    border: 1px dashed yellow
 
     .link-logo
-      width: 17%
+      width: 25%
       height: fit-content
-      margin-inline: 1rem
+      margin-right: 1rem
       fill: var(--mainFontColor)
+      border: 1px dotted white
       svg
         width: 80%
         height: fit-content
         vertical-align: middle
+        background: red
 
     .link-text
-      display: block
       width: fit-content
       height: 70%
 
@@ -48,11 +48,16 @@
       font-style: italic
       color: var(--mainFontColor)
       font-weight: 500
-      font-size: 110%
+      font-size: clamp(1rem, 2vh, 2rem)
+
+      // @include screen-width($phone...)
+      //   font-size: clamp(1rem, 1.2vw, 1.5rem)
+      // @include screen-width($desktop...)
+      //   font-size: clamp(1rem, 1.2vw, 1.5rem)
 
 #me
   stroke: var(--mainFontColor)
-  stroke-width: 20px
-  width: 100% !important
+  stroke-width: 15px
+  // width: 100% !important
   
 

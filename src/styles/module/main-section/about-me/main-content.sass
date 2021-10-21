@@ -8,17 +8,28 @@
   border: 2px dashed lightgreen
 
   .about-me-card
+    position: relative
     width: 100%
     background: var(--cardColor)
     border-radius: 10px
     overflow: hidden
 
 #who-am-i
-  height: 80%
+  // height: 80%
   display: flex
   flex-direction: column
-  justify-content: space-between
   align-items: center
+  padding-block: 2%
+
+  @include screen-width($phone...)
+    // height: 80%
+    justify-content: space-around
+    height: 15%
+    // padding-block: clamp(10px, 6vw, 50px)
+  @include screen-width($desktop...)
+    // height: 80%
+    justify-content: space-between
+    height: 10%
 
   .info-wrapper
     width: 100%
@@ -29,24 +40,15 @@
       flex-direction: column
       justify-content: center
       align-items: start
+      padding-left: 4%
 
     @include screen-width($desktop...)
       flex-direction: row
       justify-content: space-around
       align-items: start
       padding-block: 1rem
-      margin-block: 2%
 
-    .about-me-title
-      display: block
-      height: fit-content
-      color: var(--mainFontColor)
-      font-weight: 900
-      word-spacing: -0.1ch
-      line-height: 1.5ch
-      font-size: clamp(30px, 3.5vw, 60px)
-      border: 2px dashed yellow
-
+    .who-am-i-subtitle
       @include screen-width($phone...)
         width: 100%
 
@@ -57,24 +59,122 @@
       display: block
       height: fit-content
       color: var(--darkerFontColor)
-      font-size: clamp(1rem, 1.5vw, 1.6rem)
       border: 2px dotted white
 
       @include screen-width($phone...)
-        width: 90%
+        width: 92%
+        margin-top: 5%
         margin-left: 5%
-
+        font-size: clamp(1.1rem, 2.5vw, 2.6rem)
       @include screen-width($desktop...)
         width: 60%
+        font-size: clamp(1rem, 1.5vw, 1.6rem)
 
   .animation-wrapper
-    height: 30%
     background: rgba(255, 255, 255, 0.5)
+
+    @include screen-width($phone...)
+      height: 30%
+      margin-block: 0.5rem
+    @include screen-width($desktop...)
+      height: 30%
 
 .scrolling-arrows-about-me
   position: relative !important
   width: 100% !important
 
 #skillset
+  display: flex
+  justify-content: start
+  align-items: start
+
+  @include screen-width($phone...)
+    height: 80%
+    flex-direction: column
+    padding-block: 2vh
+    // height: 15%
+  @include screen-width($desktop...)
+    height: 80%
+    // height: 10%
+    flex-direction: row
+    padding-block: 6vh
+
+  svg
+    display: none
+    position: absolute
+    left: 0
+    z-index: 1
+
+  #logos-skillset
+    bottom: 0
+    height: 85%
+    width: fit-content
+    @include screen-width($desktop...)
+      display: block
+
+  #mobile-logos-skillset
+    bottom: 5%
+    width: 100%
+    height: fit-content
+    @include screen-width($phone...)
+      display: block
+
+  .skillset-subtitle
+    @include screen-width($phone...)
+      width: 90%
+      margin-left: 5%
+    @include screen-width($desktop...)
+      width: 33%
+      margin-left: 5%
+
+.skillset-info-wrapper
+  height: fit-content
+  display: flex
+  flex-direction: column
+  justify-content: start
+  align-items: start
+  color: var(--darkerFontColor)
+  z-index: 2
+  border: 2px dashed red
+
+  @include screen-width($phone...)
+    width: 85%
+    margin-left: 10%
+    margin-top: 5%
+
+  @include screen-width($desktop...)
+    width: 60%
+
+  .skill-subtitle
+    width: 50%
+    height: fit-content
+
+    @include screen-width($phone...)
+      font-size: clamp(1.2rem, 3vw, 2.1rem)
+    @include screen-width($desktop...)
+      font-size: clamp(1.2rem, 1.5vw, 2.1rem)
+
+  ul
+    width: 90%
+    margin-left: clamp(0px, 7vw, 35px)
+    margin-block: 1% 4%
+
+    @include screen-width($phone...)
+      font-size: clamp(0.9rem, 2vh, 2rem)
+    @include screen-width($desktop...)
+      font-size: clamp(0.9rem, 1.3vw, 1.9rem)
+
+
+.about-me-subtitle
   display: block
-  height: 10%
+  height: fit-content
+  color: var(--mainFontColor)
+  font-weight: 900
+  word-spacing: -0.1ch
+  line-height: 1.5ch
+  border: 2px dashed yellow
+
+  @include screen-width($phone...)
+    font-size: clamp(30px, 6vw, 60px)
+  @include screen-width($desktop...)
+    font-size: clamp(30px, 3.5vw, 60px)
