@@ -11,12 +11,14 @@
     margin-bottom: 5rem
 
   @include screen-width($desktop...)
-    justify-content: center
+    justify-content: space-around
     height: 90%
 
   .a-project
     position: relative
     width: 100%
+    overflow: hidden
+    border: 2px dashed aqua
 
     @include screen-width($phone...)
       height: 75%
@@ -119,3 +121,27 @@
         align-self: flex-end
         margin-top: 3%
         margin-right: 8%
+
+#another-one
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  background: var(--anotherProjectEmphasisColor)
+  display: none
+
+  img
+    height: clamp(0px, 85%, 400px)
+    // border: 2px solid blue
+
+    // @include screen-width($phone...)
+    //   position: absolute
+    //   width: fit-content
+    //   height: 90%
+    //   left: 58%
+    //   align-self: center
+    //   justify-self: center
+
+    // @include screen-width($desktop...)
+      // margin-left: 1%
+

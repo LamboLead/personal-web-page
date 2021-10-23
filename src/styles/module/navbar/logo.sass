@@ -7,13 +7,11 @@
   flex-direction: column
   justify-content: center
   align-items: center
-  
-  @include screen-width($phone...)
-    transform: translateX(100%)
 
 #main-logo
   height: 70%
   width: fit-content
+  filter: drop-shadow(2px 2px 1px black)
   #tyre
     fill: var(--darkerFontColor)
   #rim
@@ -22,5 +20,3 @@
     fill: var(--mainFontColor)
   #dark-L, #ead
     fill: var(--darkerFontColor)
-  #back-rectangle
-    fill: var(--background)
