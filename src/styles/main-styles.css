@@ -88,8 +88,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-left: dashed 2px var(--buttonColor);
-  border-right: dashed 2px var(--buttonColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #main-section {
@@ -106,16 +104,23 @@ a {
 
 #footer {
   height: 25vh;
+  display: flex;
+  align-items: center;
   background: var(--navbarColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #footer {
     width: 100vw;
+    height: clamp(0px, 35vh, 300px);
+    flex-direction: column;
+    justify-content: start;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #footer {
     width: 80%;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
@@ -142,7 +147,6 @@ a {
 
 .main-content-main-page {
   position: relative;
-  border: 2px dashed yellow;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -163,7 +167,6 @@ a {
 .main-content-main-page .main-title {
   color: var(--mainFontColor);
   font-weight: 900;
-  border: 2px dashed red;
   margin-top: 2rem;
   margin-bottom: 0;
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
@@ -188,7 +191,6 @@ a {
   text-align: right;
   color: var(--darkerFontColor);
   display: flex;
-  border: 2px dashed aqua;
   margin-bottom: auto;
   font-size: clamp(1.2rem, 2vw, 20px);
   margin-top: 0.7rem;
@@ -217,7 +219,6 @@ a {
 .main-content-main-page .button-wrapper {
   width: clamp(450px, 90%, 950px);
   height: 25%;
-  border: 2px dashed lightgreen;
   margin-right: 3%;
   display: flex;
   justify-content: space-between;
@@ -273,7 +274,6 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 2px dashed lightgreen;
 }
 .main-content-about-me .about-me-card {
   position: relative;
@@ -305,7 +305,6 @@ a {
   width: 100%;
   height: fit-content;
   display: flex;
-  border: 2px dashed blue;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .info-wrapper {
@@ -337,7 +336,6 @@ a {
   display: block;
   height: fit-content;
   color: var(--darkerFontColor);
-  border: 2px dotted white;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .info-wrapper .about-me-info {
@@ -439,7 +437,6 @@ a {
   align-items: start;
   color: var(--darkerFontColor);
   z-index: 2;
-  border: 2px dashed red;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .skillset-info-wrapper {
@@ -490,7 +487,6 @@ a {
   font-weight: 900;
   word-spacing: -0.1ch;
   line-height: 1.5ch;
-  border: 2px dashed yellow;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .about-me-subtitle {
@@ -521,7 +517,6 @@ a {
   word-spacing: -0.4ch;
   text-align: right;
   font-weight: 900;
-  border: 2px dashed red;
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .my-portfolio-title {
@@ -531,7 +526,6 @@ a {
 
 .main-content-my-portfolio {
   width: 90%;
-  border: 2px dashed lightgreen;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -553,7 +547,6 @@ a {
   position: relative;
   width: 100%;
   overflow: hidden;
-  border: 2px dashed aqua;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-my-portfolio .a-project {
@@ -591,7 +584,6 @@ a {
 #tutdl img {
   height: clamp(0px, 95%, 400px);
   align-self: flex-end;
-  border: 2px solid blue;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl img {
@@ -612,7 +604,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid green;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description {
@@ -633,7 +624,6 @@ a {
   }
 }
 #tutdl .project-description #tutdl-logo {
-  border: 2px solid red;
   height: fit-content;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
@@ -704,7 +694,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px dashed red;
   width: 90%;
   height: 80%;
 }
@@ -726,7 +715,6 @@ a {
   height: fit-content;
   color: var(--mainFontColor);
   font-weight: 900;
-  border: 2px dashed yellow;
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   word-spacing: -0.4ch;
   line-height: 1.5ch;
@@ -750,7 +738,6 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  border: 2px dashed aqua;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact .form-animation-wrapper {
@@ -784,7 +771,6 @@ a {
   display: flex;
   justify-content: start;
   align-items: center;
-  border: 2px solid lightgreen;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper {
@@ -801,7 +787,7 @@ a {
   }
 }
 .contact-form .field-wrapper label {
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(1.3rem, 2vw, 1.5rem);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper label {
@@ -818,7 +804,7 @@ a {
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
   background: var(--navbarColor);
-  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
   font-family: "Roboto Mono", monospace;
   color: var(--mainFontColor);
   border: none;
@@ -845,8 +831,10 @@ a {
 .contact-form .textarea-wrapper {
   height: 40%;
 }
-.contact-form .textarea-wrapper label {
-  align-self: start;
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .contact-form .textarea-wrapper label {
+    align-self: start;
+  }
 }
 .contact-form .button-wrapper {
   justify-content: end;
@@ -886,20 +874,17 @@ a {
   position: relative;
   width: 100%;
   height: 100vh;
-  border-top: 1px dashed var(--buttonColor);
 }
 
 .double-section {
   width: 90%;
   height: 200vh;
-  border-top: 1px dashed var(--buttonColor);
 }
 
 .scrolling-arrows {
   position: absolute;
   width: 85%;
   height: 1.6rem;
-  border: 1px dashed aqua;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -969,7 +954,6 @@ a {
 #logo {
   width: 100%;
   height: 15vh;
-  border: 2px dashed blue;
   margin-bottom: 10%;
   display: flex;
   flex-direction: column;
@@ -981,12 +965,17 @@ a {
   height: 70%;
   width: fit-content;
   filter: drop-shadow(2px 2px 1px black);
+  transition: transform 500ms ease;
+}
+#main-logo * {
+  transition: transform 500ms ease, opacity 200ms ease;
 }
 #main-logo #tyre {
   fill: var(--darkerFontColor);
 }
 #main-logo #rim {
   fill: var(--mainFontColor);
+  transform-origin: 284px 267px;
 }
 #main-logo #bright-L, #main-logo #ambo {
   fill: var(--mainFontColor);
@@ -994,10 +983,30 @@ a {
 #main-logo #dark-L, #main-logo #ead {
   fill: var(--darkerFontColor);
 }
+#main-logo:hover {
+  transform: scale(1) !important;
+}
+#main-logo:hover #ead, #main-logo:hover #ambo {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+#main-logo:hover #dark-L {
+  transform: translate(0) scale(1) !important;
+}
+#main-logo:hover #bright-L, #main-logo:hover #full-tyre-mask-group {
+  transform: scale(1);
+}
 
+@keyframes rotate-wheel {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(355deg);
+  }
+}
 #index {
   width: 95%;
-  border: 2px dashed pink;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1022,7 +1031,6 @@ a {
   justify-content: start;
   align-items: center;
   cursor: pointer;
-  border: 1px dashed yellow;
 }
 #index .link .link-logo {
   width: 20%;
@@ -1032,7 +1040,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px dotted white;
 }
 #index .link .link-logo svg {
   width: fit-content;
@@ -1094,6 +1101,89 @@ a {
   fill: var(--githubLogoColor);
 }
 
+.signature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .signature {
+    width: 100%;
+    height: 50%;
+    order: 2;
+    justify-content: start;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .signature {
+    width: 40%;
+    height: 70%;
+    border-right: 1px solid var(--darkerFontColor);
+    justify-content: center;
+  }
+}
+.signature svg {
+  height: 100%;
+  width: fit-content;
+  fill: var(--darkerFontColor);
+}
+
+.footer-info {
+  display: flex;
+  font-size: clamp(0.5rem, 1.5vw, 1rem);
+  color: var(--darkerFontColor);
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .footer-info {
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-block: 2vh 3vh;
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .footer-info {
+    width: 60%;
+    height: 70%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.footer-info div {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-left: 1rem;
+}
+.footer-info div span {
+  display: block;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+.footer-info div a {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--buttonColor);
+}
+.footer-info div .copyright {
+  margin-top: auto;
+}
+.footer-info div .copyright span {
+  display: inline;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-right: 0.8ch;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .footer-info div .copyright span {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+  }
+}
+
 .is-navbar-expanded {
   transform: translateX(0) !important;
 }
@@ -1104,11 +1194,18 @@ a {
   }
 }
 
+.is-logo-contracted {
+  transform: scale(0.9) !important;
+}
 .is-logo-contracted #ead, .is-logo-contracted #ambo {
-  display: none !important;
+  opacity: 0 !important;
+  transform: scale(0) !important;
 }
 .is-logo-contracted #dark-L {
-  transform: translate(-22%, -24%) !important;
+  transform: translate(-26%, -30.2%) scale(1.25) !important;
+}
+.is-logo-contracted #bright-L, .is-logo-contracted #full-tyre-mask-group {
+  transform: scale(1.25);
 }
 
 .dark-theme {

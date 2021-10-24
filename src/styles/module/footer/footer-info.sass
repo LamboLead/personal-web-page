@@ -1,0 +1,44 @@
+.footer-info
+  display: flex
+  font-size: clamp(0.5rem, 1.5vw, 1rem)
+  color: var(--darkerFontColor)
+  @include screen-width($phone...)
+    width: 100%
+    justify-content: space-around
+    align-items: flex-start
+    margin-block: 2vh 3vh
+    font-size: clamp(0.9rem, 2vw, 1.4rem)
+
+  @include screen-width($desktop...)
+    width: 60%
+    height: 70%
+    flex-direction: row
+    justify-content: space-evenly
+    align-items: center
+
+  div
+    width: fit-content
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: start
+    align-items: start
+    margin-left: 1rem
+    // border: 1px solid aqua
+    span
+      display: block
+      width: 100%
+      margin-top: 0.2rem
+    a
+      display: block
+      margin-top: 0.2rem
+      color: var(--buttonColor)
+    .copyright
+      margin-top: auto
+      span
+        display: inline
+        font-size: clamp(1.1rem, 2vw, 1.5rem)
+        margin-right: 0.8ch
+        @include screen-width($phone...)
+          font-size: clamp(1.3rem, 2vw, 1.5rem)
+

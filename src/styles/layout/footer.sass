@@ -1,8 +1,14 @@
 #footer
   height: 25vh
-
+  display: flex
+  align-items: center
   background: var(--navbarColor)
   @include screen-width($phone...)
     width: 100vw
+    height: clamp(0px, 35vh, 300px)
+    flex-direction: column
+    justify-content: start
   @include screen-width($desktop...)
     width: 80%
+    flex-direction: row
+    justify-content: center

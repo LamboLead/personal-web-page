@@ -1,11 +1,12 @@
 .main-content-main-page
   position: relative
-  border: 2px dashed yellow
   display: flex
   flex-direction: column
   justify-content: space-around
   align-items: end
   height: clamp(200px, 40%, 360px)
+
+  // border: 2px dashed yellow
 
   @include screen-width($phone...)
     width: 100%
@@ -17,7 +18,6 @@
   .main-title
     color: var(--mainFontColor)
     font-weight: 900
-    border: 2px dashed red
     margin-top: 2rem
     margin-bottom: 0
     text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
@@ -25,6 +25,8 @@
     // line-height: 1.5ch
     font-size: clamp(33px, 6vw, 115px)
     text-align: right
+
+    // border: 2px dashed red
 
     @include screen-width($phone...)
       width: 97%
@@ -39,10 +41,11 @@
     text-align: right
     color: var(--darkerFontColor)
     display: flex
-    border: 2px dashed aqua
     margin-bottom: auto
     font-size: clamp(1.2rem, 2vw, 20px)
     margin-top: 0.7rem
+
+    // border: 2px dashed aqua
 
     span
       margin-inline: 0.5ch
@@ -64,10 +67,11 @@
   .button-wrapper
     width: clamp(450px, 90%, 950px)
     height: 25%
-    border: 2px dashed lightgreen
     margin-right: 3%
     display: flex
     justify-content: space-between
+
+    // border: 2px dashed lightgreen
 
     @include screen-width($phone...)
       flex-direction: column

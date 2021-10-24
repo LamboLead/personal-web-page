@@ -1,9 +1,10 @@
 .main-content-my-portfolio
   width: 90%
-  border: 2px dashed lightgreen
   display: flex
   flex-direction: column
   align-items: center
+
+  // border: 2px dashed lightgreen
 
   @include screen-width($phone...)
     justify-content: start
@@ -18,7 +19,8 @@
     position: relative
     width: 100%
     overflow: hidden
-    border: 2px dashed aqua
+
+    // border: 2px dashed aqua
 
     @include screen-width($phone...)
       height: 75%
@@ -47,7 +49,8 @@
   img
     height: clamp(0px, 95%, 400px)
     align-self: flex-end
-    border: 2px solid blue
+
+    // border: 2px solid blue
 
     @include screen-width($phone...)
       position: absolute
@@ -65,7 +68,7 @@
     flex-direction: column
     justify-content: center
 
-    border: 2px solid green
+    // border: 2px solid green
 
     @include screen-width($phone...)
       width: clamp(100px, 53%, 430px)
@@ -82,8 +85,9 @@
       align-items: start
 
     #tutdl-logo
-      border: 2px solid red
       height: fit-content
+
+      // border: 2px solid red
 
       @include screen-width($phone...)
         width: 100%

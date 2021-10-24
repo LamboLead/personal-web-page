@@ -4,8 +4,8 @@
   justify-content: center
   align-items: center
 
-  border: 2px dashed red
-
+  // border: 2px dashed red
+  
   width: 90%
   height: 80%
 
@@ -23,12 +23,13 @@
     height: fit-content
     color: var(--mainFontColor)
     font-weight: 900
-    border: 2px dashed yellow
     text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
     word-spacing: -0.4ch
     line-height: 1.5ch
     margin-bottom: auto
     font-size: clamp(40px, 6vw, 110px)
+
+    // border: 2px dashed yellow
 
     @include screen-width($phone...)
       text-align: right
@@ -44,7 +45,9 @@
     flex-direction: row
     align-items: center
     justify-content: start
-    border: 2px dashed aqua
+
+    // border: 2px dashed aqua
+
     @include screen-width($phone...)
       margin-bottom: 10%
 
@@ -70,7 +73,8 @@
     display: flex
     justify-content: start
     align-items: center
-    border: 2px solid lightgreen
+
+    // border: 2px solid lightgreen
     
     @include screen-width($phone...)
       height: 18%
@@ -84,7 +88,7 @@
 
     label
       // FIX THIS!!!
-      font-size: clamp(1rem, 2vw, 1.3rem)
+      font-size: clamp(1.3rem, 2vw, 1.5rem)
       @include screen-width($phone...)
         width: 95%
         height: fit-content
@@ -96,7 +100,7 @@
       padding: 5px 0 3px 1ch
       background: var(--navbarColor)
       // FIX THIS!!!
-      font-size: clamp(1rem, 2.2vw, 1.2rem)
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem)
       font-family: 'Roboto Mono', monospace
       color: var(--mainFontColor)
       border: none
@@ -117,7 +121,8 @@
   .textarea-wrapper
     height: 40%
     label
-      align-self: start
+      @include screen-width($desktop...)
+        align-self: start
 
   .button-wrapper
     justify-content: end
