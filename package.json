@@ -18,6 +18,7 @@
   "author": "LamboLead",
   "license": "MIT",
   "dependencies": {
+    "gsap": "^3.8.0",
     "sass": "^1.42.1"
   },
   "devDependencies": {

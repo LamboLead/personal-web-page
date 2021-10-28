@@ -48,6 +48,19 @@ a {
   text-decoration: none;
 }
 
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  background: var(--navbarColor);
+}
+
 #navbar {
   position: fixed;
   display: flex;
@@ -122,6 +135,28 @@ a {
     flex-direction: row;
     justify-content: center;
   }
+}
+
+.tyre {
+  fill: var(--darkerFontColor);
+}
+
+.rim {
+  fill: var(--mainFontColor);
+}
+
+.bright-L, .bright-ambo {
+  fill: var(--mainFontColor);
+}
+
+.dark-L, .dark-ead {
+  fill: var(--darkerFontColor);
+}
+
+#loader-main-logo {
+  height: 60%;
+  width: fit-content;
+  border: 2px dashed red;
 }
 
 #main-page {
@@ -961,50 +996,29 @@ a {
   align-items: center;
 }
 
-#main-logo {
+#navbar-main-logo {
   height: 70%;
   width: fit-content;
   filter: drop-shadow(2px 2px 1px black);
   transition: transform 500ms ease;
 }
-#main-logo * {
-  transition: transform 500ms ease, opacity 200ms ease;
+#navbar-main-logo .dark-ead, #navbar-main-logo .bright-ambo, #navbar-main-logo .bright-L, #navbar-main-logo .dark-L, #navbar-main-logo .full-tyre-mask-group {
+  transition: transform 500ms ease, opacity 300ms ease;
 }
-#main-logo #tyre {
-  fill: var(--darkerFontColor);
-}
-#main-logo #rim {
-  fill: var(--mainFontColor);
-  transform-origin: 284px 267px;
-}
-#main-logo #bright-L, #main-logo #ambo {
-  fill: var(--mainFontColor);
-}
-#main-logo #dark-L, #main-logo #ead {
-  fill: var(--darkerFontColor);
-}
-#main-logo:hover {
+#navbar-main-logo:hover {
   transform: scale(1) !important;
 }
-#main-logo:hover #ead, #main-logo:hover #ambo {
+#navbar-main-logo:hover .dark-ead, #navbar-main-logo:hover .bright-ambo {
   opacity: 1 !important;
   transform: scale(1) !important;
 }
-#main-logo:hover #dark-L {
+#navbar-main-logo:hover .dark-L {
   transform: translate(0) scale(1) !important;
 }
-#main-logo:hover #bright-L, #main-logo:hover #full-tyre-mask-group {
+#navbar-main-logo:hover .bright-L, #navbar-main-logo:hover .full-tyre-mask-group {
   transform: scale(1);
 }
 
-@keyframes rotate-wheel {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(355deg);
-  }
-}
 #index {
   width: 95%;
   display: flex;
@@ -1184,6 +1198,11 @@ a {
   }
 }
 
+.is-loader-invisible {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .is-navbar-expanded {
   transform: translateX(0) !important;
 }
@@ -1197,14 +1216,14 @@ a {
 .is-logo-contracted {
   transform: scale(0.9) !important;
 }
-.is-logo-contracted #ead, .is-logo-contracted #ambo {
+.is-logo-contracted .dark-ead, .is-logo-contracted .bright-ambo {
   opacity: 0 !important;
   transform: scale(0) !important;
 }
-.is-logo-contracted #dark-L {
+.is-logo-contracted .dark-L {
   transform: translate(-26%, -30.2%) scale(1.25) !important;
 }
-.is-logo-contracted #bright-L, .is-logo-contracted #full-tyre-mask-group {
+.is-logo-contracted .bright-L, .is-logo-contracted .full-tyre-mask-group {
   transform: scale(1.25);
 }
 

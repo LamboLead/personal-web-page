@@ -9,40 +9,23 @@
 
   // border: 2px dashed blue
 
-#main-logo
+#navbar-main-logo
   height: 70%
   width: fit-content
   filter: drop-shadow(2px 2px 1px black)
   transition: transform 500ms ease
-  *
-    transition: transform 500ms ease, opacity 200ms ease
   // border: 2px dashed red
-
-  #tyre
-    fill: var(--darkerFontColor)
-  #rim
-    fill: var(--mainFontColor)
-    transform-origin: 284px 267px
-    // animation: rotate-wheel 1500ms linear infinite
-  #bright-L, #ambo
-    fill: var(--mainFontColor)
-  #dark-L, #ead
-    fill: var(--darkerFontColor)
+  .dark-ead, .bright-ambo, .bright-L, .dark-L, .full-tyre-mask-group
+    transition: transform 500ms ease, opacity 300ms ease
 
   &:hover
     transform: scale(1) !important
-    #ead, #ambo
+    .dark-ead, .bright-ambo
       opacity: 1 !important
       transform: scale(1) !important
 
-    #dark-L
+    .dark-L
       transform: translate(0) scale(1) !important
 
-    #bright-L, #full-tyre-mask-group
+    .bright-L, .full-tyre-mask-group
       transform: scale(1)
-
-@keyframes rotate-wheel
-  from
-    transform: rotate(0)
-  to
-    transform: rotate(355deg)
