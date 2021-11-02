@@ -16,6 +16,7 @@
     background: var(--cardColor)
     border-radius: 10px
     overflow: hidden
+    transition: height 0.5s ease
 
 #who-am-i
   display: flex
@@ -31,7 +32,9 @@
   @include screen-width($desktop...)
     // height: 80%
     // height: 10%
+    // height: 5%
     height: 40%
+
     justify-content: space-between
 
   .info-wrapper
@@ -102,6 +105,7 @@
   @include screen-width($desktop...)
     // height: 80%
     // height: 10%
+    // height: 5%
     height: 40%
     flex-direction: row
     padding-block: 6vh

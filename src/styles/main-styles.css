@@ -31,6 +31,7 @@ body {
   align-items: end;
 }
 body::-webkit-scrollbar {
+  display: none;
   width: 0.5rem;
   background: var(--someDarkColor);
 }
@@ -317,6 +318,7 @@ a {
   background: var(--cardColor);
   border-radius: 10px;
   overflow: hidden;
+  transition: height 0.5s ease;
 }
 
 #who-am-i {

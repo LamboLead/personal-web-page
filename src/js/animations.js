@@ -12,7 +12,7 @@ ScrollTrigger.create({
   // },
   onUpdate: (self) => {
     // let degrees = clamp(Math.floor(self.getVelocity()));
-    let degrees = Math.floor(self.getVelocity()) / 2;
+    let degrees = Math.floor(self.getVelocity()) / 3;
     // console.log(degrees);
     if (Math.abs(degrees) > Math.abs(proxy.rotation)) {
       proxy.rotation = degrees;
@@ -70,22 +70,22 @@ gsap.set(target, {transformOrigin: "50% 50%"});
 // });
 
 ScrollTrigger.create({
-  markers: {startColor: "yellow", endColor: "blue"},
+  // markers: {startColor: "yellow", endColor: "blue"},
   trigger: "#about-me",
-  start: "25% center",
+  start: "top top",
   end: "bottom bottom",
-  onEnter: () => {
-    gsap.to("#skillset", {
-      duration: 2,
-      onStart: (this) => {
-        this.addClass()
-      }
-    });
-  },
-  onEnterBack: () => {
-    gsap.to("#skillset", {
-      height: 100,
-      duration: 2
-    });
+  pin: true,
+  onUpdate: (self) => {
+    if (self.progress > 0.5) {
+      document.querySelector("#skillset").classList.remove("is-section-contracted");
+      document.querySelector("#who-am-i").classList.add("is-section-contracted");
+    } else {
+      document.querySelector("#skillset").classList.add("is-section-contracted");
+      document.querySelector("#who-am-i").classList.remove("is-section-contracted");
+
+    }
+    // console.log(self.progress.toFixed(1));
   }
+  // toggleActions: "play none none reverse",
+  // toggleClass: {targets: ["#skillset"], className: "is-section-contracted"}
 });
