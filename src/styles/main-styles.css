@@ -31,7 +31,6 @@ body {
   align-items: end;
 }
 body::-webkit-scrollbar {
-  display: none;
   width: 0.5rem;
   background: var(--someDarkColor);
 }
@@ -335,14 +334,15 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #who-am-i {
-    height: 40%;
-    justify-content: space-between;
+    height: 45%;
+    justify-content: center;
   }
 }
 #who-am-i .info-wrapper {
   width: 100%;
   height: fit-content;
   display: flex;
+  transition: opacity 200ms ease-out;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .info-wrapper {
@@ -412,8 +412,8 @@ a {
 
 #skillset {
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #skillset {
@@ -424,9 +424,9 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #skillset {
-    height: 40%;
+    height: 45%;
     flex-direction: row;
-    padding-block: 6vh;
+    padding-block: 4vh 7vh;
   }
 }
 #skillset svg {
@@ -434,6 +434,8 @@ a {
   position: absolute;
   left: 0;
   z-index: 1;
+  opacity: 1;
+  transition: opacity 200ms ease-out;
 }
 #skillset #logos-skillset {
   bottom: 0;
@@ -455,6 +457,10 @@ a {
     display: block;
   }
 }
+#skillset .skillset-subtitle {
+  align-self: flex-start;
+  transition: opacity 300ms ease-out;
+}
 @media (min-width: 0px) and (max-width: 1024px) {
   #skillset .skillset-subtitle {
     width: 90%;
@@ -464,18 +470,20 @@ a {
 @media (min-width: 1025px) and (max-width: 4000px) {
   #skillset .skillset-subtitle {
     width: 33%;
-    margin-left: 5%;
   }
 }
 
 .skillset-info-wrapper {
   height: fit-content;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   color: var(--darkerFontColor);
   z-index: 2;
+  opacity: 1;
+  transition: opacity 200ms ease-out;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .skillset-info-wrapper {
@@ -500,7 +508,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .skillset-info-wrapper .skill-subtitle {
-    font-size: clamp(1.2rem, 1.5vw, 2.1rem);
+    font-size: clamp(1rem, 1.4vw, 2rem);
   }
 }
 .skillset-info-wrapper ul {
@@ -515,7 +523,28 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .skillset-info-wrapper ul {
-    font-size: clamp(0.9rem, 1.3vw, 1.9rem);
+    font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+  }
+}
+
+.contracted-subtitle {
+  display: block;
+  position: absolute;
+  width: 95%;
+  color: var(--darkestFontColor);
+  font-weight: 900;
+  word-spacing: -0.1ch;
+  line-height: 1.5ch;
+  opacity: 0;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .contracted-subtitle {
+    font-size: clamp(30px, 6vw, 60px);
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .contracted-subtitle {
+    font-size: clamp(20px, 3vw, 40px);
   }
 }
 
@@ -918,7 +947,7 @@ a {
 
 .double-section {
   width: 90%;
-  height: 200vh;
+  height: 180vh;
   border-top: 1px dashed var(--buttonColor);
 }
 
@@ -1214,8 +1243,35 @@ a {
   height: 5% !important;
 }
 
-.is-section-contracted {
-  height: 5% !important;
+.is-about-me-contracted {
+  padding: 0 !important;
+  height: 7% !important;
+}
+.is-about-me-contracted .info-wrapper {
+  opacity: 0 !important;
+}
+.is-about-me-contracted .contracted-subtitle {
+  opacity: 1 !important;
+}
+
+.is-skillset-contracted {
+  padding: 0 !important;
+  height: 7% !important;
+}
+.is-skillset-contracted .skillset-info-wrapper {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.is-skillset-contracted .skillset-subtitle {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.is-skillset-contracted svg {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.is-skillset-contracted .contracted-subtitle {
+  opacity: 1 !important;
 }
 
 .is-navbar-expanded {
@@ -1245,7 +1301,7 @@ a {
 .dark-theme {
   --navbarColor: #000000CC;
   --cardColor: #00000088;
-  --background: #313131;
+  --background: linear-gradient(to right, #292929, #525252);
   --buttonColor: #4da6ff;
   --buttonHoverColor: #0060c0;
   --mainFontColor: #E8E8E8;

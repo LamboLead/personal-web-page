@@ -2,10 +2,6 @@
   @media (min-width: $min) and (max-width: $max)
     @content
 
-// @mixin screen-width($min, $max, $orientation)
-//   @media (orientation: $orientation)
-//     @content
-
 // $phone: (min: 0px, max: 768px, orientation: portrait)
 // $desktop: (min: 769px, max: 4000px, orientation: landscape)
 $phone: (min: 0px, max: 1024px)
@@ -39,7 +35,7 @@ body
   align-items: end
 
   &::-webkit-scrollbar
-    display: none
+    // display: none
     width: 0.5rem
     background: var(--someDarkColor)
 

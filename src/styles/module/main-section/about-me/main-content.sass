@@ -33,14 +33,15 @@
     // height: 80%
     // height: 10%
     // height: 5%
-    height: 40%
-
-    justify-content: space-between
+    // height: 40%
+    height: 45%
+    justify-content: center
 
   .info-wrapper
     width: 100%
     height: fit-content
     display: flex
+    transition: opacity 200ms ease-out
 
     // border: 2px dashed blue
     @include screen-width($phone...)
@@ -94,8 +95,8 @@
 
 #skillset
   display: flex
-  justify-content: start
-  align-items: start
+  justify-content: center
+  align-items: center
 
   @include screen-width($phone...)
     height: 80%
@@ -106,15 +107,17 @@
     // height: 80%
     // height: 10%
     // height: 5%
-    height: 40%
+    height: 45%
     flex-direction: row
-    padding-block: 6vh
+    padding-block: 4vh 7vh
 
   svg
     display: none
     position: absolute
     left: 0
     z-index: 1
+    opacity: 1
+    transition: opacity 200ms ease-out
 
   #logos-skillset
     bottom: 0
@@ -131,21 +134,26 @@
       display: block
 
   .skillset-subtitle
+    align-self: flex-start
+    transition: opacity 300ms ease-out
     @include screen-width($phone...)
       width: 90%
       margin-left: 5%
     @include screen-width($desktop...)
       width: 33%
-      margin-left: 5%
+      // margin-left: 5%
 
 .skillset-info-wrapper
   height: fit-content
+  align-self: flex-start
   display: flex
   flex-direction: column
   justify-content: start
   align-items: start
   color: var(--darkerFontColor)
   z-index: 2
+  opacity: 1
+  transition: opacity 200ms ease-out
 
   // border: 2px dashed red
 
@@ -164,7 +172,7 @@
     @include screen-width($phone...)
       font-size: clamp(1.2rem, 3vw, 2.1rem)
     @include screen-width($desktop...)
-      font-size: clamp(1.2rem, 1.5vw, 2.1rem)
+      font-size: clamp(1rem, 1.4vw, 2rem)
 
   ul
     width: 90%
@@ -174,8 +182,22 @@
     @include screen-width($phone...)
       font-size: clamp(0.9rem, 2vh, 2rem)
     @include screen-width($desktop...)
-      font-size: clamp(0.9rem, 1.3vw, 1.9rem)
+      font-size: clamp(0.9rem, 1.2vw, 1.5rem)
 
+.contracted-subtitle
+  display: block
+  position: absolute
+  width: 95%
+  color: var(--darkestFontColor)
+  font-weight: 900
+  word-spacing: -0.1ch
+  line-height: 1.5ch
+  opacity: 0
+
+  @include screen-width($phone...)
+    font-size: clamp(30px, 6vw, 60px)
+  @include screen-width($desktop...)
+    font-size: clamp(20px, 3vw, 40px)
 
 .about-me-subtitle
   display: block
