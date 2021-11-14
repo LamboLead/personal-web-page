@@ -6,6 +6,8 @@
   flex-direction: column
   justify-content: center
   align-items: center
+  @include screen-width($phone...)
+    transform: translateX(90%)
 
   // border: 2px dashed blue
 
@@ -14,6 +16,7 @@
   width: fit-content
   filter: drop-shadow(2px 2px 1px black)
   transition: transform 500ms ease
+  cursor: pointer
   // border: 2px dashed red
   .dark-ead, .bright-ambo, .bright-L, .dark-L, .full-tyre-mask-group
     transition: transform 500ms ease, opacity 300ms ease

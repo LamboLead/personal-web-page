@@ -1,5 +1,5 @@
 .main-content-about-me
-  width: 90%
+  width: 95%
   height: 95%
   padding-block: 1rem
   display: flex
@@ -25,16 +25,11 @@
   padding-block: 2%
 
   @include screen-width($phone...)
-    // height: 80%
     justify-content: space-around
-    height: 15%
+    height: 43%
     // padding-block: clamp(10px, 6vw, 50px)
   @include screen-width($desktop...)
-    // height: 80%
-    // height: 10%
-    // height: 5%
-    // height: 40%
-    height: 45%
+    height: 40%
     justify-content: center
 
   .info-wrapper
@@ -83,8 +78,8 @@
     background: rgba(255, 255, 255, 0.5)
 
     @include screen-width($phone...)
-      height: 30%
-      margin-block: 0.5rem
+      height: 20%
+      // margin-block: 0.5rem
     @include screen-width($desktop...)
       height: 30%
 
@@ -93,33 +88,31 @@
   width: 100% !important
   margin-block: 1rem
 
+
 #skillset
   display: flex
-  justify-content: center
   align-items: center
 
   @include screen-width($phone...)
-    height: 80%
     flex-direction: column
+    justify-content: space-evenly
     padding-block: 2vh
-    // height: 15%
+    height: 39%
   @include screen-width($desktop...)
-    // height: 80%
-    // height: 10%
-    // height: 5%
-    height: 45%
     flex-direction: row
+    justify-content: center
+    height: 40%
     padding-block: 4vh 7vh
 
   svg
     display: none
-    position: absolute
-    left: 0
     z-index: 1
     opacity: 1
     transition: opacity 200ms ease-out
 
   #logos-skillset
+    position: absolute
+    left: 0
     bottom: 0
     height: 85%
     width: fit-content
@@ -127,7 +120,7 @@
       display: block
 
   #mobile-logos-skillset
-    bottom: 5%
+    position: relative
     width: 100%
     height: fit-content
     @include screen-width($phone...)

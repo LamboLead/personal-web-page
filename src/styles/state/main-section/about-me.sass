@@ -1,9 +1,11 @@
-.is-who-am-i-contracted
-  height: 5% !important
-
 .is-about-me-contracted
   padding: 0 !important
-  height: 7% !important
+
+  @include screen-width($phone...)
+    height: 9% !important
+  @include screen-width($desktop...)
+    height: 6% !important
+    
   .info-wrapper
     opacity: 0 !important
   .contracted-subtitle
@@ -11,7 +13,11 @@
 
 .is-skillset-contracted
   padding: 0 !important
-  height: 7% !important
+  @include screen-width($phone...)
+    height: 5% !important
+  @include screen-width($desktop...)
+    height: 6% !important
+    
   .skillset-info-wrapper
     opacity: 0 !important
     pointer-events: none

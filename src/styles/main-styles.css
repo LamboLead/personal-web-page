@@ -76,15 +76,6 @@ a {
     height: 100%;
     transform: translateX(-100%);
   }
-  #navbar::after {
-    content: "";
-    position: absolute;
-    width: 6vw;
-    height: 10vh;
-    right: -6vw;
-    background: var(--navbarColor);
-    border-radius: 0 5px 5px 0;
-  }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #navbar {
@@ -92,6 +83,21 @@ a {
     left: 0;
     width: 20vw;
     height: 100vh;
+  }
+}
+
+#navbar-tab {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 7vw;
+  height: 10vh;
+  background: var(--navbarColor);
+  border-radius: 0 5px 5px 0;
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #navbar-tab {
+    display: none;
   }
 }
 
@@ -303,7 +309,7 @@ a {
 }
 
 .main-content-about-me {
-  width: 90%;
+  width: 95%;
   height: 95%;
   padding-block: 1rem;
   display: flex;
@@ -329,12 +335,12 @@ a {
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i {
     justify-content: space-around;
-    height: 15%;
+    height: 43%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #who-am-i {
-    height: 45%;
+    height: 40%;
     justify-content: center;
   }
 }
@@ -394,8 +400,7 @@ a {
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .animation-wrapper {
-    height: 30%;
-    margin-block: 0.5rem;
+    height: 20%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -412,32 +417,33 @@ a {
 
 #skillset {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #skillset {
-    height: 80%;
     flex-direction: column;
+    justify-content: space-evenly;
     padding-block: 2vh;
+    height: 39%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #skillset {
-    height: 45%;
     flex-direction: row;
+    justify-content: center;
+    height: 40%;
     padding-block: 4vh 7vh;
   }
 }
 #skillset svg {
   display: none;
-  position: absolute;
-  left: 0;
   z-index: 1;
   opacity: 1;
   transition: opacity 200ms ease-out;
 }
 #skillset #logos-skillset {
+  position: absolute;
+  left: 0;
   bottom: 0;
   height: 85%;
   width: fit-content;
@@ -448,7 +454,7 @@ a {
   }
 }
 #skillset #mobile-logos-skillset {
-  bottom: 5%;
+  position: relative;
   width: 100%;
   height: fit-content;
 }
@@ -942,13 +948,11 @@ a {
   position: relative;
   width: 100%;
   height: 100vh;
-  border-top: 1px dashed var(--buttonColor);
 }
 
 .double-section {
   width: 90%;
-  height: 180vh;
-  border-top: 1px dashed var(--buttonColor);
+  height: 200vh;
 }
 
 .scrolling-arrows {
@@ -959,7 +963,6 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 1px dashed aqua;
 }
 .scrolling-arrows svg {
   width: fit-content;
@@ -979,47 +982,36 @@ a {
   background: var(--buttonHoverColor);
 }
 
-.navbar-container {
+#navbar-background {
   position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar-container {
   background: var(--navbarColor);
   width: 100%;
-  z-index: -1;
 }
 
 #container1 {
-  border-top-right-radius: 5px;
-}
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #container1 {
-    top: 15vh;
-    left: 0;
-    height: 100%;
-  }
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #container1 {
-    top: 17vh;
-    left: 0;
-    height: 100vh;
-  }
+  height: 0;
+  border-bottom-right-radius: 10px;
 }
 
 #container2 {
-  border-bottom-right-radius: 5px;
+  height: 80%;
+  border-top-right-radius: 10px;
 }
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #container2 {
-    top: -15vh;
-    left: 0;
-    height: 15vh;
-  }
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #container2 {
-    top: -115vh;
-    left: 0;
-    height: 100vh;
-  }
+
+#gap {
+  opacity: 0;
+  width: 100%;
+  height: 20%;
 }
 
 #logo {
@@ -1031,12 +1023,18 @@ a {
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 0px) and (max-width: 1024px) {
+  #logo {
+    transform: translateX(90%);
+  }
+}
 
 #navbar-main-logo {
   height: 70%;
   width: fit-content;
   filter: drop-shadow(2px 2px 1px black);
   transition: transform 500ms ease;
+  cursor: pointer;
 }
 #navbar-main-logo .dark-ead, #navbar-main-logo .bright-ambo, #navbar-main-logo .bright-L, #navbar-main-logo .dark-L, #navbar-main-logo .full-tyre-mask-group {
   transition: transform 500ms ease, opacity 300ms ease;
@@ -1168,7 +1166,7 @@ a {
   .signature {
     width: 40%;
     height: 70%;
-    border-right: 1px solid var(--darkerFontColor);
+    border-right: 1px solid var(--darkestFontColor);
     justify-content: center;
   }
 }
@@ -1239,13 +1237,18 @@ a {
   pointer-events: none !important;
 }
 
-.is-who-am-i-contracted {
-  height: 5% !important;
-}
-
 .is-about-me-contracted {
   padding: 0 !important;
-  height: 7% !important;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .is-about-me-contracted {
+    height: 9% !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .is-about-me-contracted {
+    height: 6% !important;
+  }
 }
 .is-about-me-contracted .info-wrapper {
   opacity: 0 !important;
@@ -1256,7 +1259,16 @@ a {
 
 .is-skillset-contracted {
   padding: 0 !important;
-  height: 7% !important;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .is-skillset-contracted {
+    height: 5% !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  .is-skillset-contracted {
+    height: 6% !important;
+  }
 }
 .is-skillset-contracted .skillset-info-wrapper {
   opacity: 0 !important;
@@ -1277,10 +1289,9 @@ a {
 .is-navbar-expanded {
   transform: translateX(0) !important;
 }
-
 @media (min-width: 0px) and (max-width: 1024px) {
-  .is-logo-sticking-out {
-    transform: translateX(90%) !important;
+  .is-navbar-expanded #logo {
+    transform: translateX(0) !important;
   }
 }
 
@@ -1301,7 +1312,7 @@ a {
 .dark-theme {
   --navbarColor: #000000CC;
   --cardColor: #00000088;
-  --background: linear-gradient(to right, #292929, #525252);
+  --background: linear-gradient(to right, #242424, #3f3f3f);
   --buttonColor: #4da6ff;
   --buttonHoverColor: #0060c0;
   --mainFontColor: #E8E8E8;
