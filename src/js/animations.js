@@ -1,6 +1,4 @@
-// -> Rotating wheel
-
-// const { Timeline } = require("gsap/gsap-core");
+// - - - Rotating wheel  - - -
 
 let target = "#navbar-main-logo .full-tyre";
 let proxy = {rotation: 0};
@@ -24,10 +22,11 @@ ScrollTrigger.create({
 
 gsap.set(target, {transformOrigin: "50% 50%"});
 
-// -> Snap scrolling <-
+// - - - Snap scrolling - - -
 
 const snapDuration = 0.5;
 const snapDelay = 0.3
+
 const sections = document.querySelectorAll("#main-section .single-section, .double-section")
 
 sections.forEach((section) => {
@@ -35,28 +34,29 @@ sections.forEach((section) => {
   ScrollTrigger.create({
     id: id,
     trigger: `#${id}`,
-    // start: "top+=4% bottom",
-    // end: "bottom-=4% top+=1",
     start: "top bottom",
     end: "bottom top+=1",
-    onEnter: () => goToSection(id),
-    onEnterBack: () => goToSection(id)
+    onEnter: () => console.log("Entered!"), // Do not use these
+    onEnterBack: () => console.log("Entered back!") // Do not use these
+    // onEnter: () => goToSection(id),
+    // onEnterBack: () => goToSection(id)
   });
-})
+});
 
 function goToSection(section) {
   moveNavbarBackground(section)
   gsap.to(window, {
-    scrollTo: {y: `#${section}`, autoKill: false},
+    scrollTo: {y: `#${section}`, autoKill: true},
     duration: snapDuration,
     delay: snapDelay
   });
 }
 
-// -> about-me scrolling <-
+// - - - pin about-me - - -
 
 ScrollTrigger.create({
   // markers: {startColor: "yellow", endColor: "blue"},
+  id: "about-me-pin",
   trigger: "#about-me",
   start: "top top",
   end: "bottom bottom",
@@ -78,9 +78,8 @@ ScrollTrigger.create({
 const links = document.querySelectorAll("#logo,#index .link");
 moveNavbarBackground("main-page");
 
-// May help: To avoid massive epylepsia, disable snapping temporarily on very high scrolling speeds. This will take care of users scrolling too fast, or browser scrolling by using the navigation links. It will also prevent you from putting a temporary courtain while scrolling
-
-// Discussion: Disable wheel rotation on navbar link navigation
+let pinTrig = ScrollTrigger.getById("about-me-pin");
+let snapTrig = ["main-page", "about-me", "my-portfolio", "contact"];
 
 // Scrolls to the corresponding section, while disabling temporarily the corresponding ScrollTrigger instance when navigating navbar to avoid massive epylepsia
 links.forEach((link) => {
@@ -88,19 +87,31 @@ links.forEach((link) => {
     let sectionId = link.getAttribute("data-navigation-section");
     moveNavbarBackground(sectionId);
 
-    let snapTrig = ScrollTrigger.getById(sectionId);
-    snapTrig.disable();
-
+    snapTrig.forEach((id) => ScrollTrigger.getById(id).disable(false, false));
+    pinTrig.disable();
+    
     gsap.to(window, {
-      scrollTo: {y: `#${sectionId}`, autoKill: false},
+      // scrollTo: {y: `#${sectionId}`, autoKill: false},
+      scrollTo: {y: `#${sectionId}`},
       duration: snapDuration - 0.2
     });
-
+    
     setTimeout(() => {
-      snapTrig.enable();
-    }, snapDuration + snapDelay + 0.1);
+      pinTrig.enable(false, true);
+      snapTrig.forEach((id) => ScrollTrigger.getById(id).enable(false, false));
+    }, snapDuration * 1000)
+
+    // ScrollTrigger.addEventListener("scrollEnd", enablePinTrigger);
+    // setTimeout(() => {
+    //   ScrollTrigger.removeEventListener("scrollEnd", enablePinTrigger);
+    // }, snapDuration + 1);
+
   });
 })
+
+function enablePinTrigger() {
+  pinTrig.enable();
+}
 
 function moveNavbarBackground(selector) {
   let vPortHeight = window.innerHeight;
@@ -112,7 +123,6 @@ function moveNavbarBackground(selector) {
   gsap.to("#gap", {height: elemHeight});
   gsap.to("#container2", {height: vPortHeight - elemHeight - elemPosition});
 }
-
 // Mobile navbar deployment
 
 const navbarTab = document.querySelector("#navbar-tab");
@@ -129,3 +139,44 @@ navbarTab.addEventListener("click", () => {
   // navTL.paused(false);
   navTL.reversed(!navTL.reversed());
 });
+
+// ATTEMPT TO FIX FAULTY SNAPPING
+
+// let pinScrollT = ScrollTrigger.getById("about-me-pin");
+// ScrollTrigger.addEventListener("scrollStart", () => {
+//   if (pinScrollT.isActive()) return;
+//   pinScrollT.disable(true, false);
+// });
+
+// ScrollTrigger.addEventListener("scrollEnd", () => {
+//   pinScrollT.enable(true, true);
+// });
+/*
+
+let sTriggerIds = ["main-page", "about-me", "my-portfolio", "contact"];
+
+ScrollTrigger.addEventListener("scrollStart", () => {
+  ScrollTrigger.getById("about-me-pin").disable(true, false);
+  sTriggerIds.forEach((id) => {
+    ScrollTrigger.getById(id).disable(true, false);
+  });
+});
+
+ScrollTrigger.addEventListener("scrollEnd", () => {
+  ScrollTrigger.clearScrollMemory();
+  // ScrollTrigger.getById("about-me-pin").enable();
+  sTriggerIds.forEach((id) => {
+    ScrollTrigger.getById(id).enable(false, true);
+  });
+});
+
+*/
+/*
+Some thoughts...
+
+  -> You can disable about-me-pin scrollTrigger when clicking the navbar, but not with regular scrolling: DONE!
+  -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit.
+  -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast
+  -> When navigating with navbar, deactivate the 'hide' class on about-me sections
+  
+*/
