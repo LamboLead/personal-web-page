@@ -25,9 +25,11 @@ gsap.set(target, {transformOrigin: "50% 50%"});
 // - - - Snap scrolling - - -
 
 const snapDuration = 0.5;
-const snapDelay = 0.3
+const snapDelay = 0.7
 
-const sections = document.querySelectorAll("#main-section .single-section, .double-section")
+const sections = document.querySelectorAll("#main-section .single-section, .double-section");
+
+let enteredSections = [];
 
 sections.forEach((section) => {
   let id = section.id;
@@ -36,10 +38,34 @@ sections.forEach((section) => {
     trigger: `#${id}`,
     start: "top bottom",
     end: "bottom top+=1",
-    onEnter: () => console.log("Entered!"), // Do not use these
-    onEnterBack: () => console.log("Entered back!") // Do not use these
-    // onEnter: () => goToSection(id),
-    // onEnterBack: () => goToSection(id)
+    onEnter: () => {
+      enteredSections.push(id);
+      // console.log(enteredSections);
+      setTimeout(() => {
+        if (enteredSections[enteredSections.length - 1] === id) {
+          // console.log(`${id} was the last accessed`);
+          goToSection(id);
+        }
+      }, snapDelay * 1000);
+
+      setTimeout(() => {
+        enteredSections = [];
+      }, 1000);
+    },
+    onEnterBack: () => {
+      enteredSections.push(id);
+      // console.log(enteredSections);
+      setTimeout(() => {
+        if (enteredSections[enteredSections.length - 1] === id) {
+          // console.log(`${id} was the last accessed`);
+          goToSection(id);
+        }
+      }, snapDelay * 1000);
+      
+      setTimeout(() => {
+        enteredSections = [];
+      }, 1000);
+    }
   });
 });
 
@@ -47,8 +73,7 @@ function goToSection(section) {
   moveNavbarBackground(section)
   gsap.to(window, {
     scrollTo: {y: `#${section}`, autoKill: true},
-    duration: snapDuration,
-    delay: snapDelay
+    duration: snapDuration
   });
 }
 
@@ -72,7 +97,7 @@ ScrollTrigger.create({
   }
 });
 
-// -> Navigation with navbar <-
+// - - - Navigation with navbar - - -
 
 // Basic anchor navigation
 const links = document.querySelectorAll("#logo,#index .link");
@@ -81,17 +106,18 @@ moveNavbarBackground("main-page");
 let pinTrig = ScrollTrigger.getById("about-me-pin");
 let snapTrig = ["main-page", "about-me", "my-portfolio", "contact"];
 
-// Scrolls to the corresponding section, while disabling temporarily the corresponding ScrollTrigger instance when navigating navbar to avoid massive epylepsia
+// When user clicks on the link from navbar, it scrolls to the corresponding section, while disabling temporarily the corresponding ScrollTrigger instance when navigating navbar to avoid massive epylepsia
 links.forEach((link) => {
   link.addEventListener("click", () => {
     let sectionId = link.getAttribute("data-navigation-section");
     moveNavbarBackground(sectionId);
 
     snapTrig.forEach((id) => ScrollTrigger.getById(id).disable(false, false));
+    // console.log("Scrollers disabled");
     pinTrig.disable();
     
     gsap.to(window, {
-      // scrollTo: {y: `#${sectionId}`, autoKill: false},
+      // scrollTo: {y: `#${sectionId}`, autoKill: false}, what does autokill do?
       scrollTo: {y: `#${sectionId}`},
       duration: snapDuration - 0.2
     });
@@ -99,19 +125,11 @@ links.forEach((link) => {
     setTimeout(() => {
       pinTrig.enable(false, true);
       snapTrig.forEach((id) => ScrollTrigger.getById(id).enable(false, false));
-    }, snapDuration * 1000)
-
-    // ScrollTrigger.addEventListener("scrollEnd", enablePinTrigger);
-    // setTimeout(() => {
-    //   ScrollTrigger.removeEventListener("scrollEnd", enablePinTrigger);
-    // }, snapDuration + 1);
+      // console.log("Scrollers enabled!");
+    }, snapTrig * 1000);
 
   });
 })
-
-function enablePinTrigger() {
-  pinTrig.enable();
-}
 
 function moveNavbarBackground(selector) {
   let vPortHeight = window.innerHeight;
@@ -123,7 +141,8 @@ function moveNavbarBackground(selector) {
   gsap.to("#gap", {height: elemHeight});
   gsap.to("#container2", {height: vPortHeight - elemHeight - elemPosition});
 }
-// Mobile navbar deployment
+
+// - - - Mobile navbar deployment - - -
 
 const navbarTab = document.querySelector("#navbar-tab");
 
@@ -140,43 +159,18 @@ navbarTab.addEventListener("click", () => {
   navTL.reversed(!navTL.reversed());
 });
 
-// ATTEMPT TO FIX FAULTY SNAPPING
-
-// let pinScrollT = ScrollTrigger.getById("about-me-pin");
-// ScrollTrigger.addEventListener("scrollStart", () => {
-//   if (pinScrollT.isActive()) return;
-//   pinScrollT.disable(true, false);
-// });
-
-// ScrollTrigger.addEventListener("scrollEnd", () => {
-//   pinScrollT.enable(true, true);
-// });
-/*
-
-let sTriggerIds = ["main-page", "about-me", "my-portfolio", "contact"];
-
-ScrollTrigger.addEventListener("scrollStart", () => {
-  ScrollTrigger.getById("about-me-pin").disable(true, false);
-  sTriggerIds.forEach((id) => {
-    ScrollTrigger.getById(id).disable(true, false);
-  });
-});
-
-ScrollTrigger.addEventListener("scrollEnd", () => {
-  ScrollTrigger.clearScrollMemory();
-  // ScrollTrigger.getById("about-me-pin").enable();
-  sTriggerIds.forEach((id) => {
-    ScrollTrigger.getById(id).enable(false, true);
-  });
-});
-
-*/
 /*
 Some thoughts...
 
   -> You can disable about-me-pin scrollTrigger when clicking the navbar, but not with regular scrolling: DONE!
-  -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit.
-  -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast
+  -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit: DIDN'T KNEW HOW TO DO IT.
+  -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast: DIDN'T IMPLEMENT IT.
   -> When navigating with navbar, deactivate the 'hide' class on about-me sections
+
+  -> Faulty snapping solution: By storing and accessing the last scrolled section I was able to select which section to snap (usually the last one) and discard the rest, avoiding massive epylepsia.
+  -> In case solution doesn't work, try this:
+      // if (!isActive) return;
+      // goToSection(id);
+    Try to obtain some parameter that characterizes the active session from the rest.
   
 */
