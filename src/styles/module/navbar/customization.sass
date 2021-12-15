@@ -2,11 +2,89 @@
   width: 90%
   height: 30%
   margin-top: 30%
-  border-top: 1px solid var(--darkestFontColor)
-  background: rgba(255, 255, 255, 0.3)
+
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: center
+
+  // border: 2px dashed pink
+  border-top: 1px solid var(--generalBorderColor)
+  // background: rgba(255, 255, 255, 0.3)
 
   // @include screen-width($phone...)
   //   height: 16rem
 
   // @include screen-width($desktop...)
   //   height: 30%
+
+.change-theme
+  width: 90%
+  height: 30%
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  span
+    color: var(--titleColor)
+    font-weight: 500
+    font-size: clamp(1rem, 2vh, 2rem)
+  @include screen-width($phone...)
+    span
+      display: none
+
+  // #switch_theme_div
+  //   width: 0
+  //   transition: width 200ms ease, margin-left 300ms ease
+
+  // #navbar_nav:hover #switch_theme_div
+  //   width: 4rem
+  //   margin-left: 10%
+  //   border: 2px solid var(--secondBorderColor)
+
+  .switch-container-div
+    position: relative
+    width: 5rem
+    height: 1.7rem
+    margin-left: 10%
+    border: 2px solid var(--switchContainerColor)
+    border-radius: 2px
+    overflow: hidden
+    cursor: pointer
+
+  .inside-switch-div
+    position: absolute
+    left: 0
+    width: 180%
+    height: 100%
+    display: flex
+    flex-direction: row
+    transition: left 300ms ease-in
+    pointer-events: none
+
+  .mode-span
+    width: 80%
+    height: 100%
+    text-align: center
+    text-justify: center
+    color: blue
+    pointer-events: none
+
+  .is-switch-light
+    background-color: var(--switchLightBackground)
+    color: var(--switchLightTextColor)
+
+  .is-switch-dark
+    background-color: var(--switchDarkBackground)
+    color: var(--switchDarkTextColor)
+
+  .switch-leg-div
+    width: 20%
+    height: 100%
+    background-color: var(--switchLegColor)
+    border-left: 2px solid var(--switchContainerColor)
+    border-right: 2px solid var(--switchContainerColor)
+    pointer-events: none
+
+.change-background
+  display: none

@@ -144,19 +144,19 @@ a {
 }
 
 .tyre {
-  fill: var(--darkerFontColor);
+  fill: var(--logoDarkColor);
 }
 
 .rim {
-  fill: var(--mainFontColor);
+  fill: var(--logoLightColor);
 }
 
 .bright-L, .bright-ambo {
-  fill: var(--mainFontColor);
+  fill: var(--logoLightColor);
 }
 
 .dark-L, .dark-ead {
-  fill: var(--darkerFontColor);
+  fill: var(--logoDarkColor);
 }
 
 #loader-main-logo {
@@ -206,11 +206,11 @@ a {
   }
 }
 .main-content-main-page .main-title {
-  color: var(--mainFontColor);
+  color: var(--titleColor);
   font-weight: 900;
   margin-top: 2rem;
   margin-bottom: 0;
-  text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: -8px 8px 4px var(--textShadowColor);
   word-spacing: -0.4ch;
   font-size: clamp(33px, 6vw, 115px);
   text-align: right;
@@ -230,7 +230,7 @@ a {
 .main-content-main-page .subtitle {
   width: 100%;
   text-align: right;
-  color: var(--darkerFontColor);
+  color: var(--subtitleColor);
   display: flex;
   margin-bottom: auto;
   font-size: clamp(1.2rem, 2vw, 20px);
@@ -379,7 +379,7 @@ a {
 #who-am-i .info-wrapper .about-me-info {
   display: block;
   height: fit-content;
-  color: var(--darkerFontColor);
+  color: var(--subtitleColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i .info-wrapper .about-me-info {
@@ -486,7 +486,7 @@ a {
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  color: var(--darkerFontColor);
+  color: var(--subtitleColor);
   z-index: 2;
   opacity: 1;
   transition: opacity 200ms ease-out;
@@ -537,7 +537,7 @@ a {
   display: block;
   position: absolute;
   width: 95%;
-  color: var(--darkestFontColor);
+  color: var(--interTitleColor);
   font-weight: 900;
   word-spacing: -0.1ch;
   line-height: 1.5ch;
@@ -557,7 +557,7 @@ a {
 .about-me-subtitle {
   display: block;
   height: fit-content;
-  color: var(--mainFontColor);
+  color: var(--subtitleColor);
   font-weight: 900;
   word-spacing: -0.1ch;
   line-height: 1.5ch;
@@ -585,7 +585,7 @@ a {
   width: 80%;
   align-self: flex-end;
   margin: 1rem 5% auto 0;
-  color: var(--mainFontColor);
+  color: var(--titleColor);
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   font-size: clamp(33px, 6vw, 115px);
   word-spacing: -0.4ch;
@@ -641,7 +641,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: var(--tutdlEmphasisColor);
+  background: var(--tutdlBackgroundColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl {
@@ -685,8 +685,8 @@ a {
     height: 100%;
     align-items: flex-start;
     margin-left: 3%;
-    background: var(--tutdlEmphasisColor);
-    box-shadow: 10px 0px 20px var(--tutdlEmphasisColor);
+    background: var(--tutdlBackgrondColor);
+    box-shadow: 10px 0px 20px var(--tutdlBackgrondColor);
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
@@ -699,6 +699,16 @@ a {
 }
 #tutdl .project-description #tutdl-logo {
   height: fit-content;
+}
+#tutdl .project-description #tutdl-logo .tutdl-condensed-logo path {
+  stroke: linear var(--tutdlTextColor);
+  fill: var(--tutdlTextColor);
+}
+#tutdl .project-description #tutdl-logo .tutdl-separator-line {
+  stroke: var(--tutdlTextColor);
+}
+#tutdl .project-description #tutdl-logo .tutdl-name path {
+  fill: var(--tutdlTextColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description #tutdl-logo {
@@ -714,8 +724,9 @@ a {
 }
 #tutdl .project-description .slogan {
   display: block;
-  font-weight: 900;
+  font-weight: 500;
   font-style: italic;
+  color: var(--tutdlTextColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description .slogan {
@@ -756,7 +767,7 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: var(--anotherProjectEmphasisColor);
+  background: var(--anotherProjectTextColor);
   display: none;
 }
 #another-one img {
@@ -787,7 +798,7 @@ a {
   display: block;
   width: 100%;
   height: fit-content;
-  color: var(--mainFontColor);
+  color: var(--titleColor);
   font-weight: 900;
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   word-spacing: -0.4ch;
@@ -823,7 +834,7 @@ a {
   height: 100%;
   border-radius: 10px;
   background: var(--cardColor);
-  color: var(--darkerFontColor);
+  color: var(--subtitleColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -877,15 +888,15 @@ a {
 }
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
-  background: var(--navbarColor);
+  background: var(--fieldColor);
   font-size: clamp(1.2rem, 2.2vw, 1.4rem);
   font-family: "Roboto Mono", monospace;
-  color: var(--mainFontColor);
+  color: var(--regularTextColor);
   border: none;
   resize: none;
 }
 .contact-form .field-wrapper input::placeholder, .contact-form .field-wrapper textarea::placeholder {
-  color: var(--darkestFontColor);
+  color: var(--placeholderTextColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
@@ -948,13 +959,11 @@ a {
   position: relative;
   width: 100%;
   height: 100vh;
-  border-top: 1px dashed var(--buttonColor);
 }
 
 .double-section {
   width: 90%;
   height: 200vh;
-  border-top: 1px dashed var(--buttonColor);
 }
 
 .scrolling-arrows {
@@ -969,12 +978,12 @@ a {
 .scrolling-arrows svg {
   width: fit-content;
   height: 100%;
-  fill: var(--scrollLogoColor);
+  fill: var(--scrollColor);
 }
 
 .emphasis-button {
   font-family: "Roboto Mono", monospace;
-  color: var(--mainFontColor);
+  color: var(--buttonTextColor);
   background: var(--buttonColor);
   cursor: pointer;
   border: none;
@@ -1034,7 +1043,7 @@ a {
 #navbar-main-logo {
   height: 70%;
   width: fit-content;
-  filter: drop-shadow(2px 2px 1px black);
+  filter: drop-shadow(2px 2px 1px var(--textShadowColor));
   transition: transform 500ms ease;
   cursor: pointer;
 }
@@ -1086,7 +1095,7 @@ a {
   width: 20%;
   height: 100%;
   margin-right: 1rem;
-  fill: var(--mainFontColor);
+  fill: var(--navbarFontColor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1102,13 +1111,13 @@ a {
   flex-direction: column;
   justify-content: center;
   font-style: italic;
-  color: var(--mainFontColor);
+  color: var(--navbarFontColor);
   font-weight: 500;
   font-size: clamp(1rem, 2vh, 2rem);
 }
 
 #me {
-  stroke: var(--mainFontColor);
+  stroke: var(--navbarFontColor);
   stroke-width: 15px;
 }
 
@@ -1116,14 +1125,84 @@ a {
   width: 90%;
   height: 30%;
   margin-top: 30%;
-  border-top: 1px solid var(--darkestFontColor);
-  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--generalBorderColor);
+}
+
+.change-theme {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.change-theme span {
+  color: var(--titleColor);
+  font-weight: 500;
+  font-size: clamp(1rem, 2vh, 2rem);
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  .change-theme span {
+    display: none;
+  }
+}
+.change-theme .switch-container-div {
+  position: relative;
+  width: 5rem;
+  height: 1.7rem;
+  margin-left: 10%;
+  border: 2px solid var(--switchContainerColor);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.change-theme .inside-switch-div {
+  position: absolute;
+  left: 0;
+  width: 180%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  transition: left 300ms ease-in;
+  pointer-events: none;
+}
+.change-theme .mode-span {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  text-justify: center;
+  color: blue;
+  pointer-events: none;
+}
+.change-theme .is-switch-light {
+  background-color: var(--switchLightBackground);
+  color: var(--switchLightTextColor);
+}
+.change-theme .is-switch-dark {
+  background-color: var(--switchDarkBackground);
+  color: var(--switchDarkTextColor);
+}
+.change-theme .switch-leg-div {
+  width: 20%;
+  height: 100%;
+  background-color: var(--switchLegColor);
+  border-left: 2px solid var(--switchContainerColor);
+  border-right: 2px solid var(--switchContainerColor);
+  pointer-events: none;
+}
+
+.change-background {
+  display: none;
 }
 
 #social {
   width: 90%;
   height: 8%;
-  border-top: 1px solid var(--darkestFontColor);
+  border-top: 1px solid var(--generalBorderColor);
   margin-top: auto;
   display: flex;
   flex-direction: row;
@@ -1168,20 +1247,20 @@ a {
   .signature {
     width: 40%;
     height: 70%;
-    border-right: 1px solid var(--darkestFontColor);
+    border-right: 1px solid var(--generalBorderColor);
     justify-content: center;
   }
 }
 .signature svg {
   height: 100%;
   width: fit-content;
-  fill: var(--darkerFontColor);
+  fill: var(--signatureFillColor);
 }
 
 .footer-info {
   display: flex;
   font-size: clamp(0.5rem, 1.5vw, 1rem);
-  color: var(--darkerFontColor);
+  color: var(--smallTextColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .footer-info {
@@ -1218,7 +1297,7 @@ a {
 .footer-info div a {
   display: block;
   margin-top: 0.2rem;
-  color: var(--buttonColor);
+  color: var(--linkTextColor);
 }
 .footer-info div .copyright {
   margin-top: auto;
@@ -1311,22 +1390,68 @@ a {
   transform: scale(1.25);
 }
 
+.shared {
+  --switchContainerColor: hsla(0, 0%, 35%, 1);
+  --switchLegColor: hsla(0, 0%, 69%, 1);
+  --switchLightBackground: hsla(0, 0%, 100%, 1);
+  --switchLightTextColor: hsla(0, 0%, 0%, 1);
+  --switchDarkBackground: hsla(0, 0%, 0%, 1);
+  --switchDarkTextColor: hsla(0, 0%, 100%, 1);
+  --buttonColor: hsla(209, 100%, 50%, 1);
+  --buttonHoverColor: hsla(209, 100%, 36%, 1);
+  --buttonTextColor: hsla(0, 0%, 100%, 1);
+  --tutdlBackgroundColor: radial-gradient(66.65% 155.05% at 66.65% 41.63%, #140091 0.11%, #090040 74.01%);
+  --tutdlTextColor: hsla(0, 0%, 100%, 1);
+  --anotherProjectBackgroundColor: hsla(22, 82%, 44%, 1);
+  --anotherProjectTextColor: hsla(0, 0%, 100%, 1);
+}
+
 .dark-theme {
-  --navbarColor: #000000CC;
-  --cardColor: #00000088;
-  --background: linear-gradient(to right, #242424, #3f3f3f);
-  --buttonColor: #4da6ff;
-  --buttonHoverColor: #0060c0;
-  --mainFontColor: #E8E8E8;
-  --darkerFontColor: #A0A0A0;
-  --darkestFontColor: #4E4E4E;
-  --someDarkColor: rgba(0, 0, 0, 0.4);
-  --twitterLogoColor: #4da6ff;
-  --linkedLogoColor: #0033cc;
-  --githubLogoColor: #E8E8E8;
-  --scrollLogoColor: #C6E3FF;
-  --tutdlEmphasisColor: #FFFFFF;
-  --anotherProjectEmphasisColor: #e6f9ff;
+  --navbarColor: hsla(0, 0%, 0%, 0.8);
+  --generalBorderColor: hsla(0, 0%, 28%, 1);
+  --logoLightColor: hsla(0, 0%, 83%, 1);
+  --logoDarkColor: hsla(0, 0%, 46%, 1);
+  --navbarFontColor: hsla(0, 0%, 83%, 1);
+  --twitterLogoColor: hsla(216, 86%, 59%, 1);
+  --linkedLogoColor: hsla(223, 100%, 50%, 1);
+  --githubLogoColor: hsla(0, 0%, 100%, 1);
+  --cardColor: hsla(0, 0%, 0%, 0.6);
+  --fieldColor: hsla(0, 0%, 0%, 0.8);
+  --background: linear-gradient(99.72deg, #313131 3.26%, #646464 97.58%);
+  --scrollColor: hsla(209, 100%, 89%, 1);
+  --signatureFillColor: hsla(0, 0%, 63%, 1);
+  --titleColor: hsla(0, 0%, 92%, 1);
+  --subtitleColor: hsla(0, 0%, 83%, 1);
+  --interTitleColor: hsla(0, 0%, 50%, 1);
+  --regularTextColor: hsla(0, 0%, 63%, 1);
+  --smallTextColor: hsla(0, 0%, 63%, 1);
+  --placeholderTextColor: hsla(0, 0%, 63%, 1);
+  --linkTextColor: hsla(209, 100%, 50%, 1);
+  --textShadowColor: hsla(0, 0%, 0%, 0.25);
+}
+
+.light-theme {
+  --navbarColor: hsla(0, 0%, 100%, 0.7);
+  --generalBorderColor: hsla(0, 0%, 61%, 1);
+  --logoLightColor: hsla(0, 0%, 61%, 1);
+  --logoDarkColor: hsla(0, 0%, 32%, 1);
+  --navbarFontColor: hsla(0, 0%, 41%, 1);
+  --twitterLogoColor: hsla(216, 86%, 59%, 1);
+  --linkedLogoColor: hsla(223, 100%, 50%, 1);
+  --githubLogoColor: hsla(0, 0%, 32%, 1);
+  --cardColor: hsla(0, 0%, 100%, 0.6);
+  --fieldColor: hsla(0, 0%, 90%, 0.9);
+  --background: linear-gradient(100.45deg, #D7D7D7 6.49%, #F4F4F4 97.66%);
+  --scrollColor: hsla(209, 84%, 72%, 1);
+  --signatureFillColor: hsla(0, 0%, 40%, 1);
+  --titleColor: hsla(0, 0%, 44%, 1);
+  --subtitleColor: hsla(0, 0%, 50%, 1);
+  --interTitleColor: hsla(0, 0%, 63%, 1);
+  --regularTextColor: hsla(0, 0%, 63%, 1);
+  --smallTextColor: hsla(0, 0%, 63%, 1);
+  --linkTextColor: hsla(209, 100%, 50%, 1);
+  --placeholderTextColor: hsla(0, 0%, 63%, 1);
+  --textShadowColor: hsla(0, 0%, 0%, 0.25);
 }
 
 /*# sourceMappingURL=main-styles.css.map */

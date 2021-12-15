@@ -36,7 +36,7 @@
   flex-direction: row
   justify-content: center
   align-items: center
-  background: var(--tutdlEmphasisColor)
+  background: var(--tutdlBackgroundColor)
 
   @include screen-width($phone...)
     justify-content: start
@@ -75,8 +75,8 @@
       height: 100%
       align-items: flex-start
       margin-left: 3%
-      background: var(--tutdlEmphasisColor)
-      box-shadow: 10px 0px 20px var(--tutdlEmphasisColor)
+      background: var(--tutdlBackgrondColor)
+      box-shadow: 10px 0px 20px var(--tutdlBackgrondColor)
 
     @include screen-width($desktop...)
       width: clamp(200px, 60%, 680px)
@@ -86,7 +86,15 @@
 
     #tutdl-logo
       height: fit-content
-
+      .tutdl-condensed-logo
+        path
+          stroke: linear var(--tutdlTextColor)
+          fill: var(--tutdlTextColor)
+      .tutdl-separator-line
+        stroke: var(--tutdlTextColor)
+      .tutdl-name
+        path
+          fill: var(--tutdlTextColor)
       // border: 2px solid red
 
       @include screen-width($phone...)
@@ -99,8 +107,9 @@
 
     .slogan
       display: block
-      font-weight: 900
+      font-weight: 500
       font-style: italic
+      color: var(--tutdlTextColor)
 
       @include screen-width($phone...)
         font-size: clamp(0.8rem, 2vw, 2rem)
@@ -131,7 +140,7 @@
   flex-direction: row
   justify-content: center
   align-items: center
-  background: var(--anotherProjectEmphasisColor)
+  background: var(--anotherProjectTextColor)
   display: none
 
   img

@@ -21,7 +21,7 @@
     display: block
     width: 100%
     height: fit-content
-    color: var(--mainFontColor)
+    color: var(--titleColor)
     font-weight: 900
     text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
     word-spacing: -0.4ch
@@ -55,7 +55,7 @@
   height: 100%
   border-radius: 10px
   background: var(--cardColor)
-  color: var(--darkerFontColor)
+  color: var(--subtitleColor)
   display: flex
   flex-direction: column
   justify-content: center
@@ -98,15 +98,15 @@
 
     input, textarea
       padding: 5px 0 3px 1ch
-      background: var(--navbarColor)
+      background: var(--fieldColor)
       // FIX THIS!!!
       font-size: clamp(1.2rem, 2.2vw, 1.4rem)
       font-family: 'Roboto Mono', monospace
-      color: var(--mainFontColor)
+      color: var(--regularTextColor)
       border: none
       resize: none
       &::placeholder
-        color: var(--darkestFontColor)
+        color: var(--placeholderTextColor)
 
       @include screen-width($phone...)
         width: 90%

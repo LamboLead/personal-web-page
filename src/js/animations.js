@@ -159,18 +159,21 @@ navbarTab.addEventListener("click", () => {
   navTL.reversed(!navTL.reversed());
 });
 
-/*
-Some thoughts...
-
-  -> You can disable about-me-pin scrollTrigger when clicking the navbar, but not with regular scrolling: DONE!
-  -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit: DIDN'T KNEW HOW TO DO IT.
-  -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast: DIDN'T IMPLEMENT IT.
-  -> When navigating with navbar, deactivate the 'hide' class on about-me sections
-
-  -> Faulty snapping solution: By storing and accessing the last scrolled section I was able to select which section to snap (usually the last one) and discard the rest, avoiding massive epylepsia.
-  -> In case solution doesn't work, try this:
-      // if (!isActive) return;
-      // goToSection(id);
-    Try to obtain some parameter that characterizes the active session from the rest.
-  
-*/
+/**
+ * Some alternatives:
+ * 
+ * -> Disable about-me-pin ScrollTrigger when clicking the navbar, but not with regular scrolling.
+ * status: DONE
+ * 
+ * -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit.
+ * status: PENDING
+ * 
+ * -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast.
+ * status: PENDING
+ * 
+ * -> In case your current solution doesn't work, try to obtain some parameter that characterizes the active section from the rest and scroll to that one at the end (just like you did earlier, but with other parameter)
+ * status: HOPE NOT TO USE IT
+ * 
+ * -> Set dynamic snapping. Deactivate ScrollTrigger when the user is still scrolling.
+ * status: VERY LIKELY TO IMPLEMENT
+ */
