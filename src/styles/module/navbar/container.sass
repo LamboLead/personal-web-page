@@ -21,10 +21,13 @@
   border-top-right-radius: 10px
 
 #gap
-  opacity: 0
   width: 100%
   height: 20%
+  transition: background 400ms ease-out
 
+.gap-background
+  @include screen-width($phone...)
+    background: linear-gradient(90deg, var(--gapColorLeft) 85%, var(--gapColorRight) 100%)
   
 // .navbar-container
 //   background: var(--navbarColor)

@@ -1,179 +1,130 @@
-// - - - Rotating wheel  - - -
+import animations from "../../public/video/animation-info.js";
 
-let target = "#navbar-main-logo .full-tyre";
-let proxy = {rotation: 0};
-let rotationSetter = gsap.quickSetter(target, "rotate");
-let clamp = gsap.utils.clamp(-360, 360);
+let canvas = document.getElementById("cat-canvas");
+let context = canvas.getContext("2d");
 
-ScrollTrigger.create({
-  onUpdate: (self) => {
-    let degrees = Math.floor(self.getVelocity()) / -6;
-    if (Math.abs(degrees) > Math.abs(proxy.rotation)) {
-      proxy.rotation = degrees;
-      gsap.to(proxy, {
-        rotation: 0, duration: 3, ease: "power4.out", overwrite: true,
-        onUpdate: () => {
-          rotationSetter(proxy.rotation)
-        }
-      });
-    }
-  }
-});
+let images = [];
+const cattos = {
+  frame: 0
+};
+let animationTween;
+let animationHasLoaded = false;
 
-gsap.set(target, {transformOrigin: "50% 50%"});
-
-// - - - Snap scrolling - - -
-
-const snapDuration = 0.5;
-const snapDelay = 0.7
-
-const sections = document.querySelectorAll("#main-section .single-section, .double-section");
-
-let enteredSections = [];
-
-sections.forEach((section) => {
-  let id = section.id;
-  ScrollTrigger.create({
-    id: id,
-    trigger: `#${id}`,
-    start: "top bottom",
-    end: "bottom top+=1",
-    onEnter: () => {
-      enteredSections.push(id);
-      // console.log(enteredSections);
-      setTimeout(() => {
-        if (enteredSections[enteredSections.length - 1] === id) {
-          // console.log(`${id} was the last accessed`);
-          goToSection(id);
-        }
-      }, snapDelay * 1000);
-
-      setTimeout(() => {
-        enteredSections = [];
-      }, 1000);
-    },
-    onEnterBack: () => {
-      enteredSections.push(id);
-      // console.log(enteredSections);
-      setTimeout(() => {
-        if (enteredSections[enteredSections.length - 1] === id) {
-          // console.log(`${id} was the last accessed`);
-          goToSection(id);
-        }
-      }, snapDelay * 1000);
-      
-      setTimeout(() => {
-        enteredSections = [];
-      }, 1000);
-    }
-  });
-});
-
-function goToSection(section) {
-  moveNavbarBackground(section)
-  gsap.to(window, {
-    scrollTo: {y: `#${section}`, autoKill: true},
-    duration: snapDuration
-  });
-}
-
-// - - - pin about-me - - -
+setUpAnimation("start", await currentTheme);
 
 ScrollTrigger.create({
-  // markers: {startColor: "yellow", endColor: "blue"},
-  id: "about-me-pin",
-  trigger: "#about-me",
-  start: "top top",
-  end: "bottom bottom",
-  pin: true,
-  onUpdate: (self) => {
-    if (self.progress > 0.7) {
-      document.querySelector("#skillset").classList.remove("is-skillset-contracted");
-      document.querySelector("#who-am-i").classList.add("is-about-me-contracted");
-    } else {
-      document.querySelector("#skillset").classList.add("is-skillset-contracted");
-      document.querySelector("#who-am-i").classList.remove("is-about-me-contracted");
-    }
-  }
-});
-
-// - - - Navigation with navbar - - -
-
-// Basic anchor navigation
-const links = document.querySelectorAll("#logo,#index .link");
-moveNavbarBackground("main-page");
-
-let pinTrig = ScrollTrigger.getById("about-me-pin");
-let snapTrig = ["main-page", "about-me", "my-portfolio", "contact"];
-
-// When user clicks on the link from navbar, it scrolls to the corresponding section, while disabling temporarily the corresponding ScrollTrigger instance when navigating navbar to avoid massive epylepsia
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    let sectionId = link.getAttribute("data-navigation-section");
-    moveNavbarBackground(sectionId);
-
-    snapTrig.forEach((id) => ScrollTrigger.getById(id).disable(false, false));
-    // console.log("Scrollers disabled");
-    pinTrig.disable();
-    
-    gsap.to(window, {
-      // scrollTo: {y: `#${sectionId}`, autoKill: false}, what does autokill do?
-      scrollTo: {y: `#${sectionId}`},
-      duration: snapDuration - 0.2
-    });
-    
-    setTimeout(() => {
-      pinTrig.enable(false, true);
-      snapTrig.forEach((id) => ScrollTrigger.getById(id).enable(false, false));
-      // console.log("Scrollers enabled!");
-    }, snapTrig * 1000);
-
-  });
-})
-
-function moveNavbarBackground(selector) {
-  let vPortHeight = window.innerHeight;
-  let element = document.querySelector(`[data-navigation-section=${selector}]`);
-  let elemPosition = Math.floor(element.getBoundingClientRect().top);
-  let elemHeight = element.offsetHeight + 5;
-
-  gsap.to("#container1", {height: elemPosition});
-  gsap.to("#gap", {height: elemHeight});
-  gsap.to("#container2", {height: vPortHeight - elemHeight - elemPosition});
-}
-
-// - - - Mobile navbar deployment - - -
-
-const navbarTab = document.querySelector("#navbar-tab");
-
-// const navTL = gsap.to("#navbar", {
-//   duration: 0.5,
-//   className: "+=is-navbar-expanded"
-// })
-const navTL = gsap.timeline({reversed: false});
-navTL
-  .to("#navbar", {x: 0, duration: 0.3, ease: "none"}, "0")
-  .to("#navbar #logo", {x: 0, duration: 0.3, ease: "none"}, "0");
-navbarTab.addEventListener("click", () => {
-  // navTL.paused(false);
-  navTL.reversed(!navTL.reversed());
+  markers: {startColor: "yellow", endColor: "red"},
+  id: "main-page-pin",
+  trigger: "#main-page",
+  start: "top top+=1",
+  end: "+=200% bottom-=1",
+  onEnter: playAnimation,
+  onEnterBack: playAnimation,
+  onLeave: pauseAnimation
 });
 
 /**
- * Some alternatives:
+ * Sets up a random animation from the specified type, ready to be played
+ * @function setUpAnimation
+ * @param {string} type Type of animation to set up
+ */
+async function setUpAnimation(type, theme) {
+  images = [];
+  animationHasLoaded = false;
+  console.log("Animation hasn't loaded!");
+  console.log(theme);
+
+  let animationIndex = Math.floor(Math.random() * animations[type][theme].length);
+  let folderName = animations[type][theme][animationIndex].folderName;
+  let frameCount = animations[type][theme][animationIndex].frameCount;
+  let duration = animations[type][theme][animationIndex].duration;
+
+  /*
+  for (let i = 1; i <= frameCount; i++) {
+    let promise = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = fullRoute(i);
+      img.addEventListener("load", () => {
+        resolve(img);
+      });
+      img.addEventListener("error", () => {
+        reject(Error("Unable to load image"));
+      });
+    });
+    images.push(promise);
+  }
+  images = await Promise.all(images);
+  */
+
+  console.log(theme, folderName, frameCount, duration, fullRoute(1));
+
+  animationTween = gsap.to(cattos, {
+    frame: frameCount - 1,
+    snap: "frame",
+    duration: duration,
+    ease: "none",
+    // onUpdate: render,
+    paused: true
+  });
+  animationHasLoaded = true;
+  console.log("Animation has loaded!");
+
+  function fullRoute(index) {
+    return `/public/video/${folderName}/pic${index.toString().padStart(5, '0')}.png`;
+  }
+}
+
+/**
+ * Checks if the animation is ready to be played, and plays it
+ * @function playAnimation
+ */
+function playAnimation() {
+  console.log("Entered!");
+  let checkInterval = setInterval(() => {
+    if (animationHasLoaded) {
+      playVideo();
+    } else {
+      return;
+    }
+  }, 1000);
+
+  if (animationHasLoaded) playVideo();
+
+  function playVideo() {
+    clearInterval(checkInterval);
+    console.log("Play animation!");
+    animationTween.play();
+  }
+}
+
+/**
+ * Restarts and pauses the current animation
+ * @function pauseAnimation
+ */
+function pauseAnimation() {
+  console.log("Leave!");
+  setUpAnimation("currentSession", currentTheme);
+  animationTween.restart();
+  animationTween.pause();
+  console.log("Pause animation!");
+}
+
+/**
+ * Draws each frame of the set animation in the canvas
+ * @function render
+ */
+function render() {
+  let image = images[cattos.frame];
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+}
+
+/**
+ * Some thoughts...
+ * -> Instead of controlling your animations using ScrollTrigger, play them as a video inside the canvas.
+ * -> Figure out a way to play the video using GSAP or whatever you want. For this, you can create a tween and insert the ScrollTrigger inside of it, or create a new ScrollTrigger and set its onEnter, onEnterBack, onLeave methods to control the animations.
+ * -> Play different animations depending on the trigger for each section.
+ * For main page, for example: Play an animation when the user first visits the page; play another animation as the user enters the section again from below. Play another animation as the user visits the webpage...
  * 
- * -> Disable about-me-pin ScrollTrigger when clicking the navbar, but not with regular scrolling.
- * status: DONE
- * 
- * -> Try to implement ScrollTrigger on timelines or tweens to avoid using 'onEnter', 'onEnterBack' callbacks that mess up with shit.
- * status: PENDING
- * 
- * -> Implement 'scrollStart' and 'scrollEnd' events to disable unintended snapping while scrolling really fast.
- * status: PENDING
- * 
- * -> In case your current solution doesn't work, try to obtain some parameter that characterizes the active section from the rest and scroll to that one at the end (just like you did earlier, but with other parameter)
- * status: HOPE NOT TO USE IT
- * 
- * -> Set dynamic snapping. Deactivate ScrollTrigger when the user is still scrolling.
- * status: VERY LIKELY TO IMPLEMENT
+ * Use Python > rembg: https://github.com/danielgatis/rembg
  */

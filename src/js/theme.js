@@ -1,8 +1,6 @@
 import * as SwitchHandler from './dom-element-handler/switch-handler.js';
 import database from './storage/database-object.js';
 import * as DatabaseInfoModule from './storage/information-management-module.js';
-// import database from '../../storage/database-object.js';
-
 
 /**
  * This is the theme module for Customization functionality.<br>
@@ -11,7 +9,7 @@ import * as DatabaseInfoModule from './storage/information-management-module.js'
  * @module Customization/theme
  */
 
-retrieveTheme();
+window.currentTheme = retrieveTheme();
 
 SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
   leftValue: "dark-theme",
@@ -25,6 +23,7 @@ SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
  * @param {string} newTheme Name of the theme to display on the screen
  */
 function renderTheme(classTheme) {
+  window.currentTheme = classTheme;
   let body = document.querySelector("body");
   body.className = "shared";
   body.classList.add(classTheme);
@@ -56,8 +55,8 @@ async function retrieveTheme() {
       leftValue: "dark-theme",
       rightValue: "light-theme"
     }, retrievedTheme);
+  return retrievedTheme;
 }
-
 
 /**
  * Some things that you must do:

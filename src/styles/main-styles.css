@@ -67,6 +67,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 300ms ease-out;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #navbar {
@@ -1024,9 +1025,15 @@ a {
 }
 
 #gap {
-  opacity: 0;
   width: 100%;
   height: 20%;
+  transition: background 400ms ease-out;
+}
+
+@media (min-width: 0px) and (max-width: 1024px) {
+  .gap-background {
+    background: linear-gradient(90deg, var(--gapColorLeft) 85%, var(--gapColorRight) 100%);
+  }
 }
 
 #logo {
@@ -1040,7 +1047,8 @@ a {
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #logo {
-    transform: translateX(90%);
+    transform: translateX(85%);
+    transition: transform 400ms ease-out;
   }
 }
 
@@ -1412,6 +1420,8 @@ a {
 
 .dark-theme {
   --navbarColor: hsla(0, 0%, 0%, 0.8);
+  --gapColorLeft: hsl(209, 100%, 35%);
+  --gapColorRight: hsla(0, 0%, 0%, 0);
   --generalBorderColor: hsla(0, 0%, 28%, 1);
   --logoLightColor: hsla(0, 0%, 83%, 1);
   --logoDarkColor: hsla(0, 0%, 46%, 1);
@@ -1435,7 +1445,9 @@ a {
 }
 
 .light-theme {
-  --navbarColor: hsla(0, 0%, 100%, 0.7);
+  --navbarColor: hsla(0, 0%, 100%, 0.9);
+  --gapColorLeft: hsl(209, 84%, 80%);
+  --gapColorRight: hsla(0, 0%, 100%, 0);
   --generalBorderColor: hsla(0, 0%, 61%, 1);
   --logoLightColor: hsla(0, 0%, 61%, 1);
   --logoDarkColor: hsla(0, 0%, 32%, 1);
@@ -1446,7 +1458,7 @@ a {
   --cardColor: hsla(0, 0%, 100%, 0.6);
   --fieldColor: hsla(0, 0%, 90%, 0.9);
   --background: linear-gradient(100.45deg, #D7D7D7 6.49%, #F4F4F4 97.66%);
-  --scrollColor: hsla(209, 84%, 72%, 1);
+  --scrollColor: hsla(209, 84%, 60%, 1);
   --signatureFillColor: hsla(0, 0%, 40%, 1);
   --titleColor: hsla(0, 0%, 44%, 1);
   --subtitleColor: hsla(0, 0%, 50%, 1);
