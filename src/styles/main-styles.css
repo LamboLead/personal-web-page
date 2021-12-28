@@ -284,9 +284,6 @@ a {
   font-size: clamp(1rem, 1.5vw, 1.8rem);
 }
 
-#title-animation {
-  background: #FFFFFF99;
-}
 @media (min-width: 0px) and (max-width: 1024px) {
   #title-animation {
     width: 100%;
@@ -304,6 +301,7 @@ a {
 #title-animation canvas {
   width: 100%;
   height: 100%;
+  transition: opacity 800ms ease-in;
 }
 
 #about-me {
@@ -1400,6 +1398,10 @@ a {
 }
 .is-logo-contracted .bright-L, .is-logo-contracted .full-tyre-mask-group {
   transform: scale(1.25);
+}
+
+.is-animation-loading {
+  opacity: 0 !important;
 }
 
 .shared {

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main-styles.css">
-  <title>LamboLead</title>
+  <title>LamboLead | Freelance fullstack web developer</title>
 </head>
 <body>
 
@@ -169,7 +169,7 @@
   <main id="main-section">
     <section id="main-page" class="single-section">
       <div id="title-animation">
-        <canvas id="cat-canvas"></canvas>
+        <canvas id="mainPageAnimation" class="is-animation-loading"></canvas>
       </div>
 
       <div class="main-content-main-page">
@@ -577,8 +577,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
   <script type="module" src="js/storage/database-object.js"></script>
   <script src="./js/scrolling-related.js"></script>
-  <script type="module" src="./js/theme.js" defer></script>
-  <!-- <script type="module" src="./js/test.js"></script> -->
-  <script type="module" src="./js/animations.js"></script>
+  <script type="module" src="./js/theme.js"></script>
+  <script type="module" src="./js/test-animation.js"></script>
+  <!-- <script type="module" src="./js/animation-manager.js"></script> -->
+  <!-- <script type="module" src="./js/animations/main-page.js"></script> -->
 </body>
 </html>
