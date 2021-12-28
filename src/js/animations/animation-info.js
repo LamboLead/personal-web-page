@@ -9,48 +9,98 @@ const animations = {
       end: "+=200% bottom-=1"
     },
     startSession: {
-      "dark-theme": [
-        {
-          folderName: "dark-theme/catto",
-          frameCount: 132,
-          duration: 6
-        }
-      ],
-      "light-theme": [
-        {
-          folderName: "light-theme/catto",
-          frameCount: 103,
-          duration: 6
-        }
-      ]
+      "vertical": {
+        "dark-theme": [
+          {
+            folderName: "dark-theme/catto-vertical",
+            frameCount: 149,
+            duration: 6
+          }
+        ],
+        "light-theme": [
+          {
+            folderName: "light-theme/catto-vertical",
+            frameCount: 103,
+            duration: 6
+          }
+        ]
+      },
+      "horizontal": {
+        "dark-theme": [
+          {
+            folderName: "dark-theme/catto-horizontal",
+            frameCount: 146,
+            duration: 6
+          }
+        ],
+        "light-theme": [
+          {
+            folderName: "light-theme/catto-horizontal",
+            frameCount: 3,
+            duration: 3
+          }
+        ]
+      }
     },
     currentSession: {
-      "dark-theme": [
-        {
-          folderName: "dark-theme/catto-blue",
-          frameCount: 101,
-          duration: 6
-        },
-        {
-          folderName: "dark-theme/catto-red",
-          frameCount: 101,
-          duration: 6
-        }
-      ],
-      "light-theme": [
-        {
-          folderName: "light-theme/catto-blue",
-          frameCount: 104,
-          duration: 6
-        },
-        {
-          folderName: "light-theme/catto-red",
-          frameCount: 97,
-          duration: 6
-        }
-      ]
+      "vertical": {
+        "dark-theme": [
+          {
+            folderName: "dark-theme/catto-blue-vertical",
+            frameCount: 151,
+            duration: 6
+          },
+          {
+            folderName: "dark-theme/catto-red-vertical",
+            frameCount: 141,
+            duration: 6
+          }
+        ],
+        "light-theme": [
+          {
+            folderName: "light-theme/catto-blue-vertical",
+            frameCount: 104,
+            duration: 6
+          },
+          {
+            folderName: "light-theme/catto-red-vertical",
+            frameCount: 97,
+            duration: 6
+          }
+        ]
+      },
+      "horizontal": {
+        "dark-theme": [
+          {
+            folderName: "dark-theme/catto-blue-horizontal",
+            frameCount: 148,
+            duration: 6
+          },
+          {
+            folderName: "dark-theme/catto-red-horizontal",
+            frameCount: 148,
+            duration: 6
+          }
+        ],
+        "light-theme": [
+          {
+            folderName: "light-theme/catto-blue-horizontal",
+            frameCount: 3,
+            duration: 3
+          },
+          {
+            folderName: "light-theme/catto-red-horizontal",
+            frameCount: 3,
+            duration: 3
+          }
+        ]
+      }
     }
   }
+  // contactAnimation: {
+  //   info: {},
+  //   currentSession: {"vertical": {},"horizontal": {}}
+  // }
 }
 
 export default animations;

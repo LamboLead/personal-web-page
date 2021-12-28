@@ -18,12 +18,15 @@ class AnimationManager {
         start: anim.start,
         end: anim.end,
         onEnter: () => {
+          console.log("Entered!", element);
           this.playAnimation(element);
         },
         onEnterBack: () => {
+          console.log("Entered back!", element);
           this.playAnimation(element);
         },
         onLeave: () => {
+          console.log("Left!", element);
           this.setNewAnimation(element);
         },
       });
@@ -34,12 +37,14 @@ class AnimationManager {
     console.table("Load animation!", {name: name, type: type, theme: theme});
 
     let animation = new Animation(name);
+    
     this.animations[name] = animation;
     console.log("Animation hasn't loaded!");
     
     // Load frames from server
     let frames = [];
-    let animationInfo = animations[name][type][theme];
+    let orientation = this.checkOrientation(name);
+    let animationInfo = animations[name][type][orientation][theme];
     let index = Math.floor(Math.random() * animationInfo.length);
     let folderName = animationInfo[index].folderName;
     let frameCount = animationInfo[index].frameCount;
@@ -62,6 +67,7 @@ class AnimationManager {
     // Set up all animation elements
     animation.imageFrames = await Promise.all(frames);
     animation.canvas = document.getElementById(name);
+    animation.orientation = orientation;
     animation.tween = gsap.to(animation, {
       currentFrame: frameCount - 1,
       snap: "currentFrame",
@@ -70,15 +76,20 @@ class AnimationManager {
       onUpdate: () => animation.render(),
       paused: true
     });
-    animation.hasLoaded = true;
+
+    // Set up rescaling
+    let canvas = document.getElementById(name);
+    canvas.width = animation.imageFrames[0].naturalWidth;
+    canvas.height = animation.imageFrames[0].naturalHeight;
 
     // Update the current animation
     this.animations[name] = animation;
 
+    animation.hasLoaded = true;
     console.log("Animation has loaded!");
 
     function fullRoute(index) {
-      return `/public/video/${folderName}/pic${index.toString().padStart(5, '0')}.png`;
+      return `/public/video/${folderName}/pic${index.toString()}.png`;
     }
   }
 
@@ -106,6 +117,15 @@ class AnimationManager {
     console.log(this.animations);
     this.animations[name].restart();
   }
+
+  checkOrientation(name) {
+    let canvas = document.getElementById(name);
+    if (canvas.clientHeight > canvas.clientWidth) {
+      return "vertical";
+    } else {
+      return "horizontal";
+    }
+  }
 }
 
 class Animation {
@@ -117,6 +137,7 @@ class Animation {
     this.currentFrame = 0;
     this.hasLoaded = false;
     this.isPlaying = false;
+    this.orientation = undefined;
   }
   play() {
     console.log("Animation is being played")
