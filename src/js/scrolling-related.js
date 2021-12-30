@@ -77,7 +77,7 @@ function goToSection(section) {
   });
 }
 
-// - - - pin about-me - - -
+// - - - pin about-me, motionPath animation - - -
 
 ScrollTrigger.create({
   // markers: {startColor: "yellow", endColor: "blue"},
@@ -87,7 +87,8 @@ ScrollTrigger.create({
   end: "bottom bottom",
   pin: true,
   onUpdate: (self) => {
-    if (self.progress > 0.7) {
+    // console.log(self.progress);
+    if (self.progress > 0.6) {
       document.querySelector("#skillset").classList.remove("is-skillset-contracted");
       document.querySelector("#who-am-i").classList.add("is-about-me-contracted");
     } else {
@@ -96,6 +97,48 @@ ScrollTrigger.create({
     }
   }
 });
+
+let pathTween = gsap.to("#rect", {
+  duration: 5,
+  motionPath: {
+    path: "#path",
+    align: "#align",
+    autoRotate: true,
+    alignOrigin: [0.5, 0.5]
+  },
+  paused: true
+});
+
+ScrollTrigger.create({
+  markers: true,
+  trigger: "#who-am-i",
+  start: "top-=10% top",
+  end: "bottom+=90% bottom",
+  onEnter: () => pathTween.play(),
+  onEnterBack: () => pathTween.reverse(),
+  onLeave: () => pathTween.pause()
+});
+// animation = gsap.to("#motionSVG", {
+//   scrollTrigger: {
+//     trigger: "#motionPath",
+//     start: "top 20%",
+//     end: "bottom 20%",
+//     scrub: 1,
+//     //markers: true,
+//     onUpdate: self => {
+//       gsap.to("#tractor", {rotation: () => self.direction === 1 ? 0 : -180, overwrite: 'auto'});
+//     }
+//   },
+//   duration: 10,
+//   ease: "none",
+//   immediateRender: true,
+//   motionPath: {
+//     path: "#motionPath",
+//     align: "#motionPath",
+//     alignOrigin: [0.5, 0.5],
+//     autoRotate: 90,
+//   }
+// });
 
 // - - - Navigation with navbar - - -
 

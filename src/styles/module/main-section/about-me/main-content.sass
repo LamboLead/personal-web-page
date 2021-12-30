@@ -28,7 +28,9 @@
     height: 43%
     // padding-block: clamp(10px, 6vw, 50px)
   @include screen-width($desktop...)
+    // Change heights depending on the size of the parent
     height: 40%
+    // height: 80%
     justify-content: center
 
   .info-wrapper
@@ -74,13 +76,19 @@
         font-size: clamp(1rem, 1.5vw, 1.6rem)
 
   .animation-wrapper
-    background: rgba(255, 255, 255, 0.5)
+    // background: lightgray
 
     @include screen-width($phone...)
       height: 20%
       // margin-block: 0.5rem
     @include screen-width($desktop...)
-      height: 30%
+      height: 40%
+      justify-content: flex-start
+      align-items: center
+
+    svg
+      width: 90%
+      height: 95%
 
 .scrolling-arrows-about-me
   position: relative !important
@@ -98,9 +106,11 @@
     padding-block: 2vh
     height: 39%
   @include screen-width($desktop...)
+    // Change heights depending on the size of the parent
+    height: 40%
+    // height: 80%
     flex-direction: row
     justify-content: center
-    height: 40%
     padding-block: 4vh 7vh
 
   svg
