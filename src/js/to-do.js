@@ -19,6 +19,6 @@
 /**
  * For tomorrow:
  * -> Fix loader logo animation (try by separating stuff by SVG elements).
- * -> Investigate about performance tracking
- * -> Implement performance tracking, that at least retrieves useful performance information to render certain resources
+ * -> Investigate about performance tracking. [DONE]
+ * -> Implement performance tracking, that at least network performance information to render certain resources dinamically. [IN PROGRESS]
  */

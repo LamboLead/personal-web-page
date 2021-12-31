@@ -1,33 +1,18 @@
-let loaderLogo = document.getElementById("loader-main-logo");
+// Animate loader logo & set up progressbar
 
-gsap.set("#loader-logo #ambo, #loader-logo #ead", {
-  opacity: 0
-});
 
-gsap.set("#loader-logo .dark-logo", {
-  x: "-100vw",
-  svgOrigin: "0 0",
-})
-// gsap.set("#smoke-clouds-1", {
-//   opacity: 0
-// })
-// gsap.set("#smoke-clouds-2", {
-//   opacity: 0
-// })
-// gsap.set("#smoke-clouds-3", {
-//   opacity: 1,
-//   x: "-100vw",
-//   svgOrigin: "0 0"
-// })
+// Retrieve network & user info
+let networkSpeed = window.navigator.connection.downlink;
+console.log(networkSpeed);
+if (networkSpeed > 3) {
+  // Load heavy theme
+  import ("./theme/theme-full.js");
+} else {
+  // Load light theme
+  import ("./theme/theme-light.js");
+}
 
-// gsap.to("#loader-logo .dark-logo", {
-//   delay: 3,
-//   duration: 3,
-//   x: "-24%"
-// })
-gsap.to("#loader-logo #full-tyre", {
-  delay: 1,
-  rotate: 3600,
-  duration: 3,
-  transformOrigin: "50% 50%"
-})
+// Set up worker
+// const netPerformanceWorker = new Worker("./performance.js", {name: "performanceWorker"});
+
+// netPerformanceWorker.postMessage("whatever")

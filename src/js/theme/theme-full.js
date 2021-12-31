@@ -1,17 +1,15 @@
 /**
- * This is the theme module for Customization functionality.<br>
- * It exports functions related to the interaction and modification of the theme of the interface.<br><br>
- * Imports: {@link module:DOMElementHandler|DOMElementHandler (module)}, {@link module:Storage/database|database (object)}, {@link module:Storage/information-management|information-management (module)}
- * @module Customization/theme
+ * Full theme module. Loaded if the network speed is more than 3Mb/s
  */
 
-import * as SwitchHandler from './dom-element-handler/switch-handler.js';
-import database from './storage/database-object.js';
-import * as DatabaseInfoModule from './storage/information-management-module.js';
-import animationManager from './test-animation.js';
+import * as SwitchHandler from '../dom-element-handler/switch-handler.js';
+import database from '../storage/database-object.js';
+import * as DatabaseInfoModule from '../storage/information-management-module.js';
+import animationManager from '../animations/animations-full.js';
 
 let firstTime = true;
 
+// Anonymous asynchronous function that waits for currentTheme to render the according animation
 (async () => {
   animationManager.currentTheme = await retrieveTheme();
   animationManager.loadAnimation(animationManager.currentSection, "startSession", animationManager.currentTheme);
@@ -24,35 +22,20 @@ SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
 });
 
 /**
- * Renders the specified theme on the screen and saves it into the database
+ * Renders the specified theme and its corresponding animation on the screen and saves it into the database
  * @function renderTheme
- * @param {string} newTheme Name of the theme to display on the screen
+ * @param {string} classTheme Name of the theme to display on the screen
  */
-
 function renderTheme(classTheme) {
-  // Change theme
+  // Change theme in animationManager and render according animation
   animationManager.currentTheme = classTheme;
-
   let currentSection = animationManager.currentSection;
-
   if (!firstTime) {
     animationManager.setNewAnimation(currentSection);
     animationManager.playAnimation(currentSection);
   } else {
     firstTime = false;
   }
-
-  /**
-   * Change theme
-   * See if it's the first time on the page
-   * 
-   * If false:
-   * Read which animation is being displayed
-   * Stup current animation
-   * 
-   * Load new animation based on new theme
-   * Play new animation
-   */
 
   // Render theme
   let body = document.querySelector("body");

@@ -14,14 +14,16 @@ const animations = {
           {
             folderName: "dark-theme/catto-vertical",
             frameCount: 149,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           }
         ],
         "light-theme": [
           {
             folderName: "light-theme/catto-vertical",
             frameCount: 103,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           }
         ]
       },
@@ -30,14 +32,16 @@ const animations = {
           {
             folderName: "dark-theme/catto-horizontal",
             frameCount: 146,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           }
         ],
         "light-theme": [
           {
             folderName: "light-theme/catto-horizontal",
             frameCount: 3,
-            duration: 3
+            duration: 3,
+            bestFrame: 2
           }
         ]
       }
@@ -48,24 +52,28 @@ const animations = {
           {
             folderName: "dark-theme/catto-blue-vertical",
             frameCount: 151,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           },
           {
             folderName: "dark-theme/catto-red-vertical",
             frameCount: 141,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           }
         ],
         "light-theme": [
           {
             folderName: "light-theme/catto-blue-vertical",
             frameCount: 104,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           },
           {
             folderName: "light-theme/catto-red-vertical",
             frameCount: 97,
-            duration: 6
+            duration: 6,
+            bestFrame: 50
           }
         ]
       },
@@ -74,24 +82,28 @@ const animations = {
           {
             folderName: "dark-theme/catto-blue-horizontal",
             frameCount: 148,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           },
           {
             folderName: "dark-theme/catto-red-horizontal",
             frameCount: 148,
-            duration: 6
+            duration: 6,
+            bestFrame: 100
           }
         ],
         "light-theme": [
           {
             folderName: "light-theme/catto-blue-horizontal",
             frameCount: 3,
-            duration: 3
+            duration: 3,
+            bestFrame: 2
           },
           {
             folderName: "light-theme/catto-red-horizontal",
             frameCount: 3,
-            duration: 3
+            duration: 3,
+            bestFrame: 2
           }
         ]
       }

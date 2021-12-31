@@ -1,16 +1,29 @@
-import animations from "./animations/animation-info.js";
+/**
+ * Full animations module. Loaded if full theme module is imported
+ */
 
+import animations from "./animation-info.js";
+
+/**
+ * Class that creates an AnimationManager object
+ * @class
+ */
 class AnimationManager {
+
+  /** @constructs */
   constructor() {
     this.animations = {};
     this.currentTheme = undefined;
     this.currentSection = undefined;
   }
 
+  /**
+   * Creates all the ScrollTrigger instances to interact with the animations
+   */
   initialize() {
     // Create all ScrollTrigger instances
     Object.keys(animations).forEach((element) => {
-      let anim = animations[element].info
+      let anim = animations[element].info;
       ScrollTrigger.create({
         markers: anim.markers,
         id: anim.id,
@@ -28,11 +41,17 @@ class AnimationManager {
         onLeave: () => {
           console.log("Left!", element);
           this.setNewAnimation(element);
-        },
+        }
       });
     });
   }
 
+  /**
+   * Loads the specified animation
+   * @param {string} name Name of the animation to load
+   * @param {string} type Type of the animation to load
+   * @param {string} theme Corresponding theme of the animation to load
+   */
   async loadAnimation(name, type, theme) {
     console.table("Load animation!", {name: name, type: type, theme: theme});
 
@@ -66,7 +85,6 @@ class AnimationManager {
 
     // Set up all animation elements
     animation.imageFrames = await Promise.all(frames);
-    animation.canvas = document.getElementById(name);
     animation.orientation = orientation;
     animation.tween = gsap.to(animation, {
       currentFrame: frameCount - 1,
@@ -93,6 +111,10 @@ class AnimationManager {
     }
   }
 
+/**
+ * Plays the specified animation
+ * @param {string} name Name of the animation to play
+ */
   playAnimation(name) {
     let animation = this.animations[name];
     this.currentSection = name;
@@ -112,12 +134,21 @@ class AnimationManager {
     }
   }
 
+/**
+ * Loads and plays a new animation
+ * @param {string} name Name of the animation to stop
+ */
   setNewAnimation(name) {
     this.loadAnimation(name, "currentSession", this.currentTheme);
     console.log(this.animations);
     this.animations[name].restart();
   }
 
+/**
+ * Checks the actual orientation of the canvas to display the correct animation
+ * @param {string} name Name of the animation that will be set up
+ * @returns {string}
+ */
   checkOrientation(name) {
     let canvas = document.getElementById(name);
     if (canvas.clientHeight > canvas.clientWidth) {
@@ -128,7 +159,16 @@ class AnimationManager {
   }
 }
 
+/**
+ * Class that creates an Animation object
+ * @class
+ */
 class Animation {
+
+  /**
+   * @constructs
+   * @param {string} name Name of the animation to be created
+   */
   constructor(name) {
     this.name = name;
     this.canvas = document.getElementById(name);
@@ -139,19 +179,23 @@ class Animation {
     this.isPlaying = false;
     this.orientation = undefined;
   }
+  /** Plays the animation */
   play() {
     console.log("Animation is being played")
     this.isPlaying = true;
     this.canvas.classList.remove("is-animation-loading");
     this.tween.play();
   }
+  /** Pauses the animation */
   pause() {
     this.isPlaying = false;
     this.tween.pause();
   }
+  /** Hides the animation */
   restart() {
     this.canvas.classList.add("is-animation-loading");
   }
+  /** Renders the animation in its canvas */
   render() {
     let canvas = this.canvas;
     let context = canvas.getContext("2d");

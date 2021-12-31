@@ -58,7 +58,7 @@ a {
   justify-content: center;
   align-items: center;
   z-index: 50;
-  background: var(--loaderBackgroundColor);
+  background: black;
 }
 
 #navbar {
@@ -1329,6 +1329,15 @@ a {
 .is-loader-invisible {
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+.is-loading-website::-webkit-scrollbar {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.is-loading-website #main-section {
+  display: none !important;
+  pointer-events: !important;
 }
 
 .is-about-me-contracted {
