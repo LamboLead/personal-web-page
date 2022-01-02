@@ -113,7 +113,7 @@
           </svg>
                   
         </div>
-        <span class="link-text">About me</span>
+        <span class="link-text" data-lang="index-about-me">About me</span>
       </a>
       <a class="link" data-navigation-section="my-portfolio">
         <div class="link-logo">
@@ -124,7 +124,7 @@
           </svg>
 
         </div>
-        <span class="link-text">My portfolio</span>
+        <span class="link-text" data-lang="index-my-portfolio">My portfolio</span>
       </a>
       <a class="link" data-navigation-section="contact">
         <div class="link-logo">
@@ -133,23 +133,42 @@
           </svg>
 
         </div>
-        <span class="link-text">Contact</span>
+        <span class="link-text" data-lang="index-contact">Contact</span>
       </a>
     </div>
 
     <div id="customization">
       <div class="change-theme">
-        <span>Theme</span>
+        <span data-lang="theme-theme">Theme</span>
         <div class="switch-container-div">
           <div class="inside-switch-div">
-            <span class="mode-span is-switch-light">Light</span>
+            <span class="mode-span is-switch-light" data-lang="theme-light">Light</span>
             <div class="switch-leg-div"></div>
-            <span class="mode-span is-switch-dark">Dark</span>
+            <span class="mode-span is-switch-dark" data-lang="theme-dark">Dark</span>
           </div>
         </div>
       </div>
       <div class="change-background">
         <!-- Section in which the user will change the page's background at will -->
+      </div>
+    </div>
+
+    <div id="language">
+      <div class="change-language">
+        <span data-lang="language">Language</span>
+        <!-- <div class="drop-container-div">
+          <div class="drop-display-container-div">
+            <span class="drop-display">Option2</span>
+            <div class="drop-arrow"></div>
+          </div>
+          <div class="drop-option-container-div">
+            <span>Option1</span>
+            <span>Option2</span>
+            <span>Option3</span>
+            <span>Option4</span>
+            <span>Option5</span>
+          </div>
+        </div> -->
       </div>
     </div>
 
@@ -195,15 +214,15 @@
       </div>
 
       <div class="main-content-main-page">
-        <h1 class="main-title">Juan David López</h1>
+        <h1 class="main-title" data-lang="main-page-title">Juan David López</h1>
         <div class="subtitle">
           <span>@Lambolead</span>
           <span>-</span>
-          <span>Freelance web developer</span>
+          <span data-lang="main-page-subtitle">Freelance web developer</span>
         </div>
         <div class="button-wrapper">
-          <button id="projects" class="call-to-action emphasis-button">Wanna see my projects?</button>
-          <button id="know-more" class="call-to-action emphasis-button">Know more about me</button>
+          <button id="projects" class="call-to-action emphasis-button" data-lang="main-page-button-1">Wanna see my projects?</button>
+          <button id="know-more" class="call-to-action emphasis-button" data-lang="main-page-button-2">Know more about me</button>
         </div>
       </div>
 
@@ -219,10 +238,10 @@
 
       <div class="main-content-about-me">
         <div id="who-am-i" class="about-me-card">
-          <span class="contracted-subtitle">Who am I / What can I do for you?</span>
+          <span class="contracted-subtitle" data-lang="about-me-whoami-contracted-subtitle">Who am I / What can I do for you?</span>
           <div class="info-wrapper">
-            <span class="about-me-subtitle who-am-i-subtitle">Who am I?</span>
-            <span class="about-me-info">I am a freelance web developer and designer that can help you build the website that suits your needs.</span>
+            <span class="about-me-subtitle who-am-i-subtitle" data-lang="about-me-whoami-subtitle-1">Who am I?</span>
+            <span class="about-me-info" data-lang="about-me-whoami-text-1">I am a freelance web developer and designer that can help you build the website that suits your needs.</span>
           </div>
           <div class="info-wrapper animation-wrapper">
             <svg width="5337" height="1094" viewBox="0 0 5337 1094" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -231,8 +250,8 @@
               </svg>
           </div>
           <div class="info-wrapper">
-            <span class="about-me-subtitle who-am-i-subtitle">What can I do for you?</span>
-            <span class="about-me-info">From visually appealing, functional and efficient websites, to system architecture and logo design; I can help you grow your business, improve your online presence, build confidence in your clients, and much more.</span>
+            <span class="about-me-subtitle who-am-i-subtitle" data-lang="about-me-whoami-subtitle-2">What can I do for you?</span>
+            <span class="about-me-info" data-lang="about-me-whoami-text-2">From visually appealing, functional and efficient websites, to system architecture and logo design; I can help you grow your business, improve your online presence, build confidence in your clients, and much more.</span>
           </div>
         </div>
 
@@ -245,27 +264,27 @@
 
         <div id="skillset" class="about-me-card is-skillset-contracted">
 
-          <span class="contracted-subtitle">Skillset</span>
+          <span class="contracted-subtitle" data-lang="about-me-skillset-title">Skillset</span>
 
-          <span class="about-me-subtitle skillset-subtitle">Skillset</span>
+          <span class="about-me-subtitle skillset-subtitle" data-lang="about-me-skillset-title">Skillset</span>
           <div class="skillset-info-wrapper">
-            <span class="skill-subtitle">Front End</span>
+            <span class="skill-subtitle" data-lang="about-me-skillset-subtitle-1">Front End:</span>
             <ul>
-              <li>Fundamentals: HTML, CSS, and JavaScript.</li>
-              <li>Frameworks & libraries: React, Vue, SASS.</li>
+              <li data-lang="about-me-skillset-text-1-1">Fundamentals: HTML, CSS, and JavaScript.</li>
+              <li data-lang="about-me-skillset-text-1-2">Frameworks & libraries: React, Vue, SASS.</li>
             </ul>
-            <span class="skill-subtitle">Back End:</span>
+            <span class="skill-subtitle" data-lang="about-me-skillset-subtitle-2">Back End:</span>
             <ul>
-              <li>NodeJS with Express.</li>
-              <li>PHP.</li>
-              <li>Databases: Relational (SQL) and non-relational (MongoDB).</li>
+              <li data-lang="about-me-skillset-text-2-1">NodeJS with Express.</li>
+              <li data-lang="about-me-skillset-text-2-2">PHP.</li>
+              <li data-lang="about-me-skillset-text-2-3">Databases: Relational (SQL) and non-relational (MongoDB).</li>
             </ul>
-            <span class="skill-subtitle">Other:</span>
+            <span class="skill-subtitle" data-lang="about-me-skillset-subtitle-3">Other:</span>
             <ul>
-              <li>VCS: Git & GitHub.</li>
-              <li>Design: Figma.</li>
-              <li>Automation: Python, AutoIT.</li>
-              <li>Website deployment.</li>
+              <li data-lang="about-me-skillset-text-3-1">VCS: Git & GitHub.</li>
+              <li data-lang="about-me-skillset-text-3-2">Design: Figma.</li>
+              <li data-lang="about-me-skillset-text-3-3">Automation: Python, AutoIT.</li>
+              <li data-lang="about-me-skillset-text-3-4">Website deployment.</li>
             </ul>
           </div>
 
@@ -404,7 +423,7 @@
     </section>
 
     <section id="my-portfolio" class="single-section">
-      <span class="my-portfolio-title">Some of my creations...</span>
+      <span class="my-portfolio-title" data-lang="my-portfolio-title">Some of my creations...</span>
       <div class="main-content-my-portfolio">
         <div class="a-project" id="tutdl">
           <img src="../public/img/my-portfolio/tutdl-app-dark.png" alt="The Ultimate To-do list screenshot" id="tutdl-screenshot">
@@ -500,8 +519,8 @@
               </defs>
             </svg>
             
-            <span class="slogan">"A to-do list that has much more than a to-do list"</span>
-            <button class="learn-more emphasis-button">
+            <span class="slogan" data-lang="my-portfolio-tutdl-slogan">"A to-do list that has much more than a to-do list"</span>
+            <button class="learn-more emphasis-button" data-lang="my-portfolio-tutdl-button">
               Learn more
             </button>
           </div>
@@ -521,23 +540,23 @@
       </div>
 
       <div class="main-content-contact">
-        <span class="contact-title">Let's create something together!</span>
+        <span class="contact-title" data-lang="contact-title">Let's create something together!</span>
         <div class="form-animation-wrapper">
           <form action="#" class="contact-form">
             <div class="field-wrapper">
-              <label for="your-name">Your name:</label>
+              <label for="your-name" data-lang="contact-form-name">Your name:</label>
               <input type="text" name="your-name" placeholder="John Doe">
             </div>
             <div class="field-wrapper">
-              <label for="your-email">Your email:</label>
+              <label for="your-email" data-lang="contact-form-email">Your email:</label>
               <input type="text" name="your-email" placeholder="john@doe.com">
             </div>
             <div class="field-wrapper textarea-wrapper">
-              <label for="how-can-i">How can I help you?</label>
+              <label for="how-can-i" data-lang="contact-form-howcani">How can I help you?</label>
               <textarea name="how-can-i" cols="30" rows="10" placeholder="I need you to build me an amazing website!"></textarea>
             </div>
             <div class="field-wrapper button-wrapper">
-              <button type="submit" class="emphasis-button">Let's talk</button>
+              <button type="submit" class="emphasis-button" data-lang="contact-form-submitbutton">Let's talk</button>
             </div>
           </form>
           <div class="contact-animation">
@@ -587,13 +606,13 @@
 
     <div class="footer-info">
       <div>
-        <span>Ciudad del Río</span>
-        <span>Medellín, Colombia</span>
-        <span>NIT: 1000861035</span>
+        <span data-lang="footer-info-1-1">Ciudad del Río</span>
+        <span data-lang="footer-info-1-2">Medellín, Colombia</span>
+        <span data-lang="footer-info-1-3">NIT: 1000861035</span>
       </div>
       <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & conditions</a>
+        <a href="#" data-lang="footer-info-2-1">Privacy Policy</a>
+        <a href="#" data-lang="footer-info-2-2">Terms & conditions</a>
         <span class="copyright"><span>&copy;</span>2021 Lambolead</span>
       </div>
     </div>
@@ -604,7 +623,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
   <!-- <script type="module" src="js/storage/database-object.js"></script> -->
-  <!-- <script src="./js/scrolling-related.js"></script> -->
+  <script src="./js/scrolling-related.js"></script>
   <script src="./js/loader.js"></script>
   <!-- <script type="module" src="./js/theme.js"></script> -->
   <!-- <script type="module" src="./js/test-animation.js"></script> -->

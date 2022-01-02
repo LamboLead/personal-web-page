@@ -1,0 +1,100 @@
+#language
+  width: 90%
+  height: fit-content
+  padding-block: 0.5rem
+  margin-top: 3rem
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  border-top: 1px solid var(--generalBorderColor)
+
+.change-language
+  width: 90%
+  height: 30%
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  span
+    color: var(--titleColor)
+    font-weight: 500
+    font-size: clamp(1rem, 2vh, 2rem)
+  @include screen-width($phone...)
+    span
+      display: none
+
+.drop-container-div
+  width: 8rem
+  height: fit-content
+  margin-left: 10%
+
+  display: flex
+  flex-direction: column
+  justify-content: start
+  align-items: flex-end
+
+.drop-display-container-div
+  width: 7rem
+  height: 2rem
+  border: 2px solid var(--switchContainerColor)
+  border-radius: 2px
+  cursor: pointer
+
+  display: flex
+  flex-direction: row
+  justify-content: start
+  align-items: center
+
+  .drop-display
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 80%
+    height: 100%
+    
+
+  .drop-arrow
+    width: 20%
+    height: 100%
+    background: red
+
+.drop-option-container-div
+  width: 6.5rem
+  height: 3rem
+
+  border: 1px solid var(--generalBorderColor)
+  border-bottom-left-radius: 2px
+  border-bottom-right-radius: 2px
+
+  display: flex
+  flex-direction: column
+  justify-content: start
+  align-items: center
+
+  transition: height 500ms ease
+  overflow-y: scroll
+
+  span
+    display: block
+    width: 100%
+    height: 1.5rem
+    cursor: pointer
+
+    &:hover
+      background: yellow
+
+  &::-webkit-scrollbar
+    width: 4px
+    background: var(--someDarkColor)
+  &::-webkit-scrollbar-thumb
+    background: var(--buttonColor)
+    border-top-left-radius: 0.25rem
+    border-bottom-left-radius: 0.25rem
+
+.is-dropdown-closed
+  border: none !important
+  height: 0 !important
+  pointer-events: none !important

@@ -1,6 +1,6 @@
 /**
  * This is the Switch element handler module.<br>
- * It stores functions related to the set up and handling of switches in the webpage
+ * It stores functions related to the set up and handling of custom switches in the webpage
  * @module SwitchHandler
  */
 

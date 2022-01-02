@@ -1,10 +1,13 @@
 // Animate loader logo & set up progressbar
 
 
+// Set up language settings
+import ("./language/language-manager.js");
+
 // Retrieve network & user info
 let networkSpeed = window.navigator.connection.downlink;
 console.log(networkSpeed);
-if (networkSpeed > 3) {
+if (networkSpeed > 3.5) {
   // Load heavy theme
   import ("./theme/theme-full.js");
 } else {
