@@ -160,12 +160,34 @@ a {
   fill: var(--logoDarkColor);
 }
 
-#loader-logo {
-  height: fit-content;
+.logo-smoke-wrapper {
   width: 100%;
-  border: 2px dashed red;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
 }
 
+#loader-logo {
+  height: fit-content;
+  width: 50%;
+}
+
+#grouped-smoke-clouds {
+  height: fit-content;
+  width: 50%;
+  position: absolute;
+}
+#grouped-smoke-clouds .bright-cloud, #grouped-smoke-clouds .dark-cloud {
+  opacity: 0;
+}
+#grouped-smoke-clouds .dark-cloud, #grouped-smoke-clouds .dark-trace {
+  fill: #232323;
+}
+#grouped-smoke-clouds .bright-cloud, #grouped-smoke-clouds .bright-trace {
+  fill: #3F3F3F;
+}
 #main-page {
   display: flex;
 }

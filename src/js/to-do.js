@@ -13,14 +13,13 @@
  * Converting images to url64, or something. [DIDN'T NEED TO]
  * Downsizing images to reasonable size. [DONE]
  * Rescaling images upfront so that they fit inside canvas nicely. [DONE]
- * -> Track performance, and show different content depending on it.
+ * -> Track performance, and show different content depending on it. [IN PROGRESS]
  */
 
 /**
  * For tomorrow:
- * -> Finish multilanguage functionality.
- * -> Create progressbar handler.
- * -> Fix loader logo animation (try by separating stuff by SVG elements).
- * -> Set up loader completely.
+ * -> Create progressbar handler. [IN PROGRESS]
+ * -> Finish multilanguage functionality (add small SVG arrow and support ESC [DONE] and closing clicks)
+ * -> Set up loader completely. [IN PROGRESS]
  * -> Finish scrolling animation for 'about-me' section.
 */

@@ -1,6 +1,11 @@
 // Animate loader logo & set up progressbar
+import startLoaderAnimation from "./animations/loader-animation.js";
 
+startLoaderAnimation(() => {
+  console.log("Completed!");
+})
 
+/*
 // Set up language settings
 import ("./language/language-manager.js");
 
@@ -15,7 +20,4 @@ if (networkSpeed > 3.5) {
   import ("./theme/theme-light.js");
 }
 
-// Set up worker
-// const netPerformanceWorker = new Worker("./performance.js", {name: "performanceWorker"});
-
-// netPerformanceWorker.postMessage("whatever")
+*/

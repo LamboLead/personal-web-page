@@ -11,7 +11,8 @@
  * @param {Function} callback Function to call when an option is selected
  */
 export function createDropdown(id, parentElementSelector, options, callback) {
-  // Create all elements
+
+  // Create all elements and set up event listeners
   let container = document.createElement("div");
   container.id = id;
   container.classList = "drop-container-div";
@@ -45,6 +46,11 @@ export function createDropdown(id, parentElementSelector, options, callback) {
   displayContainer.append(display, arrow);
   container.append(displayContainer, optionContainer);
   parent.appendChild(container);
+
+  // Set up all closing events
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") closeDropdown(id);
+  });
 }
 
 export function updateDisplay(id, string) {
