@@ -4,15 +4,45 @@
  * @module ProgressbarHandler
  */
 
-export function createProgressbar(id, parentElementSelector, tween, options) {
+import injectSVG from "./import-svg.js";
 
-  // Import SVG and set up tween
-  // Create all elements and append (if in options you say numeric:true, create percentage progress indicator)
-  // Return progressbar object
+export default class Progressbar {
+  constructor(id, renderingOptions, tweenOptions, numeric) {
+    this.id = id;
+    this.progress = 0;
+    this.numeric = numeric;
+    this.renderingOptions = renderingOptions;
+    this.tweenOptions = tweenOptions.default;
+    this.toAnimate = tweenOptions.toAnimate;
+  }
+
+  async render() {
+    await injectSVG(this.id, this.renderingOptions.src, this.renderingOptions.parent);
+
+    if (this.numeric) {
+      let svgDiv = document.getElementById(this.id);
+      let span = document.createElement("span");
+      span.innerText = "0%";
+      svgDiv.append(span);
+    }
+  }
+
+  setProgress(newProgress) {
+    this.progress = newProgress;
+    this.animate();
+
+    if (this.numeric) {
+      let span = document.querySelector(`#${this.id} span`);
+      span.innerText = `${newProgress * 100}%`;
+    }
+  }
+
+  animate() {
+    let options = this.tweenOptions;
+    options[this.toAnimate] = this.progress;
+    // console.log(options);
+    gsap.to(`#${this.id} svg`, options);
+  }
 }
 
-export function setProgress(id, percentage) {
-  // Set progress on tween
-  // Update progress on progressbar object
-  // If applicable, update percentage progress indicator
-}
+

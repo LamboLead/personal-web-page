@@ -1,3 +1,4 @@
+let logoTimeline;
 // Set up all elements
 gsap.set("#loader-logo #dark-L", {
   x: "-87%",
@@ -19,7 +20,7 @@ gsap.set("#loader .logo-smoke-wrapper", {
 })
 
 function startLoaderAnimation(callback) {
-  let logoTimeline = gsap.timeline({onComplete: callback});
+  logoTimeline = gsap.timeline({onComplete: callback});
   let dur = 2;
   // Move whole logo to the right
   logoTimeline.add(
@@ -112,4 +113,4 @@ function startLoaderAnimation(callback) {
   logoTimeline.add(expandTimeline, "+=0");
 }
 
-export default startLoaderAnimation;
+export {startLoaderAnimation, logoTimeline};

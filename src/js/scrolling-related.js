@@ -4,6 +4,7 @@ let target = "#navbar-main-logo .full-tyre";
 let proxy = {rotation: 0};
 let rotationSetter = gsap.quickSetter(target, "rotate");
 let clamp = gsap.utils.clamp(-360, 360);
+gsap.set(target, {transformOrigin: "50% 50%"});
 
 ScrollTrigger.create({
   onUpdate: (self) => {
@@ -20,17 +21,13 @@ ScrollTrigger.create({
   }
 });
 
-gsap.set(target, {transformOrigin: "50% 50%"});
-
 // - - - Snap scrolling - - -
 
 const snapDuration = 0.5;
 const snapDelay = 0.7
-
 const sections = document.querySelectorAll("#main-section .single-section, .double-section");
 
 let enteredSections = [];
-
 sections.forEach((section) => {
   let id = section.id;
   ScrollTrigger.create({
@@ -77,7 +74,7 @@ function goToSection(section) {
   });
 }
 
-// - - - pin about-me, motionPath animation - - -
+// - - - pin about-me - - -
 
 ScrollTrigger.create({
   // markers: {startColor: "yellow", endColor: "blue"},
@@ -98,6 +95,18 @@ ScrollTrigger.create({
   }
 });
 
+// - - - motionPath animation - - -
+
+ScrollTrigger.create({
+  markers: true,
+  trigger: "#who-am-i",
+  start: "top-=10% top",
+  end: "bottom+=95% bottom",
+  onEnter: () => pathTween.play(),
+  onEnterBack: () => pathTween.reverse(),
+  onLeave: () => pathTween.pause()
+});
+
 let pathTween = gsap.to("#rect", {
   duration: 5,
   motionPath: {
@@ -108,37 +117,6 @@ let pathTween = gsap.to("#rect", {
   },
   paused: true
 });
-
-ScrollTrigger.create({
-  markers: true,
-  trigger: "#who-am-i",
-  start: "top-=10% top",
-  end: "bottom+=90% bottom",
-  onEnter: () => pathTween.play(),
-  onEnterBack: () => pathTween.reverse(),
-  onLeave: () => pathTween.pause()
-});
-// animation = gsap.to("#motionSVG", {
-//   scrollTrigger: {
-//     trigger: "#motionPath",
-//     start: "top 20%",
-//     end: "bottom 20%",
-//     scrub: 1,
-//     //markers: true,
-//     onUpdate: self => {
-//       gsap.to("#tractor", {rotation: () => self.direction === 1 ? 0 : -180, overwrite: 'auto'});
-//     }
-//   },
-//   duration: 10,
-//   ease: "none",
-//   immediateRender: true,
-//   motionPath: {
-//     path: "#motionPath",
-//     align: "#motionPath",
-//     alignOrigin: [0.5, 0.5],
-//     autoRotate: 90,
-//   }
-// });
 
 // - - - Navigation with navbar - - -
 
@@ -172,7 +150,7 @@ links.forEach((link) => {
     }, snapTrig * 1000);
 
   });
-})
+});
 
 function moveNavbarBackground(selector) {
   let vPortHeight = window.innerHeight;

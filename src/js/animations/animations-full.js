@@ -43,6 +43,7 @@ class AnimationManager {
           this.setNewAnimation(element);
         }
       });
+      // ScrollTrigger.getById(anim.id).disable(true, false);
     });
   }
 
@@ -206,6 +207,5 @@ class Animation {
 }
 
 const animationManager = new AnimationManager();
-animationManager.initialize();
 
 export default animationManager;

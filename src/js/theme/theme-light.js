@@ -7,12 +7,9 @@ import database from '../storage/database-object.js';
 import * as DatabaseInfoModule from '../storage/information-management-module.js';
 import imageManager from '../animations/animations-light.js';
 
-let firstTime = true;
-
 // Anonymous asynchronous function that waits for currentTheme to render the according animation
 (async () => {
   imageManager.currentTheme = await retrieveTheme();
-  imageManager.loadImage(imageManager.currentSection, "startSession", imageManager.currentTheme);
 })();
 
 SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
@@ -21,27 +18,30 @@ SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
   callback: renderTheme
 });
 
+let firstTime = true;
 /**
  * Renders the specified theme and its corresponding animation on the screen and saves it into the database
  * @function renderTheme
  * @param {string} classTheme Name of the theme to display on the screen
  */
-function renderTheme(classTheme) {
+export function renderTheme(classTheme) {
+  // Render theme
+  let body = document.querySelector("body");
+  let currentTheme = body.getAttribute("data-current-theme")
+  body.classList.remove(currentTheme);
+  body.classList.add(classTheme);
+  body.setAttribute("data-current-theme", classTheme);
+
   // Change theme in imageManager and render according animation
   imageManager.currentTheme = classTheme;
   let currentSection = imageManager.currentSection;
   if (!firstTime) {
     imageManager.setNewImage(currentSection);
     imageManager.showImage(currentSection);
+    saveTheme(classTheme);
   } else {
     firstTime = false;
   }
-
-  // Render theme
-  let body = document.querySelector("body");
-  body.className = "shared";
-  body.classList.add(classTheme);
-  saveTheme(classTheme)
 }
 
 /**
@@ -68,6 +68,5 @@ async function retrieveTheme() {
       leftValue: "dark-theme",
       rightValue: "light-theme"
     }, retrievedTheme);
-  renderTheme(retrievedTheme);
   return retrievedTheme;
 }

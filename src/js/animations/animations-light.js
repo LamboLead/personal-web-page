@@ -12,6 +12,7 @@ class ImageManager {
   }
 
   initialize() {
+    // Create all ScrollTrigger instances
     Object.keys(animations).forEach((element) =>{
       let anim = animations[element].info;
       ScrollTrigger.create({
@@ -147,6 +148,5 @@ class CanvasImage {
 }
 
 const imageManager = new ImageManager();
-imageManager.initialize();
 
 export default imageManager;

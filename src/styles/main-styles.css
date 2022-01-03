@@ -55,10 +55,12 @@ a {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 50;
   background: black;
+  transition: opacity 700ms ease-in;
 }
 
 #navbar {
@@ -188,6 +190,34 @@ a {
 #grouped-smoke-clouds .bright-cloud, #grouped-smoke-clouds .bright-trace {
   fill: #3F3F3F;
 }
+#progress-1 {
+  position: absolute;
+  top: 85vh;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#progress-1 svg {
+  width: 100%;
+  height: fit-content;
+  stroke: white;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+#progress-1 span {
+  width: 20%;
+  height: 3rem;
+  align-self: center;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #main-page {
   display: flex;
 }
@@ -1461,8 +1491,9 @@ a {
   pointer-events: none !important;
 }
 .is-loading-website #main-section {
-  display: none !important;
-  pointer-events: !important;
+  height: 50vh !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
 }
 
 .is-about-me-contracted {
@@ -1541,7 +1572,7 @@ a {
   opacity: 0 !important;
 }
 
-.shared {
+.shared-colors {
   --loaderBackgroundColor: hsla(0, 0%, 0%, 1);
   --switchContainerColor: hsla(0, 0%, 35%, 1);
   --switchLegColor: hsla(0, 0%, 69%, 1);
