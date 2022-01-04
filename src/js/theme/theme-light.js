@@ -5,11 +5,12 @@
 import * as SwitchHandler from '../dom-element-handler/switch-handler.js';
 import database from '../storage/database-object.js';
 import * as DatabaseInfoModule from '../storage/information-management-module.js';
-import imageManager from '../animations/animations-light.js';
+import imageManager from '../images/image-manager.js';
 
 // Anonymous asynchronous function that waits for currentTheme to render the according animation
 (async () => {
   imageManager.currentTheme = await retrieveTheme();
+  console.log(imageManager.currentTheme);
 })();
 
 SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
@@ -42,6 +43,8 @@ export function renderTheme(classTheme) {
   } else {
     firstTime = false;
   }
+
+  // imageManager.loadImage({name: "tutdlImage", type: "normal"})
 }
 
 /**

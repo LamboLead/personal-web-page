@@ -6,6 +6,7 @@ import * as SwitchHandler from '../dom-element-handler/switch-handler.js';
 import database from '../storage/database-object.js';
 import * as DatabaseInfoModule from '../storage/information-management-module.js';
 import animationManager from '../animations/animations-full.js';
+import imageManager from '../images/image-manager.js';
 
 // Anonymous asynchronous function that waits for currentTheme to render the according animation
 (async () => {
@@ -42,6 +43,8 @@ export function renderTheme(classTheme) {
   } else {
     firstTime = false;
   }
+
+  // imageManager.loadImage({name: "tutdlImage", type: "normal"});
 }
 
 /**

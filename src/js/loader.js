@@ -14,12 +14,14 @@ function init() {
   // import all SVGs()
   loadLanguage();
   loadingProgressbar.setProgress(0.3);
+  loadThemeAndAnimations();
   setTimeout(() => {
     loadingProgressbar.setProgress(0.6);
-    loadThemeAndAnimations();
-    loadingProgressbar.setProgress(1);
     setTimeout(() => {
-      hideLoader();
+      loadingProgressbar.setProgress(1);
+      setTimeout(() => {
+        hideLoader();
+      }, 1000);
     }, 1000);
   }, 1000)
 }

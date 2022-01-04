@@ -1,4 +1,4 @@
-import imageManager from "../animations/animations-light.js";
+import imageManager from "../images/image-manager.js";
 import { renderTheme } from "./theme-light.js";
 
 initLightTheme();
@@ -6,5 +6,6 @@ initLightTheme();
 function initLightTheme() {
   renderTheme(imageManager.currentTheme);
   imageManager.initialize();
-  imageManager.loadImage(imageManager.currentSection, "startSession", imageManager.currentTheme);
+  console.log("Initialized!");
+  imageManager.loadImage({name: imageManager.currentSection, type: "dynamic", subtype: "startSession"}, imageManager.currentTheme);
 }

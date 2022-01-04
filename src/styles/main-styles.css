@@ -713,24 +713,12 @@ a {
     align-items: center;
   }
 }
-#tutdl img {
-  height: clamp(0px, 95%, 400px);
+#tutdl canvas {
+  width: 30%;
+  height: 95%;
+  aspect-ratio: 1/1;
+  background: yellow;
   align-self: flex-end;
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #tutdl img {
-    position: absolute;
-    width: fit-content;
-    height: 90%;
-    left: 58%;
-    align-self: center;
-    justify-self: center;
-  }
-}
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #tutdl img {
-    margin-left: 1%;
-  }
 }
 #tutdl .project-description {
   display: flex;

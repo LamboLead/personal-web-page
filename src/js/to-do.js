@@ -1,9 +1,9 @@
 /**
  * Some things that you should do...
  * 
- * -> Set up loader when the user first enters the page.
+ * -> Set up loader when the user first enters the page. [DONE]
  * -> Set up code to accomodate vertical and horizontal animations.  [DONE]
- * -> Set up different animations for scrolling arrows and navbar tab.
+ * -> Set up different animations for scrolling arrows and navbar tab. 
  * -> Set up animation for 'about me' section.  [IN PROGRESS]
  * -> Fix sizing and styling for elements.
  * -> Record animations and process the material
@@ -18,8 +18,6 @@
 
 /**
  * For tomorrow:
- * -> Create progressbar handler. [IN PROGRESS]
- * -> Finish multilanguage functionality (add small SVG arrow and support ESC [DONE] and closing clicks)
- * -> Set up loader completely. [IN PROGRESS]
- * -> Finish scrolling animation for 'about-me' section.
+ * -> Set up image manager accordingly [IN PROGRESS]
+ * -> Display portfolio images according to the theme and device
 */
