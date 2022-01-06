@@ -2,6 +2,9 @@
 import {startLoaderAnimation, logoTimeline} from "./animations/loader-animation.js";
 import Progressbar from "./dom-element-handler/progressbar-handler.js";
 
+import {initThemeLight} from "./theme/theme-light.js";
+import {initThemeFull} from "./theme/theme-full.js";
+
 let loadingProgressbar, networkSpeed;
 
 startLoaderAnimation(async () => {
@@ -9,20 +12,16 @@ startLoaderAnimation(async () => {
   init();
 })
 
-function init() {
+async function init() {
 
+  loadingProgressbar.setProgress(0);
   // import all SVGs()
   loadLanguage();
   loadingProgressbar.setProgress(0.3);
-  loadThemeAndAnimations();
+  await loadThemeAndAnimations();
+  loadingProgressbar.setProgress(1);
   setTimeout(() => {
-    loadingProgressbar.setProgress(0.6);
-    setTimeout(() => {
-      loadingProgressbar.setProgress(1);
-      setTimeout(() => {
-        hideLoader();
-      }, 1000);
-    }, 1000);
+    hideLoader();
   }, 1000)
 }
 
@@ -42,16 +41,16 @@ function loadLanguage() {
   import ("./language/language-manager.js");
 }
 
-function loadThemeAndAnimations() {
+async function loadThemeAndAnimations() {
   // Retrieve network & user info
   networkSpeed = window.navigator.connection.downlink;
   console.log(`Network speed: ${networkSpeed}Mb/s`);
   if (networkSpeed > 3.5) {
     // Load heavy theme
-    import ("./theme/theme-full.js");
+    await initThemeFull();
   } else {
     // Load light theme
-    import ("./theme/theme-light.js");
+    await initThemeLight();
   }
 }
 
@@ -79,3 +78,8 @@ function hideLoader() {
   // Initialize scrolling animations
   loadScrollingAnimations();
 }
+
+/**
+ * Some thoughts:
+ * -> Try to code better classes to improve transition from loader to main section
+ */

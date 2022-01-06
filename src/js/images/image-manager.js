@@ -21,13 +21,13 @@ class ImageManager {
           console.log("Entered!", element);
           this.currentSection = element;
           console.log(this.currentSection);
-          this.showImage(element)
+          this.showImage(element);
         },
         onEnterBack: () => {
           console.log("Entered back!", element);
           this.currentSection = element;
           console.log(this.currentSection);
-          this.showImage(element)
+          this.showImage(element);
         },
         onLeave: () => {
           console.log("Left!", element);
@@ -39,13 +39,14 @@ class ImageManager {
 
   async loadImage({name, type, subtype = undefined}, theme) {
     console.table("Load image!", {name: name, info: {type, subtype}, theme: theme});
-
+    
     let image = new CanvasImage(name, type);
+    if (type === "normal") image.hide();
     this.images[name] = image;
 
-    console.log("Image hasn't loaded!");
+    console.log("Image hasn't loaded!", name);
 
-    let selectedImage, imageInfo, index, src;
+    let selectedImage, imageInfo, index;
 
     if (!subtype) {
       selectedImage = images[type][name][image.orientation][theme];
@@ -54,11 +55,10 @@ class ImageManager {
       index = Math.floor(Math.random() * imageInfo.length);
       selectedImage = imageInfo[index];
     }
-    src = selectedImage.src;
 
     let promise = new Promise((resolve, reject) => {
       const img = new Image();
-      img.src = src;
+      img.src = `/public/img/${selectedImage.src}`;
       img.addEventListener("load", () => {
         resolve(img);
       });
@@ -75,7 +75,7 @@ class ImageManager {
     image.hasLoaded = true;
     this.images[name] = image;
 
-    console.log("Image has loaded!");
+    console.log("Image has loaded!", name);
 
     if (type === "normal") this.showImage(name);
   }
@@ -121,10 +121,12 @@ class CanvasImage {
     this.canvas.classList.add("is-animation-loading");
   }
   setUpOrientation() {
-    if (this.canvas.clientHeight > this.canvas.cliehtWidth) {
+    if (this.canvas.clientHeight > this.canvas.clientWidth) {
       return "vertical";
-    } else {
+    } else if (this.canvas.clientHeight < this.canvas.clientWidth) {
       return "horizontal";
+    } else {
+      return "squared";
     }
   }
   render() {

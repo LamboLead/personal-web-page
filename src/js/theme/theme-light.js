@@ -8,16 +8,14 @@ import * as DatabaseInfoModule from '../storage/information-management-module.js
 import imageManager from '../images/image-manager.js';
 
 // Anonymous asynchronous function that waits for currentTheme to render the according animation
-(async () => {
+export async function initThemeLight() {
   imageManager.currentTheme = await retrieveTheme();
-  console.log(imageManager.currentTheme);
-})();
-
-SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
-  leftValue: "dark-theme",
-  rightValue: "light-theme",
-  callback: renderTheme
-});
+  SwitchHandler.setUpSwitch(".switch-container-div", ".inside-switch-div", {
+    leftValue: "dark-theme",
+    rightValue: "light-theme",
+    callback: renderTheme
+  });
+}
 
 let firstTime = true;
 /**
@@ -44,7 +42,7 @@ export function renderTheme(classTheme) {
     firstTime = false;
   }
 
-  // imageManager.loadImage({name: "tutdlImage", type: "normal"})
+  imageManager.loadImage({name: "tutdlImage", type: "normal"}, imageManager.currentTheme);
 }
 
 /**
@@ -63,9 +61,7 @@ function saveTheme(classTheme) {
  */
 async function retrieveTheme() {
   let retrievedTheme = (await DatabaseInfoModule.retrieveInfo(database, "Custom preferences", { query: "theme" }))[0];
-
   if (!retrievedTheme) retrievedTheme = "dark-theme";
-
   SwitchHandler.renderSwitch(".switch-container-div", ".inside-switch-div",
     {
       leftValue: "dark-theme",

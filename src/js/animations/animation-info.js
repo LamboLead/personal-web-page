@@ -1,5 +1,5 @@
 const animations = {
-  mainPageAnimation: {
+  mainPageImage: {
     info: {
       // markers: {startColor: "yellow", endColor: "red"},
       markers: false,

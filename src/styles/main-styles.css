@@ -714,11 +714,9 @@ a {
   }
 }
 #tutdl canvas {
-  width: 30%;
-  height: 95%;
-  aspect-ratio: 1/1;
-  background: yellow;
+  height: 90%;
   align-self: flex-end;
+  transition: opacity 400ms ease-in;
 }
 #tutdl .project-description {
   display: flex;

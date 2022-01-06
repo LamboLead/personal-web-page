@@ -6,6 +6,5 @@ initLightTheme();
 function initLightTheme() {
   renderTheme(imageManager.currentTheme);
   imageManager.initialize();
-  console.log("Initialized!");
   imageManager.loadImage({name: imageManager.currentSection, type: "dynamic", subtype: "startSession"}, imageManager.currentTheme);
 }

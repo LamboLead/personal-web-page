@@ -98,7 +98,7 @@ ScrollTrigger.create({
 // - - - motionPath animation - - -
 
 ScrollTrigger.create({
-  markers: true,
+  // markers: true,
   trigger: "#who-am-i",
   start: "top-=10% top",
   end: "bottom+=95% bottom",

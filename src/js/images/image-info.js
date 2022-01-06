@@ -6,7 +6,7 @@ const images = {
         // markers: false,
         id: "main-page-animation",
         trigger: "#main-page",
-        start: "top top +=1",
+        start: "top top+=1",
         end: "+=200% bottom-=1"
       },
       startSession: {
@@ -54,20 +54,14 @@ const images = {
   normal: {
     tutdlImage: {
       "vertical": {
-        "dark-theme": [
-          {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app-mobile.png"}
-        ],
-        "light-theme": [
-          {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app-mobile.png"}
-        ] 
+        "dark-theme": {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app-mobile.png"}
+        ,
+        "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app-mobile.png"}
       },
       "horizontal": {
-        "dark-theme": [
-          {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app.png"}
-        ],
-        "light-theme": [
-          {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app.png"}
-        ]
+        "dark-theme": {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app.png"}
+        ,
+        "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app.png"}
       }
     }
   }
