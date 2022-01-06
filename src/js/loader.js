@@ -1,23 +1,37 @@
 // Animate loader logo & set up progressbar
+import injectSVG from "./dom-element-handler/import-svg.js";
 import {startLoaderAnimation, logoTimeline} from "./animations/loader-animation.js";
 import Progressbar from "./dom-element-handler/progressbar-handler.js";
+import importAllSVG from "./import-SVGs.js";
 
 import {initThemeLight} from "./theme/theme-light.js";
 import {initThemeFull} from "./theme/theme-full.js";
 
 let loadingProgressbar, networkSpeed;
 
-startLoaderAnimation(async () => {
-  loadingProgressbar = await loadProgressbar();
-  init();
-})
+// Inject loader SVG and animate
+(async () => {
+  await injectSVG({id: "grouped-smoke-clouds", src: "loader-logo/grouped-smoke-clouds.svg", withDivContainer: false}, {parentSelector: "#loader .logo-smoke-wrapper"});
+  await injectSVG({id: "loader-logo", src: "loader-logo/loader-logo.svg", withDivContainer: false}, {parentSelector: "#loader .logo-smoke-wrapper"});
+  console.log("Injected!");
+
+  startLoaderAnimation(async () => {
+    loadingProgressbar = await loadProgressbar();
+    init();
+  })
+})();
+
 
 async function init() {
 
   loadingProgressbar.setProgress(0);
-  // import all SVGs()
-  loadLanguage();
+  // Inject all SVGs()
+  await importAllSVG();
   loadingProgressbar.setProgress(0.3);
+  // Load multilanguage
+  loadLanguage();
+  loadingProgressbar.setProgress(0.6);
+  // Load theme and animations
   await loadThemeAndAnimations();
   loadingProgressbar.setProgress(1);
   setTimeout(() => {
@@ -29,7 +43,7 @@ async function loadProgressbar() {
   console.log("Completed!");
   let progressbar = new Progressbar(
     "progress-1",
-    {src: "/public/svg/other/progressbar.svg", parent: "#loader"},
+    {src: "other/progressbar.svg", parent: "#loader"},
     {toAnimate: "scaleX", default: {duration: 0.3, ease: "none"}},
     true
   );

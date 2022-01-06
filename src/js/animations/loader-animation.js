@@ -1,25 +1,27 @@
-let logoTimeline;
 // Set up all elements
-gsap.set("#loader-logo #dark-L", {
-  x: "-87%",
-  y: "-37.3%",
-  transformOrigin: "0 0"
-})
-gsap.set("#loader-logo #text-mask", {
-  scaleX: 0
-})
-gsap.set("#loader-logo", {
-  x: "80%"
-})
-gsap.set("#grouped-smoke-clouds", {
-  x: "-9%",
-  y: "-6%"
-})
-gsap.set("#loader .logo-smoke-wrapper", {
-  x: "-100%"
-})
-
+let logoTimeline;
 function startLoaderAnimation(callback) {
+  gsap.set("#loader-logo", {
+    x: "80%",
+    opacity: 1
+  });
+  gsap.set("#grouped-smoke-clouds", {
+    x: "-9%",
+    y: "-6%",
+    opacity: 1
+  });
+  gsap.set("#loader-logo #dark-L", {
+    x: "-87%",
+    y: "-37.3%",
+    transformOrigin: "0 0"
+  });
+  gsap.set("#loader-logo #text-mask", {
+    scaleX: 0
+  });
+  gsap.set("#loader .logo-smoke-wrapper", {
+    x: "-100%"
+  });
+
   logoTimeline = gsap.timeline({onComplete: callback});
   let dur = 2;
   // Move whole logo to the right

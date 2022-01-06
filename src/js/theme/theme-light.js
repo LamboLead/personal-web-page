@@ -6,6 +6,7 @@ import * as SwitchHandler from '../dom-element-handler/switch-handler.js';
 import database from '../storage/database-object.js';
 import * as DatabaseInfoModule from '../storage/information-management-module.js';
 import imageManager from '../images/image-manager.js';
+import animationManager from '../animations/animations-full.js';
 
 // Anonymous asynchronous function that waits for currentTheme to render the according animation
 export async function initThemeLight() {

@@ -44,7 +44,7 @@ export function renderTheme(classTheme) {
     firstTime = false;
   }
 
-  imageManager.loadImage({name: "tutdlImage", type: "normal"}, imageManager.currentTheme);
+  imageManager.loadImage({name: "tutdlImage", type: "normal"}, animationManager.currentTheme);
 }
 
 /**

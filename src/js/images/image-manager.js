@@ -113,7 +113,6 @@ class CanvasImage {
     this.hasLoaded = false;
     this.orientation = this.setUpOrientation();
   }
-
   show() {
     this.canvas.classList.remove("is-animation-loading");
   }

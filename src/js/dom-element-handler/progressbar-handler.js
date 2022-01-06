@@ -17,7 +17,7 @@ export default class Progressbar {
   }
 
   async render() {
-    await injectSVG(this.id, this.renderingOptions.src, this.renderingOptions.parent);
+    await injectSVG({id: this.id, src: this.renderingOptions.src, withDivContainer: true}, {parentSelector: this.renderingOptions.parent});
 
     if (this.numeric) {
       let svgDiv = document.getElementById(this.id);
