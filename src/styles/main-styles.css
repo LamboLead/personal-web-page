@@ -174,11 +174,13 @@ a {
 #loader-logo {
   height: fit-content;
   width: 50%;
+  opacity: 0;
 }
 
 #grouped-smoke-clouds {
   height: fit-content;
   width: 50%;
+  opacity: 0;
   position: absolute;
 }
 #grouped-smoke-clouds .bright-cloud, #grouped-smoke-clouds .dark-cloud {
@@ -385,7 +387,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: 2%;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #who-am-i {
@@ -449,22 +450,6 @@ a {
     width: 60%;
     font-size: clamp(1rem, 1.5vw, 1.6rem);
   }
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper {
-    height: 20%;
-  }
-}
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #who-am-i .animation-wrapper {
-    height: 40%;
-    justify-content: flex-start;
-    align-items: center;
-  }
-}
-#who-am-i .animation-wrapper svg {
-  width: 90%;
-  height: 95%;
 }
 
 .scrolling-arrows-about-me {
@@ -629,6 +614,87 @@ a {
   .about-me-subtitle {
     font-size: clamp(30px, 3.5vw, 60px);
   }
+}
+
+#who-am-i .animation-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/0.9;
+  overflow: hidden;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #who-am-i .animation-wrapper {
+    height: 20%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #who-am-i .animation-wrapper {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+#who-am-i .animation-wrapper svg {
+  position: absolute;
+  height: fit-content;
+}
+#who-am-i .animation-wrapper #sky-moon {
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #buildings-1 {
+  width: 100%;
+  bottom: 0%;
+  z-index: 4;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #buildings-2 {
+  width: 100%;
+  bottom: 0%;
+  left: 100%;
+  z-index: 4;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #car {
+  width: 80%;
+  bottom: 0%;
+  left: 20%;
+  z-index: 5;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #road {
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #roadlines-1 {
+  width: 95%;
+  bottom: 20%;
+  z-index: 3;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #roadlines-2 {
+  width: 95%;
+  bottom: 20%;
+  left: 100%;
+  z-index: 3;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #smoke-front {
+  width: 42%;
+  bottom: 0%;
+  left: 0.4%;
+  z-index: 6;
+  /* display: none; */
+}
+#who-am-i .animation-wrapper #smoke-rear {
+  width: 33%;
+  bottom: 2%;
+  left: -3%;
+  z-index: 6;
+  /* display: none; */
 }
 
 #my-portfolio {

@@ -1,7 +1,7 @@
 /**
  * Some things that you should do...
  * 
- * -> Inject all SVGs. [IN PROGRESS]
+ * -> Inject all SVGs. [DONE]
  * -> Set up loader when the user first enters the page. [DONE]
  * -> Set up code to accomodate vertical and horizontal animations.  [DONE]
  * -> Set up different animations for scrolling arrows, navbar tab, multilanguage arrow.
@@ -18,9 +18,8 @@
  */
 
 /**
- * For tomorrow:
- * Set up logos and animations for scrolling arrows, navbar tab, multilanguage arrow.
+ * To do right now:
  * Set up animation for 'about me' section.
+ * Set up logos and animations for scrolling arrows, navbar tab, multilanguage arrow.
  * Test portfolio images.
- * Fix size and styles of elements.
 */

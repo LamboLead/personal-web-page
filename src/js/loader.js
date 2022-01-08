@@ -66,6 +66,7 @@ async function loadThemeAndAnimations() {
     // Load light theme
     await initThemeLight();
   }
+  import ("./animations/about-me-animation.js");
 }
 
 function loadScrollingAnimations() {

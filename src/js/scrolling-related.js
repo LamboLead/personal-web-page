@@ -95,27 +95,19 @@ ScrollTrigger.create({
   }
 });
 
-// - - - motionPath animation - - -
+// - - - about-me animation - - -
+
+import aboutMeTimeline from "./animations/about-me-animation.js";
 
 ScrollTrigger.create({
   // markers: true,
   trigger: "#who-am-i",
   start: "top-=10% top",
   end: "bottom+=95% bottom",
-  onEnter: () => pathTween.play(),
-  onEnterBack: () => pathTween.reverse(),
-  onLeave: () => pathTween.pause()
-});
-
-let pathTween = gsap.to("#rect", {
-  duration: 5,
-  motionPath: {
-    path: "#path",
-    align: "#align",
-    autoRotate: true,
-    alignOrigin: [0.5, 0.5]
-  },
-  paused: true
+  onEnter: () => aboutMeTimeline.play(),
+  onEnterBack: () => aboutMeTimeline.play(),
+  onLeave: () => aboutMeTimeline.pause(),
+  onLeaveBack: () => aboutMeTimeline.pause()
 });
 
 // - - - Navigation with navbar - - -

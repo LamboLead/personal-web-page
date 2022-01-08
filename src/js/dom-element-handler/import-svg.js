@@ -2,8 +2,8 @@
 /**
  * Injects the specified SVG document into the specified parent
  * @function injectSVG
- * @param {Object} options Vital options to inject the SVG document
- * @param {string} parentElementSelector Selector of the parent element containing the SVG
+ * @param {Object} SVGOptions Options of the SVG document
+ * @param {string} appendingOptions Vital options to append the SVG document into
  */
 export default async function injectSVG({id = undefined, classList = undefined, src, withDivContainer = false}, {parentSelector, beforeSelector = undefined}) {
   // Fetch SVG document

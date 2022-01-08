@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+button {
+  width: 40%;
+}
+
+.animation-wrapper {
+  position: relative;
+  width: 100%;
+  /* height: 72%; */
+  aspect-ratio: 3/0.9;
+  overflow: hidden;
+  background-color: black;
+}
+
+.animation-wrapper svg {
+  height: fit-content;
+  position: absolute;
+}
+
+#sky-moon {
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  /* display: none; */
+}
+
+#buildings-1 {
+  width: 100%;
+  bottom: 0%;
+  z-index: 4;
+  /* display: none; */
+}
+
+#buildings-2 {
+  width: 100%;
+  bottom: 0%;
+  left: 100%;
+  z-index: 4;
+  /* display: none; */
+}
+
+#car {
+  width: 80%;
+  bottom: 0;
+  left: 20%;
+  z-index: 5
+  /* display: none; */
+}
+
+#road {
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+  /* display: none; */
+}
+
+#roadlines-1 {
+  width: 95%;
+  bottom: 20%;
+  z-index: 3;
+  /* display: none; */
+}
+
+#roadlines-2 {
+  width: 95%;
+  bottom: 20%;
+  left: 100%;
+  z-index: 3;
+  /* display: none; */
+}
+
+#smoke-front {
+  width: 42%;
+  bottom: 0%;
+  left: 0.4%;
+  z-index: 6;
+  /* display: none; */
+}
+#smoke-rear {
+  width: 33%;
+  bottom: 2%;
+  left: -3%;
+  z-index: 6;
+  /* display: none; */
+}

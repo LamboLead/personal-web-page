@@ -1,0 +1,79 @@
+#who-am-i
+  .animation-wrapper
+    // background: yellow
+
+    position: relative
+    width: 100%
+    aspect-ratio: 3/0.9
+    overflow: hidden
+
+    @include screen-width($phone...)
+      height: 20%
+      // margin-block: 0.5rem
+    @include screen-width($desktop...)
+      // height: 40%
+      justify-content: flex-start
+      align-items: center
+
+    svg
+      position: absolute
+      height: fit-content
+
+    #sky-moon
+      width: 100%
+      top: 0
+      z-index: 1
+      /* display: none; */
+
+    #buildings-1
+      width: 100%
+      bottom: 0%
+      z-index: 4
+      /* display: none; */
+
+    #buildings-2
+      width: 100%
+      bottom: 0%
+      left: 100%
+      z-index: 4
+      /* display: none; */
+
+    #car
+      width: 80%
+      bottom: 0%
+      left: 20%
+      z-index: 5
+      /* display: none; */
+
+    #road
+      width: 100%
+      bottom: 0
+      z-index: 2
+      /* display: none; */
+
+    #roadlines-1
+      width: 95%
+      bottom: 20%
+      z-index: 3
+      /* display: none; */
+
+    #roadlines-2
+      width: 95%
+      bottom: 20%
+      left: 100%
+      z-index: 3
+      /* display: none; */
+
+    #smoke-front
+      width: 42%
+      bottom: 0%
+      left: 0.4%
+      z-index: 6
+      /* display: none; */
+
+    #smoke-rear
+      width: 33%
+      bottom: 2%
+      left: -3%
+      z-index: 6
+      /* display: none; */
