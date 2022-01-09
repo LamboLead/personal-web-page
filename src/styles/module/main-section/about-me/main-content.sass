@@ -50,11 +50,12 @@
       flex-direction: row
       justify-content: space-around
       align-items: start
-      margin-block: 1.5rem
+      margin-block: auto
 
     .who-am-i-subtitle
       @include screen-width($phone...)
         width: 100%
+        text-align: center
 
       @include screen-width($desktop...)
         width: 27%
@@ -126,6 +127,7 @@
     @include screen-width($phone...)
       width: 90%
       margin-left: 5%
+      text-align: center
     @include screen-width($desktop...)
       width: 33%
       // margin-left: 5%
@@ -182,7 +184,8 @@
   opacity: 0
 
   @include screen-width($phone...)
-    font-size: clamp(30px, 6vw, 60px)
+    font-size: clamp(28px, 6vw, 60px)
+    text-align: right
   @include screen-width($desktop...)
     font-size: clamp(20px, 2.3vw, 40px)
 

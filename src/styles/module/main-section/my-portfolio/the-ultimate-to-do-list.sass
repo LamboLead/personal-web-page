@@ -1,0 +1,105 @@
+#tutdl
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  background: var(--tutdlBackgroundColor)
+
+  @include screen-width($phone...)
+    justify-content: start
+    align-items: start
+
+  @include screen-width($desktop...)
+    justify-content: center
+    align-items: center
+
+  canvas
+    height: 95%
+    align-self: flex-end
+    transition: opacity 400ms ease-in
+
+    @include screen-width($phone...)
+      position: absolute
+      aspect-ratio: 2/3
+      height: 90%
+      left: 58%
+      align-self: center
+      justify-self: center
+
+
+    @include screen-width($desktop...)
+      aspect-ratio: 53/50
+
+  .project-description
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    // border: 2px solid green
+
+    @include screen-width($phone...)
+      width: clamp(100px, 53%, 430px)
+      height: 100%
+      align-items: flex-start
+      margin-left: 3%
+      background: var(--tutdlBackgrondColor)
+      box-shadow: 10px 0px 20px var(--tutdlBackgrondColor)
+
+    @include screen-width($desktop...)
+      width: clamp(200px, 60%, 680px)
+      height: 100%
+      margin-inline: 0.7% 0.5rem
+      align-items: start
+
+    #tutdl-logo
+      height: fit-content
+      .tutdl-condensed-logo
+        path
+          stroke: linear var(--tutdlTextColor)
+          fill: var(--tutdlTextColor)
+      .tutdl-separator-line
+        stroke: var(--tutdlTextColor)
+      .tutdl-name
+        path
+          fill: var(--tutdlTextColor)
+      // border: 2px solid red
+
+      @include screen-width($phone...)
+        width: 100%
+        margin-bottom: 10%
+
+      @include screen-width($desktop...)
+        width: 24vw
+        margin-left: 1rem
+
+    .slogan
+      display: block
+      font-weight: 500
+      font-style: italic
+      color: var(--tutdlTextColor)
+
+      @include screen-width($phone...)
+        font-size: clamp(0.8rem, 1.7vw, 2rem)
+        margin-left: 5%
+        width: 100%
+
+      @include screen-width($desktop...)
+        font-size: clamp(0.9rem, 1vw, 1.3rem)
+        margin-top: 2%
+        margin-left: 5%
+
+    .learn-more
+      font-size: clamp(0.9rem, 1.2vw, 1.5rem)
+
+      @include screen-width($phone...)
+        width: 87%
+        align-self: start
+        margin-top: 5rem
+        margin-left: 5%
+        padding-block: 5px
+      @include screen-width($desktop...)
+        // width: clamp(145px, 40%, 200px)
+        padding: 0.2rem 1rem
+        align-self: flex-end
+        margin-top: 3vh
+        margin-right: 8%

@@ -7,10 +7,8 @@
   flex-direction: column
   justify-content: space-between
   align-items: center
-
-  // border: 2px dashed pink
+  padding-block: 1.5rem
   border-top: 1px solid var(--generalBorderColor)
-  // background: rgba(255, 255, 255, 0.3)
 
   // @include screen-width($phone...)
   //   height: 16rem
@@ -29,9 +27,6 @@
     color: var(--titleColor)
     font-weight: 500
     font-size: clamp(1rem, 2vh, 2rem)
-  @include screen-width($phone...)
-    span
-      display: none
 
   // #switch_theme_div
   //   width: 0
@@ -44,8 +39,8 @@
 
   .switch-container-div
     position: relative
-    width: 5rem
-    height: 1.7rem
+    width: clamp(6rem, 40%, 9rem)
+    height: clamp(2rem, 35%, 3rem)
     margin-left: 10%
     border: 2px solid var(--switchContainerColor)
     border-radius: 2px

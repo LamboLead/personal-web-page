@@ -8,7 +8,7 @@
     overflow: hidden
 
     @include screen-width($phone...)
-      height: 20%
+      height: 22%
       // margin-block: 0.5rem
     @include screen-width($desktop...)
       // height: 40%
@@ -23,38 +23,49 @@
       width: 100%
       top: 0
       z-index: 1
-      /* display: none; */
+      @include screen-width($phone...)
+        display: none
 
     #buildings-1
       width: 100%
       bottom: 13%
       z-index: 4
-      /* display: none; */
+      @include screen-width($phone...)
+        display: none
 
     #buildings-2
       width: 100%
       bottom: 13%
       left: 100%
       z-index: 4
-      /* display: none; */
+      @include screen-width($phone...)
+        display: none
 
     #car
       width: 62%
       bottom: -6%
       left: 28%
       z-index: 5
+      @include screen-width($phone...)
+        width: 94%
+        left: 10%
       /* display: none; */
 
     #road
       width: 100%
       bottom: 0
       z-index: 2
+      @include screen-width($phone...)
+        width: fit-content
+        height: 50%
       /* display: none; */
 
     #roadlines-1
       width: 95%
       bottom: 26%
       z-index: 3
+      @include screen-width($phone...)
+        bottom: 32%
       /* display: none; */
 
     #roadlines-2
@@ -62,6 +73,8 @@
       bottom: 26%
       left: 100%
       z-index: 3
+      @include screen-width($phone...)
+        bottom: 32%
       /* display: none; */
 
     #smoke-front
@@ -70,6 +83,10 @@
       left: 2%
       z-index: 6
       /* display: none; */
+      @include screen-width($phone...)
+        width: 61%
+        bottom: 2%
+        left: -26%
 
     #smoke-rear
       width: 33%
@@ -77,3 +94,7 @@
       left: 2%
       z-index: 6
       /* display: none; */
+      @include screen-width($phone...)
+        width: 54%
+        bottom: 4%
+        left: -33%
