@@ -28,7 +28,7 @@
       overflow: hidden
 
     @include screen-width($desktop...)
-      height: 45%
+      height: 46%
       border-radius: 10px
 
 #tutdl
@@ -49,7 +49,7 @@
   canvas
     // width: 30%
     
-    height: 90%
+    height: 95%
     // aspect-ratio: 1/1
     // border: 1px dashed red
     align-self: flex-end
@@ -90,7 +90,7 @@
     @include screen-width($desktop...)
       width: clamp(200px, 60%, 680px)
       height: 100%
-      margin-inline: 1% 1rem
+      margin-inline: 0.7% 0.5rem
       align-items: start
 
     #tutdl-logo
@@ -111,7 +111,7 @@
         margin-bottom: 20%
 
       @include screen-width($desktop...)
-        width: 25vw
+        width: 24vw
         margin-left: 1rem
 
     .slogan
@@ -126,12 +126,12 @@
         width: 100%
 
       @include screen-width($desktop...)
-        font-size: clamp(0.9rem, 1.2vw, 1.3rem)
+        font-size: clamp(0.9rem, 1vw, 1.3rem)
         margin-top: 2%
         margin-left: 5%
 
     .learn-more
-      font-size: clamp(0.9rem, 1.3vw, 1.5rem)
+      font-size: clamp(0.9rem, 1.2vw, 1.5rem)
 
       @include screen-width($phone...)
         width: 87%
@@ -139,7 +139,8 @@
         margin-top: 5rem
         margin-left: 5%
       @include screen-width($desktop...)
-        width: clamp(145px, 40%, 200px)
+        // width: clamp(145px, 40%, 200px)
+        padding: 0.2rem 1rem
         align-self: flex-end
         margin-top: 3%
         margin-right: 8%

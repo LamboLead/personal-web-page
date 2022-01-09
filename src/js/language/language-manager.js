@@ -32,8 +32,8 @@ function changeLanguage(langId) {
 
   function updateLang(lang) {
     Object.entries(lang).forEach((entry) => {
-      let element = document.querySelector(`[data-lang=${entry[0]}]`);
-      element.innerHTML = entry[1];
+      let element = document.querySelectorAll(`[data-lang=${entry[0]}]`);
+      element.forEach((elem) => elem.innerHTML = entry[1])
     });
   }
 }

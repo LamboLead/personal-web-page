@@ -3,8 +3,8 @@ let carTimeline = gsap.timeline();
 // Car
 carTimeline.add(
   gsap.to("#car, #smoke-front, #smoke-rear", {
-    x: 20,
-    duration: 2,
+    x: 40,
+    duration: 4,
     ease: "sine.inOut",
     yoyo: true,
     repeat: -1

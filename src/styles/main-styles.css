@@ -31,17 +31,16 @@ body {
   align-items: end;
 }
 body::-webkit-scrollbar {
-  width: 0.5rem;
-  background: var(--someDarkColor);
+  width: 0.4rem;
+  background: var(--generalBorderColor);
 }
 body::-webkit-scrollbar-thumb {
-  background: var(--buttonColor);
+  background: var(--navbarColor);
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 body::-webkit-scrollbar-thumb:hover {
-  background: yellow;
-  cursor: grab;
+  background: var(--buttonColor);
 }
 
 a {
@@ -335,7 +334,7 @@ a {
   width: clamp(215px, 42%, 420px);
   padding: 5px;
   border-radius: 1.5rem;
-  font-size: clamp(1rem, 1.5vw, 1.8rem);
+  font-size: clamp(1rem, 1.3vw, 1.8rem);
 }
 
 @media (min-width: 0px) and (max-width: 1024px) {
@@ -419,7 +418,7 @@ a {
     flex-direction: row;
     justify-content: space-around;
     align-items: start;
-    padding-block: 1rem;
+    margin-block: 1.5rem;
   }
 }
 @media (min-width: 0px) and (max-width: 1024px) {
@@ -448,7 +447,7 @@ a {
 @media (min-width: 1025px) and (max-width: 4000px) {
   #who-am-i .info-wrapper .about-me-info {
     width: 60%;
-    font-size: clamp(1rem, 1.5vw, 1.6rem);
+    font-size: clamp(1rem, 1.2vw, 1.6rem);
   }
 }
 
@@ -593,7 +592,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .contracted-subtitle {
-    font-size: clamp(20px, 3vw, 40px);
+    font-size: clamp(20px, 2.3vw, 40px);
   }
 }
 
@@ -612,14 +611,14 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .about-me-subtitle {
-    font-size: clamp(30px, 3.5vw, 60px);
+    font-size: clamp(30px, 2.7vw, 60px);
   }
 }
 
 #who-am-i .animation-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/0.9;
+  aspect-ratio: 4.5/1;
   overflow: hidden;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
@@ -645,21 +644,21 @@ a {
 }
 #who-am-i .animation-wrapper #buildings-1 {
   width: 100%;
-  bottom: 0%;
+  bottom: 13%;
   z-index: 4;
   /* display: none; */
 }
 #who-am-i .animation-wrapper #buildings-2 {
   width: 100%;
-  bottom: 0%;
+  bottom: 13%;
   left: 100%;
   z-index: 4;
   /* display: none; */
 }
 #who-am-i .animation-wrapper #car {
-  width: 80%;
-  bottom: 0%;
-  left: 20%;
+  width: 62%;
+  bottom: -6%;
+  left: 28%;
   z-index: 5;
   /* display: none; */
 }
@@ -671,28 +670,28 @@ a {
 }
 #who-am-i .animation-wrapper #roadlines-1 {
   width: 95%;
-  bottom: 20%;
+  bottom: 26%;
   z-index: 3;
   /* display: none; */
 }
 #who-am-i .animation-wrapper #roadlines-2 {
   width: 95%;
-  bottom: 20%;
+  bottom: 26%;
   left: 100%;
   z-index: 3;
   /* display: none; */
 }
 #who-am-i .animation-wrapper #smoke-front {
-  width: 42%;
+  width: 43%;
   bottom: 0%;
-  left: 0.4%;
+  left: 2%;
   z-index: 6;
   /* display: none; */
 }
 #who-am-i .animation-wrapper #smoke-rear {
   width: 33%;
-  bottom: 2%;
-  left: -3%;
+  bottom: 6%;
+  left: 2%;
   z-index: 6;
   /* display: none; */
 }
@@ -755,7 +754,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   .main-content-my-portfolio .a-project {
-    height: 45%;
+    height: 46%;
     border-radius: 10px;
   }
 }
@@ -780,7 +779,7 @@ a {
   }
 }
 #tutdl canvas {
-  height: 90%;
+  height: 95%;
   align-self: flex-end;
   transition: opacity 400ms ease-in;
 }
@@ -803,7 +802,7 @@ a {
   #tutdl .project-description {
     width: clamp(200px, 60%, 680px);
     height: 100%;
-    margin-inline: 1% 1rem;
+    margin-inline: 0.7% 0.5rem;
     align-items: start;
   }
 }
@@ -828,7 +827,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description #tutdl-logo {
-    width: 25vw;
+    width: 24vw;
     margin-left: 1rem;
   }
 }
@@ -847,13 +846,13 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .slogan {
-    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+    font-size: clamp(0.9rem, 1vw, 1.3rem);
     margin-top: 2%;
     margin-left: 5%;
   }
 }
 #tutdl .project-description .learn-more {
-  font-size: clamp(0.9rem, 1.3vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.5rem);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #tutdl .project-description .learn-more {
@@ -865,7 +864,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl .project-description .learn-more {
-    width: clamp(145px, 40%, 200px);
+    padding: 0.2rem 1rem;
     align-self: flex-end;
     margin-top: 3%;
     margin-right: 8%;
@@ -913,8 +912,8 @@ a {
   text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25);
   word-spacing: -0.4ch;
   line-height: 1.5ch;
-  margin-bottom: auto;
-  font-size: clamp(40px, 6vw, 110px);
+  margin-bottom: 11vh;
+  font-size: clamp(40px, 5.8vw, 110px);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-contact .contact-title {
@@ -982,7 +981,7 @@ a {
   }
 }
 .contact-form .field-wrapper label {
-  font-size: clamp(1.3rem, 2vw, 1.5rem);
+  font-size: 1.3rem;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-form .field-wrapper label {
@@ -999,7 +998,7 @@ a {
 .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
   background: var(--fieldColor);
-  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+  font-size: 1.2rem;
   font-family: "Roboto Mono", monospace;
   color: var(--regularTextColor);
   border: none;
@@ -1047,7 +1046,7 @@ a {
 .contact-animation {
   height: 100%;
   aspect-ratio: 1/2.3;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(7, 29, 90, 0.281);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .contact-animation {
@@ -1160,7 +1159,6 @@ a {
 #navbar-main-logo {
   height: 70%;
   width: fit-content;
-  filter: drop-shadow(2px 2px 1px var(--textShadowColor));
   transition: transform 500ms ease;
   cursor: pointer;
 }
@@ -1378,7 +1376,6 @@ a {
 .drop-display-container-div .drop-arrow {
   width: 20%;
   height: 100%;
-  background: red;
 }
 
 .drop-option-container-div {
@@ -1392,25 +1389,17 @@ a {
   justify-content: start;
   align-items: center;
   transition: height 500ms ease;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .drop-option-container-div span {
   display: block;
   width: 100%;
   height: 1.5rem;
   cursor: pointer;
+  opacity: 0.6;
 }
 .drop-option-container-div span:hover {
-  background: yellow;
-}
-.drop-option-container-div::-webkit-scrollbar {
-  width: 4px;
-  background: var(--someDarkColor);
-}
-.drop-option-container-div::-webkit-scrollbar-thumb {
-  background: var(--buttonColor);
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  opacity: 1;
 }
 
 .is-dropdown-closed {
@@ -1665,6 +1654,7 @@ a {
   --placeholderTextColor: hsla(0, 0%, 63%, 1);
   --linkTextColor: hsla(209, 100%, 50%, 1);
   --textShadowColor: hsla(0, 0%, 0%, 0.25);
+  --logoShadowColor: hsla(0, 0%, 0%, 0.25);
 }
 
 .light-theme {
@@ -1672,15 +1662,15 @@ a {
   --gapColorLeft: hsl(209, 84%, 80%);
   --gapColorRight: hsla(0, 0%, 100%, 0);
   --generalBorderColor: hsla(0, 0%, 61%, 1);
-  --logoLightColor: hsla(0, 0%, 61%, 1);
-  --logoDarkColor: hsla(0, 0%, 32%, 1);
+  --logoLightColor: hsla(0, 0%, 55%, 1);
+  --logoDarkColor: hsla(0, 0%, 20%, 1);
   --navbarFontColor: hsla(0, 0%, 41%, 1);
   --twitterLogoColor: hsla(216, 86%, 59%, 1);
   --linkedLogoColor: hsla(223, 100%, 50%, 1);
   --githubLogoColor: hsla(0, 0%, 32%, 1);
   --cardColor: hsla(0, 0%, 100%, 0.6);
   --fieldColor: hsla(0, 0%, 90%, 0.9);
-  --background: linear-gradient(100.45deg, #D7D7D7 6.49%, #F4F4F4 97.66%);
+  --background: linear-gradient(100.45deg, #c4c4c4 6.49%, #F4F4F4 97.66%);
   --scrollColor: hsla(209, 84%, 60%, 1);
   --signatureFillColor: hsla(0, 0%, 40%, 1);
   --titleColor: hsla(0, 0%, 44%, 1);
@@ -1691,6 +1681,7 @@ a {
   --linkTextColor: hsla(209, 100%, 50%, 1);
   --placeholderTextColor: hsla(0, 0%, 63%, 1);
   --textShadowColor: hsla(0, 0%, 0%, 0.25);
+  --logoShadowColor: hsla(0, 0%, 0%, 1);
 }
 
 /*# sourceMappingURL=main-styles.css.map */

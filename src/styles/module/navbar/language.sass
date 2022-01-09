@@ -59,7 +59,7 @@
   .drop-arrow
     width: 20%
     height: 100%
-    background: red
+    // background: red
 
 .drop-option-container-div
   width: 6.5rem
@@ -75,24 +75,25 @@
   align-items: center
 
   transition: height 500ms ease
-  overflow-y: scroll
+  overflow-y: hidden
 
   span
     display: block
     width: 100%
     height: 1.5rem
     cursor: pointer
+    opacity: 0.6
 
     &:hover
-      background: yellow
+      opacity: 1
 
-  &::-webkit-scrollbar
-    width: 4px
-    background: var(--someDarkColor)
-  &::-webkit-scrollbar-thumb
-    background: var(--buttonColor)
-    border-top-left-radius: 0.25rem
-    border-bottom-left-radius: 0.25rem
+  // &::-webkit-scrollbar
+  //   width: 4px
+  //   background: var(--someDarkColor)
+  // &::-webkit-scrollbar-thumb
+  //   background: var(--buttonColor)
+  //   border-top-left-radius: 0.25rem
+  //   border-bottom-left-radius: 0.25rem
 
 .is-dropdown-closed
   border: none !important

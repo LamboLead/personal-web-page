@@ -3,9 +3,6 @@
   flex-direction: column
   justify-content: center
   align-items: center
-
-  // border: 2px dashed red
-  
   width: 90%
   height: 80%
 
@@ -26,8 +23,8 @@
     text-shadow: -8px 8px 4px rgba(0, 0, 0, 0.25)
     word-spacing: -0.4ch
     line-height: 1.5ch
-    margin-bottom: auto
-    font-size: clamp(40px, 6vw, 110px)
+    margin-bottom: 11vh
+    font-size: clamp(40px, 5.8vw, 110px)
 
     // border: 2px dashed yellow
 
@@ -88,7 +85,7 @@
 
     label
       // FIX THIS!!!
-      font-size: clamp(1.3rem, 2vw, 1.5rem)
+      font-size: 1.3rem
       @include screen-width($phone...)
         width: 95%
         height: fit-content
@@ -100,7 +97,7 @@
       padding: 5px 0 3px 1ch
       background: var(--fieldColor)
       // FIX THIS!!!
-      font-size: clamp(1.2rem, 2.2vw, 1.4rem)
+      font-size: 1.2rem
       font-family: 'Roboto Mono', monospace
       color: var(--regularTextColor)
       border: none
@@ -139,6 +136,6 @@
 .contact-animation
   height: 100%
   aspect-ratio: 1/2.3
-  background: rgba(255, 255, 255, 0.5)
+  background: rgba(7, 29, 90, 0.281)
   @include screen-width($phone...)
     display: none

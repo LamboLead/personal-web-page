@@ -5,7 +5,7 @@
  * -> Set up loader when the user first enters the page. [DONE]
  * -> Set up code to accomodate vertical and horizontal animations.  [DONE]
  * -> Set up different animations for scrolling arrows, navbar tab, multilanguage arrow.
- * -> Set up animation for 'about me' section.  [IN PROGRESS]
+ * -> Set up animation for 'about me' section.  [DONE]
  * -> Fix sizing and styling for elements.
  * -> Record animations and process the material
  * -> Display portfolio images according to the theme and device [TESTING]
@@ -19,7 +19,6 @@
 
 /**
  * To do right now:
- * Set up animation for 'about me' section.
  * Set up logos and animations for scrolling arrows, navbar tab, multilanguage arrow.
  * Test portfolio images.
 */

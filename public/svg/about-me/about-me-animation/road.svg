@@ -1,16 +1,16 @@
-<svg id="road" width="2595" height="254" viewBox="0 0 2595 254" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <mask id="mask0_446_809" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="2596" height="258">
-    <rect id="road-mask" y="0.109375" width="2595.52" height="257.83" fill="url(#paint0_linear_446_809)"/>
+<svg width="4500" height="398" viewBox="0 0 4500 398" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <mask id="mask0_451_748" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="4500" height="398">
+    <rect id="road-mask" y="0.131348" width="4500" height="397.868" fill="url(#paint0_linear_451_748)"/>
   </mask>
-  <g mask="url(#mask0_446_809)">
-    <path id="actual-road" d="M2595.52 -2.63379V260.683H1.14118e-05L0 -2.63379H2595.52Z" fill="url(#paint1_radial_446_809)"/>
+  <g mask="url(#mask0_451_748)">
+    <path id="actual-road" d="M4500 -4.10205V402.234H1.97852e-05L0 -4.10205H4500Z" fill="url(#paint1_radial_451_748)"/>
   </g>
   <defs>
-    <linearGradient id="paint0_linear_446_809" x1="1297.76" y1="191.461" x2="1297.76" y2="257.939" gradientUnits="userSpaceOnUse">
+    <linearGradient id="paint0_linear_451_748" x1="2250" y1="295.415" x2="2250" y2="398" gradientUnits="userSpaceOnUse">
       <stop stop-color="#C4C4C4"/>
       <stop offset="0.721406" stop-color="#C4C4C4" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="paint1_radial_446_809" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1316.13 591.783) rotate(-90) scale(609.304 1664.03)">
+    <radialGradient id="paint1_radial_451_748" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2281.84 913.169) rotate(-90) scale(940.244 2885.01)">
       <stop offset="0.381117" stop-color="#919191"/>
       <stop offset="0.911613" stop-color="#222222"/>
     </radialGradient>

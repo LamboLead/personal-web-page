@@ -2,8 +2,8 @@ const images = {
   dynamic: {
     mainPageImage: {
       info: {
-        markers: {startColor: "yellow", endColor: "red"},
-        // markers: false,
+        // markers: {startColor: "yellow", endColor: "red"},
+        markers: false,
         id: "main-page-animation",
         trigger: "#main-page",
         start: "top top+=1",

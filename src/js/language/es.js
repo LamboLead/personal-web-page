@@ -13,13 +13,13 @@ const español = {
 
   "main-page-title": "Juan David López",
   "main-page-subtitle": "Desarrollador web freelance",
-  "main-page-button-1": "Quiere ver mis proyectos?",
-  "main-page-button-2": "Conozca más acerca de mí",
+  "main-page-button-1": "¿Quiere ver mis proyectos?",
+  "main-page-button-2": "Conozca más sobre mí",
 
-  "about-me-whoami-contracted-subtitle": "Quién soy yo? / Qué puedo hacer por usted?",
-  "about-me-whoami-subtitle-1": "Quién soy yo?",
+  "about-me-whoami-contracted-subtitle": "¿Quién soy yo? / ¿Qué puedo hacer por usted?",
+  "about-me-whoami-subtitle-1": "¿Quién soy yo?",
   "about-me-whoami-text-1": "Soy un desarrollador web y diseñador freelance que puede ayudarle a construir el sitio web que supla sus necesidades.",
-  "about-me-whoami-subtitle-2": "Qué puedo hacer por usted?",
+  "about-me-whoami-subtitle-2": "¿Qué puedo hacer por usted?",
   "about-me-whoami-text-2": "From visually appealing, functional and efficient websites, to system architecture and logo design; I can help you grow your business, improve your online presence, build confidence in your clients, and much more.",
   "about-me-whoami-text-2": "Desde sitios web visualmente impresionantes, funcionales y eficientes, hasta architectura de software y diseño de logos; Puedo ayudarle a hacer crecer su negocio y la confianza de sus clientes, mejorar su presencia online, y mucho más.",
 
@@ -41,7 +41,7 @@ const español = {
   "my-portfolio-tutdl-slogan": '"Una lista de tareas que tiene mucho más que una lista de tareas"',
   "my-portfolio-tutdl-button": "Ir al sitio",
 
-  "contact-title": "Creemos algo juntos!",
+  "contact-title": "¡Creemos algo juntos!",
   "contact-form-name": "Su nombre:",
   // "contact-form-name-placeholder": "Armando Casas",
   "contact-form-email": "Su email:",
