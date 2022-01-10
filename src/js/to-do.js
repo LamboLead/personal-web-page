@@ -1,24 +1,29 @@
 /**
  * Some things that you should do...
  * 
+ * -> Fix loading bar. Load smoothly and right after the loader animation ends.
+ * -> Improve light-theme colors.
+ * -> Set up different animations for scrolling arrows, navbar tab, multilanguage arrow.
+ * -> Write Privacy Policy and Terms & Conditions.
+ * -> Buy and set up hosting.
+ * -> Record animations and process the material
  * -> Inject all SVGs. [DONE]
  * -> Set up loader when the user first enters the page. [DONE]
  * -> Set up code to accomodate vertical and horizontal animations.  [DONE]
- * -> Set up different animations for scrolling arrows, navbar tab, multilanguage arrow.
  * -> Set up animation for 'about me' section.  [DONE]
- * -> Fix sizing and styling for elements.
- * -> Record animations and process the material
- * -> Display portfolio images according to the theme and device [TESTING]
+ * -> Fix sizing and styling for elements. [IN PROGRESS]
+ * -> Display portfolio images according to the theme and device [DONE]
  * -> Implement multilanguage. [DONE]
  * -> Track performance, and improve it whether by:
- * Converting images to url64, or something. [DIDN'T NEED TO]
- * Downsizing images to reasonable size. [DONE]
- * Rescaling images upfront so that they fit inside canvas nicely. [DONE]
+ * -> Downsize images to reasonable size. [DONE]
+ * -> Rescale images upfront so that they fit inside canvas nicely. [DONE]
  * -> Track performance, and show different content depending on it. [IN PROGRESS]
+ * 
  */
 
 /**
  * To do right now:
- * Set up logos and animations for scrolling arrows, navbar tab, multilanguage arrow.
- * Test portfolio images.
+ * Improve light-theme colors.
+ * Set up appropiate colors for about-me animations.
+ * Improve loading bar. Load smoothly and right after the loader animation ends.
 */

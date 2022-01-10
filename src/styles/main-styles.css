@@ -335,6 +335,7 @@ a {
   padding: 5px;
   border-radius: 1.5rem;
   font-size: clamp(1rem, 1.2vw, 1.8rem);
+  text-align: center;
 }
 
 @media (min-width: 0px) and (max-width: 1024px) {
@@ -858,7 +859,7 @@ a {
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
   #tutdl canvas {
-    aspect-ratio: 53/50;
+    aspect-ratio: 57/50;
   }
 }
 #tutdl .project-description {
