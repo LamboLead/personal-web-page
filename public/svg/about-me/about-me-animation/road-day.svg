@@ -1,0 +1,18 @@
+<svg class="road day" width="4500" height="398" viewBox="0 0 4500 398" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <mask id="mask0_466_706" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="4500" height="398">
+    <rect id="road-mask" y="0.131348" width="4500" height="397.868" fill="url(#paint0_linear_466_706)"/>
+  </mask>
+  <g mask="url(#mask0_466_706)">
+    <path id="actual-road" d="M4500 -4.10205V402.234H1.97852e-05L0 -4.10205H4500Z" fill="url(#paint1_radial_466_706)"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_466_706" x1="2250" y1="295.415" x2="2250" y2="398" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4C4C4"/>
+      <stop offset="0.721406" stop-color="#C4C4C4" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="paint1_radial_466_706" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3865.92 303.495) rotate(-171.737) scale(1972.18 6051.37)">
+      <stop offset="0.368158" stop-color="#828282"/>
+      <stop offset="0.935436" stop-color="#AEAEAE"/>
+    </radialGradient>
+  </defs>
+</svg>

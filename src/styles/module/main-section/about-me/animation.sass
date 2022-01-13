@@ -19,29 +19,25 @@
       position: absolute
       height: fit-content
 
-    #sky-moon
+    .sky
       width: 100%
       top: 0
       z-index: 1
       @include screen-width($phone...)
         display: none
 
-    #buildings-1
+    .buildings
       width: 100%
       bottom: 13%
       z-index: 4
       @include screen-width($phone...)
         display: none
-
-    #buildings-2
-      width: 100%
-      bottom: 13%
+    #buildings-3, #buildings-4
+      bottom: 10%
+    #buildings-2, #buildings-4
       left: 100%
-      z-index: 4
-      @include screen-width($phone...)
-        display: none
 
-    #car
+    .car
       width: 62%
       bottom: -6%
       left: 28%
@@ -51,7 +47,7 @@
         left: 10%
       /* display: none; */
 
-    #road
+    .road
       width: 100%
       bottom: 0
       z-index: 2
@@ -60,22 +56,15 @@
         height: 50%
       /* display: none; */
 
-    #roadlines-1
-      width: 95%
+    .roadlines
       bottom: 26%
       z-index: 3
+      width: 95%
       @include screen-width($phone...)
         bottom: 32%
-      /* display: none; */
 
-    #roadlines-2
-      width: 95%
-      bottom: 26%
+    #roadlines-2, #roadlines-4
       left: 100%
-      z-index: 3
-      @include screen-width($phone...)
-        bottom: 32%
-      /* display: none; */
 
     #smoke-front
       width: 43%

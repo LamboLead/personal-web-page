@@ -2,7 +2,7 @@ let carTimeline = gsap.timeline();
 
 // Car
 carTimeline.add(
-  gsap.to("#car, #smoke-front, #smoke-rear", {
+  gsap.to(".car, #smoke-front, #smoke-rear", {
     x: 40,
     duration: 4,
     ease: "sine.inOut",
@@ -13,7 +13,7 @@ carTimeline.add(
 
 // Buildings
 carTimeline.add(
-  gsap.to("#buildings-1, #buildings-2", {
+  gsap.to(".buildings", {
     x: "-100%",
     duration: 9,
     ease: "none",
@@ -23,7 +23,7 @@ carTimeline.add(
 
 // Roadlines
 carTimeline.add(
-  gsap.to("#roadlines-1, #roadlines-2", {
+  gsap.to(".roadlines", {
     x: "-100%",
     duration: 0.8,
     ease: "none",
@@ -181,7 +181,7 @@ smokeTimeline.add(
   })
 , 0.5)
 
-let aboutMeTimeline = gsap.timeline({paused: true});
+let aboutMeTimeline = gsap.timeline({paused: false});
 aboutMeTimeline.add(carTimeline, 0);
 aboutMeTimeline.add(rimTimeline, 0);
 aboutMeTimeline.add(smokeTimeline, 0);

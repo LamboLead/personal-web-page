@@ -44,6 +44,10 @@ export function renderTheme(classTheme) {
   }
 
   imageManager.loadImage({name: "tutdlImage", type: "normal"}, imageManager.currentTheme);
+
+  // Change about-me animation colors
+  let aboutMeAnimationWrapper = document.querySelector("#who-am-i .animation-wrapper");
+  aboutMeAnimationWrapper.classList = "animation-wrapper " + classTheme;
 }
 
 /**

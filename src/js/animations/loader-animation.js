@@ -22,7 +22,7 @@ function startLoaderAnimation(callback) {
     x: "-100%"
   });
 
-  logoTimeline = gsap.timeline({onComplete: callback});
+  logoTimeline = gsap.timeline();
   let dur = 2;
   // Move whole logo to the right
   logoTimeline.add(
@@ -90,7 +90,7 @@ function startLoaderAnimation(callback) {
   logoTimeline.add(smokeTimeline, "0");
 
   // Expand logo
-  let expandTimeline = gsap.timeline();
+  let expandTimeline = gsap.timeline({onComplete: callback});
 
   expandTimeline.add(
     gsap.to("#loader-logo", {
@@ -113,6 +113,17 @@ function startLoaderAnimation(callback) {
   , "+=0")
 
   logoTimeline.add(expandTimeline, "+=0");
+
+  // Rotate wheel indefinitely
+  logoTimeline.add(
+    gsap.to("#loader-logo #full-tyre", {
+      rotate: -360,
+      transformOrigin: "50%, 50%",
+      duration: 13,
+      ease: "sine.inOut",
+      repeat: -1
+    })
+  , "+=0");
 }
 
 export {startLoaderAnimation, logoTimeline};

@@ -640,38 +640,33 @@ a {
   position: absolute;
   height: fit-content;
 }
-#who-am-i .animation-wrapper #sky-moon {
+#who-am-i .animation-wrapper .sky {
   width: 100%;
   top: 0;
   z-index: 1;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #sky-moon {
+  #who-am-i .animation-wrapper .sky {
     display: none;
   }
 }
-#who-am-i .animation-wrapper #buildings-1 {
+#who-am-i .animation-wrapper .buildings {
   width: 100%;
   bottom: 13%;
   z-index: 4;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #buildings-1 {
+  #who-am-i .animation-wrapper .buildings {
     display: none;
   }
 }
-#who-am-i .animation-wrapper #buildings-2 {
-  width: 100%;
-  bottom: 13%;
+#who-am-i .animation-wrapper #buildings-3, #who-am-i .animation-wrapper #buildings-4 {
+  bottom: 10%;
+}
+#who-am-i .animation-wrapper #buildings-2, #who-am-i .animation-wrapper #buildings-4 {
   left: 100%;
-  z-index: 4;
 }
-@media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #buildings-2 {
-    display: none;
-  }
-}
-#who-am-i .animation-wrapper #car {
+#who-am-i .animation-wrapper .car {
   width: 62%;
   bottom: -6%;
   left: 28%;
@@ -679,45 +674,35 @@ a {
   /* display: none; */
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #car {
+  #who-am-i .animation-wrapper .car {
     width: 94%;
     left: 10%;
   }
 }
-#who-am-i .animation-wrapper #road {
+#who-am-i .animation-wrapper .road {
   width: 100%;
   bottom: 0;
   z-index: 2;
   /* display: none; */
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #road {
+  #who-am-i .animation-wrapper .road {
     width: fit-content;
     height: 50%;
   }
 }
-#who-am-i .animation-wrapper #roadlines-1 {
-  width: 95%;
+#who-am-i .animation-wrapper .roadlines {
   bottom: 26%;
   z-index: 3;
-  /* display: none; */
+  width: 95%;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #roadlines-1 {
+  #who-am-i .animation-wrapper .roadlines {
     bottom: 32%;
   }
 }
-#who-am-i .animation-wrapper #roadlines-2 {
-  width: 95%;
-  bottom: 26%;
+#who-am-i .animation-wrapper #roadlines-2, #who-am-i .animation-wrapper #roadlines-4 {
   left: 100%;
-  z-index: 3;
-  /* display: none; */
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #who-am-i .animation-wrapper #roadlines-2 {
-    bottom: 32%;
-  }
 }
 #who-am-i .animation-wrapper #smoke-front {
   width: 43%;
@@ -1650,6 +1635,14 @@ a {
 }
 .is-skillset-contracted .contracted-subtitle {
   opacity: 1 !important;
+}
+
+.light-theme .night {
+  display: none !important;
+}
+
+.dark-theme .day {
+  display: none !important;
 }
 
 .is-navbar-expanded {

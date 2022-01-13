@@ -22,23 +22,34 @@ let loadingProgressbar, networkSpeed;
 })();
 
 
-async function init() {
-
+function init() {
   loadingProgressbar.setProgress(0);
-  // Inject all SVGs()
-  await importAllSVG();
-  loadingProgressbar.setProgress(0.3);
-  // Load multilanguage
-  loadLanguage();
-  loadingProgressbar.setProgress(0.6);
-  // Load theme and animations
-  await loadThemeAndAnimations();
-  loadingProgressbar.setProgress(1);
-  setTimeout(() => {
-    hideLoader();
+  setRandomProgressBetween(0.1, 0.2);
+
+  setTimeout(async () => {
+    // Inject all SVGs()
+    await importAllSVG();
+    setRandomProgressBetween(0.3, 0.4);
+
+    setTimeout(async () => {
+      // Load multilanguage
+      loadLanguage();
+      setRandomProgressBetween(0.5, 0.7);
+
+      setTimeout(async () => {
+        await loadThemeAndAnimations();
+        loadingProgressbar.setProgress(1);
+
+        setTimeout(() => {
+          hideLoader();
+        }, 1000)
+      }, 1000)
+    }, 500)
   }, 1000)
+  // Load theme and animations
 }
 
+// Progressbar functions
 async function loadProgressbar() {
   console.log("Completed!");
   let progressbar = new Progressbar(
@@ -51,6 +62,20 @@ async function loadProgressbar() {
   return progressbar;
 }
 
+/**
+ * Sets the progress of the progressbar to a value between the specified arguments to improve realism
+ * @param {number} min Minimum acceptable value to set the progressbar
+ * @param {number} max Maximum acceptable value to set the progressbar
+ */
+function setRandomProgressBetween(min, max) {
+  let minimum = min * 100;
+  let maximum = max * 100;
+  let value = Math.random() * (maximum - minimum) + minimum;
+  // console.log((value / 100).toFixed(2));
+  loadingProgressbar.setProgress((value / 100).toFixed(2));
+}
+
+// Load assets
 function loadLanguage() {
   import ("./language/language-manager.js");
 }

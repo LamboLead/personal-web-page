@@ -1,4 +1,4 @@
-<svg id="sky-moon" width="4500" height="606" viewBox="0 0 4500 606" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="sky night" width="4500" height="606" viewBox="0 0 4500 606" fill="none" xmlns="http://www.w3.org/2000/svg">
   <mask id="mask0_451_743" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="4500" height="606">
     <rect id="sky-mask" width="4500" height="605.109" fill="url(#paint0_linear_451_743)"/>
   </mask>

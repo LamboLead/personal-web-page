@@ -16,15 +16,28 @@ export default async function importAllSVG() {
 
   // About me
   // > Animation
-  await injectSVG({id: "sky-moon", src: "about-me/about-me-animation/sky-moon.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "buildings-1", src: "about-me/about-me-animation/buildings.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "buildings-2", src: "about-me/about-me-animation/buildings.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "car", src: "about-me/about-me-animation/car.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Sky
+  await injectSVG({src: "about-me/about-me-animation/sky-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({src: "about-me/about-me-animation/sky-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Buildings
+  await injectSVG({id:"buildings-1", src: "about-me/about-me-animation/buildings-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id:"buildings-2", src: "about-me/about-me-animation/buildings-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id:"buildings-3", src: "about-me/about-me-animation/buildings-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id:"buildings-4", src: "about-me/about-me-animation/buildings-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Cars
+  await injectSVG({src: "about-me/about-me-animation/car-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({src: "about-me/about-me-animation/car-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Smoke
   await injectSVG({id: "smoke-front", src: "about-me/about-me-animation/grouped-smoke-clouds-front.svg"}, {parentSelector: "#about-me .animation-wrapper"});
   await injectSVG({id: "smoke-rear", src: "about-me/about-me-animation/grouped-smoke-clouds-rear.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "road", src: "about-me/about-me-animation/road.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "roadlines-1", src: "about-me/about-me-animation/roadlines.svg"}, {parentSelector: "#about-me .animation-wrapper"});
-  await injectSVG({id: "roadlines-2", src: "about-me/about-me-animation/roadlines.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Road
+  await injectSVG({src: "about-me/about-me-animation/road-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({src: "about-me/about-me-animation/road-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  // Roadlines
+  await injectSVG({id: "roadlines-1", src: "about-me/about-me-animation/roadlines-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id: "roadlines-2", src: "about-me/about-me-animation/roadlines-night.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id: "roadlines-3", src: "about-me/about-me-animation/roadlines-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
+  await injectSVG({id: "roadlines-4", src: "about-me/about-me-animation/roadlines-day.svg"}, {parentSelector: "#about-me .animation-wrapper"});
   // > Skillset
   await injectSVG({id: "logos-skillset", src: "about-me/skillset-logos.svg"}, {parentSelector: "#skillset"});
   await injectSVG({id: "mobile-logos-skillset", src: "about-me/skillset-logos-mobile.svg"}, {parentSelector: "#skillset"});

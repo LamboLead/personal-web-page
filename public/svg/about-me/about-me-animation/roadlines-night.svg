@@ -1,4 +1,4 @@
-<svg id="roadlines" width="4090" height="16" viewBox="0 0 4090 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="roadlines night" width="4090" height="16" viewBox="0 0 4090 16" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M1483.87 0.370117H2606.32V15.4439H1483.87V0.370117Z" fill="#888888"/>
   <path d="M2967.46 0.370117H4089.91V15.4439H2967.46V0.370117Z" fill="#888888"/>
   <path d="M0.280396 0.370117H1122.73V15.4439H0.280396V0.370117Z" fill="#888888"/>
