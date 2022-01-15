@@ -24,10 +24,16 @@
 
   // border: 1px dashed aqua
 
-  svg
-    width: fit-content
+  .scrolling-arrows-svg
+    width: 2rem
     height: 100%
     fill: var(--scrollColor)
+    .right
+      transform: skewY(-20deg)
+      transform-origin: right center
+    .left
+      transform: skewY(20deg)  
+      transform-origin: left center
 
 .emphasis-button
   font-family: 'Roboto Mono', monospace

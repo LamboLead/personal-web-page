@@ -12,6 +12,7 @@
     width: clamp(0px, 50%, 350px)
     height: 100%
     transform: translateX(-100%)
+    z-index: 3
 
   @include screen-width($desktop...)
     top: 0
@@ -25,8 +26,27 @@
   left: 100%
   width: 7vw
   height: 10vh
-  background: var(--navbarColor)
+  background: var(--mainColor)
   border-radius: 0 5px 5px 0
+  // border: 1px solid var(--generalBorderColor)
+  // border-right: 2px solid var(--generalBorderColor)
+  // border-left: 1px solid black
+  display: flex
+  justify-content: center
+  align-items: center
+  svg
+    position: relative
+    left: 25%
+    fill: var(--scrollColor)
+    width: 100%
+    height: 45%
+    path
+      transform-origin: center center
+      transition: transform 300ms ease
+      &:nth-child(1)
+        transform: skewX(35deg)
+      &:nth-child(2)
+        transform: skewX(-35deg)
 
   @include screen-width($desktop...)
     display: none

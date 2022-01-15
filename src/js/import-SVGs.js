@@ -4,7 +4,10 @@ export default async function importAllSVG() {
   // Navbar > Main logo
   await injectSVG({id: "navbar-main-logo", src: "navbar-logos/main-logo.svg"}, {parentSelector: "#navbar #logo"});
 
-  // Navbar > Index logos
+  // Navbar
+  // > Navbar tab
+  await injectSVG({src: "other/to-right-left.svg"}, {parentSelector: "#navbar-tab"});
+  // > Index logos
   await injectSVG({id: "me", src: "navbar-logos/index-logos/me.svg"}, {parentSelector: "#index [data-navigation-section=about-me] .link-logo"});
   await injectSVG({src: "navbar-logos/index-logos/my-portfolio.svg"}, {parentSelector: "#index [data-navigation-section=my-portfolio] .link-logo"});
   await injectSVG({src: "navbar-logos/index-logos/contact.svg"}, {parentSelector: "#index [data-navigation-section=contact] .link-logo"});
@@ -52,10 +55,10 @@ export default async function importAllSVG() {
 
   // Scrolling arrows
   // > Main section
-  await injectSVG({classList: "scroll-down", src: "other/scrolling-arrows.svg"}, {parentSelector: "#main-section .scrolling-arrows"});
+  await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#main-section .scrolling-arrows"});
   // > About me
-  await injectSVG({classList: "scroll-down", src: "other/scrolling-arrows.svg"}, {parentSelector: "#about-me .scrolling-arrows-about-me"});
+  await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#about-me .scrolling-arrows-about-me"});
   // > Contact
-  await injectSVG({classList: "scroll-down", src: "other/scrolling-arrows.svg"}, {parentSelector: "#contact .scrolling-arrows"});
+  await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#contact .scrolling-arrows"});
 
 }

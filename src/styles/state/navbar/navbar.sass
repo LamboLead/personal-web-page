@@ -1,5 +1,19 @@
 .is-navbar-expanded
   transform: translateX(0) !important
+  
   #logo
     @include screen-width($phone...)
       transform: translateX(0) !important
+
+  .navbar-container
+    box-shadow: 3px 0px 1px var(--generalBorderColor)
+
+  #navbar-tab
+    box-shadow: 3px 0px 1px var(--generalBorderColor)
+    svg
+      left: -25%
+    path
+      &:nth-child(1)
+        transform: skewX(-35deg)
+      &:nth-child(2)
+        transform: skewX(35deg)

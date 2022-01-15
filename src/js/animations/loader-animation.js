@@ -1,6 +1,7 @@
 // Set up all elements
 let logoTimeline;
 function startLoaderAnimation(callback) {
+  window.scroll(0, 0);
   gsap.set("#loader-logo", {
     x: "80%",
     opacity: 1

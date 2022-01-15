@@ -21,6 +21,23 @@ ScrollTrigger.create({
   }
 });
 
+// - - - Scrolling arrows - - -
+
+// ScrollTrigger.create({
+//   onToggle: (self) => {
+//     gsap.to(".scrolling-arrows-svg .right", {
+//       transformOrigin: "center center",
+//       skewY: `${self.direction * 20}deg`,
+//       duration: 0.5
+//     })
+//     gsap.to(".scrolling-arrows-svg .left", {
+//       transformOrigin: "center center",
+//       skewY: `${-1 * self.direction * 20}deg`,
+//       duration: 0.5
+//     })
+//   }
+// })
+
 // - - - Snap scrolling - - -
 
 const snapDuration = 0.5;
@@ -172,13 +189,23 @@ function moveNavbarBackground(selector) {
 
 const navbarTab = document.getElementById("navbar-tab");
 const navbar = document.getElementById("navbar");
+const body = document.querySelector("body");
+const blackener = document.getElementById("blackener");
+
+blackener.addEventListener("click", () => {
+  navbarTab.click();
+});
 
 navbarTab.addEventListener("click", () => {
   if (navbar.classList.contains("is-navbar-expanded")) {
     navbar.classList.remove("is-navbar-expanded");
+    body.classList.remove("is-scrolling-disabled");
+    blackener.classList.remove("is-blackener-enabled");
     return;
   }
   navbar.classList.add("is-navbar-expanded");
+  body.classList.add("is-scrolling-disabled");
+  blackener.classList.add("is-blackener-enabled");
 });
 
 /**

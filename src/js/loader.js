@@ -13,7 +13,6 @@ let loadingProgressbar, networkSpeed;
 (async () => {
   await injectSVG({id: "grouped-smoke-clouds", src: "loader-logo/grouped-smoke-clouds.svg", withDivContainer: false}, {parentSelector: "#loader .logo-smoke-wrapper"});
   await injectSVG({id: "loader-logo", src: "loader-logo/loader-logo.svg", withDivContainer: false}, {parentSelector: "#loader .logo-smoke-wrapper"});
-  console.log("Injected!");
 
   startLoaderAnimation(async () => {
     loadingProgressbar = await loadProgressbar();
