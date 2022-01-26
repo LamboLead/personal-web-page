@@ -24,8 +24,11 @@
  * 
  */
 
+// For images: https://pythonawesome.com/a-python-tool-to-remove-images-background/
+
 /**
  * To do right now:
+ * Record animations
  * Document every object, function, etc.
  * Create acknowledgements section
 */

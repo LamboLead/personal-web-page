@@ -12,7 +12,8 @@ const images = {
       startSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/catto-vertical-1.png"}
+            {src: "main-page/dark-theme/baje-1.png"},
+            {src: "main-page/dark-theme/baje-2.png"}
           ],
           "light-theme": [
             {src: "main-page/light-theme/catto-vertical-1.png"}
@@ -30,8 +31,9 @@ const images = {
       currentSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/catto-red-vertical.png"},
-            {src: "main-page/dark-theme/catto-blue-vertical.png"}
+            {src: "main-page/dark-theme/contacto-1.png"},
+            {src: "main-page/dark-theme/contacto-2.png"},
+            {src: "main-page/dark-theme/portatil-1.png"}
           ],
           "light-theme": [
             {src: "main-page/light-theme/catto-red-vertical.png"},
