@@ -388,7 +388,7 @@ a {
   #title-animation {
     order: 2;
     width: clamp(160px, 20%, 300px);
-    aspect-ratio: 1/2;
+    aspect-ratio: 19/34;
   }
 }
 #title-animation canvas {
@@ -1135,15 +1135,19 @@ a {
   border-radius: 3rem;
 }
 
-.contact-animation {
+#contact-animation {
   height: 100%;
-  aspect-ratio: 1/2.3;
-  background: rgba(7, 29, 90, 0.281);
+  aspect-ratio: 6/7;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  .contact-animation {
+  #contact-animation {
     display: none;
   }
+}
+#contact-animation canvas {
+  width: 100%;
+  height: 100%;
+  transition: opacity 800ms ease-in;
 }
 
 #contact {

@@ -32,6 +32,10 @@ class ImageManager {
         onLeave: () => {
           console.log("Left!", element);
           this.setNewImage(element);
+        },
+        onLeaveBack: () => {
+          console.log("Left!", element);
+          this.setNewImage(element);
         }
       });
     });

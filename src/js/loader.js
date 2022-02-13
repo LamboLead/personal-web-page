@@ -83,13 +83,15 @@ async function loadThemeAndAnimations() {
   // Retrieve network & user info
   networkSpeed = window.navigator.connection.downlink;
   console.log(`Network speed: ${networkSpeed}Mb/s`);
-  if (networkSpeed > 3.5) {
-    // Load heavy theme
-    await initThemeFull();
-  } else {
-    // Load light theme
-    await initThemeLight();
-  }
+  // Disabled until you fix your shit
+  // if (networkSpeed > 3.5) {
+  //   // Load heavy theme
+  //   await initThemeFull();
+  // } else {
+  //   // Load light theme
+  //   await initThemeLight();
+  // }
+  await initThemeLight()
   import ("./animations/about-me-animation.js");
 }
 
@@ -107,12 +109,14 @@ function hideLoader() {
   let body = document.querySelector("body");
   body.classList.remove("is-loading-website");
 
-  // Initialize theme
-  if (networkSpeed > 3.5) {
-    import ("./theme/theme-full-starter.js");
-  } else {
-    import ("./theme/theme-light-starter.js");
-  }
+  // Initialize theme (disabled until you fix your shit)
+  // if (networkSpeed > 3.5) {
+  //   import ("./theme/theme-full-starter.js");
+  // } else {
+  //   import ("./theme/theme-light-starter.js");
+  // }
+
+  import ("./theme/theme-light-starter.js");
 
   // Initialize scrolling animations
   loadScrollingAnimations();

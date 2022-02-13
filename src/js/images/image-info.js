@@ -12,11 +12,12 @@ const images = {
       startSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/baje-1.png"},
-            {src: "main-page/dark-theme/baje-2.png"}
+            {src: "main-page/dark-theme/saludo-1.png"},
+            {src: "main-page/dark-theme/saludo-3.png"}
           ],
           "light-theme": [
-            {src: "main-page/light-theme/catto-vertical-1.png"}
+            {src: "main-page/light-theme/saludo-1.png"},
+            {src: "main-page/light-theme/saludo-2.png"}
           ]
         },
         "horizontal": {
@@ -31,13 +32,13 @@ const images = {
       currentSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/contacto-1.png"},
-            {src: "main-page/dark-theme/contacto-2.png"},
-            {src: "main-page/dark-theme/portatil-1.png"}
+            {src: "main-page/dark-theme/portatil-1.png"},
+            {src: "main-page/dark-theme/baje-1.png"},
+            {src: "main-page/dark-theme/baje-2.png"}
           ],
           "light-theme": [
-            {src: "main-page/light-theme/catto-red-vertical.png"},
-            {src: "main-page/light-theme/catto-blue-vertical.png"}
+            {src: "main-page/light-theme/portatil-2.png"},
+            {src: "main-page/light-theme/baje-1.png"}
           ]
         },
         "horizontal": {
@@ -50,6 +51,39 @@ const images = {
             {src: "main-page/light-theme/catto-blue-horizontal.png"}
           ]
         }
+      }
+    },
+    contactImage: {
+      info: {
+        // markers: true,
+        id: "contact-animation",
+        trigger: "#contact",
+        start: "top-=50% top+=1",
+        end: "bottom -=30%"
+      },
+      startSession: {
+        "vertical": {
+          "dark-theme": [
+            {src: "contact/dark-theme/contacto-1.png"},
+            {src: "contact/dark-theme/contacto-2.png"}
+          ],
+          "light-theme": [
+            {src: "contact/light-theme/contacto-1.png"}
+          ]
+        },
+        "horizontal": {}
+      },
+      currentSession: {
+        "vertical": {
+          "dark-theme": [
+            {src: "contact/dark-theme/contacto-1.png"},
+            {src: "contact/dark-theme/contacto-2.png"}
+          ],
+          "light-theme": [
+            {src: "contact/light-theme/contacto-1.png"}
+          ]
+        },
+        "horizontal": {}
       }
     }
   },
