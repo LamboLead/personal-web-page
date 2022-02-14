@@ -33,7 +33,7 @@ export default class Progressbar {
 
     if (this.numeric) {
       let span = document.querySelector(`#${this.id} span`);
-      span.innerText = `${newProgress * 100}%`;
+      span.innerText = `${Math.floor(newProgress * 100)}%`;
     }
   }
 

@@ -72,6 +72,11 @@ class ImageManager {
     });
     image.file = await promise;
 
+    if (selectedImage["style"]) {
+      image.style = selectedImage["style"];
+    }
+    console.log(selectedImage["src"]);
+
     // Set up rescaling
     image.canvas.width = image.file.naturalWidth;
     image.canvas.height = image.file.naturalHeight;
@@ -113,15 +118,16 @@ class CanvasImage {
     this.name = name;
     this.type = type
     this.file = undefined;
+    this.style = "";
     this.canvas = document.getElementById(name);
     this.hasLoaded = false;
     this.orientation = this.setUpOrientation();
   }
   show() {
-    this.canvas.classList.remove("is-animation-loading");
+    this.canvas.parentElement.classList.remove("is-animation-loading");
   }
   hide() {
-    this.canvas.classList.add("is-animation-loading");
+    this.canvas.parentElement.classList.add("is-animation-loading");
   }
   setUpOrientation() {
     if (this.canvas.clientHeight > this.canvas.clientWidth) {
@@ -136,6 +142,7 @@ class CanvasImage {
     let canvas = this.canvas;
     let context = canvas.getContext("2d");
     let image = this.file;
+    canvas.parentElement.setAttribute("style", this.style);
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
   }

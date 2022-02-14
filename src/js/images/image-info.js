@@ -12,12 +12,24 @@ const images = {
       startSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/saludo-1.png"},
-            {src: "main-page/dark-theme/saludo-3.png"}
+            {
+              src: "main-page/dark-theme/saludo-1.png",
+              style: "transform: translateX(17%); margin-left: -10%"
+            },
+            {
+              src: "main-page/dark-theme/saludo-3.png",
+              style: "transform: translateX(13%); margin-left: -9%"
+            }
           ],
           "light-theme": [
-            {src: "main-page/light-theme/saludo-1.png"},
-            {src: "main-page/light-theme/saludo-2.png"}
+            {
+              src: "main-page/light-theme/saludo-1.png",
+              style: "margin-left: -8%; transform: translate(33%, 3%)"
+            },
+            {
+              src: "main-page/light-theme/saludo-2.png",
+              style: "margin-left: -12%; transform: translateX(-36%); z-index: 2"
+            }
           ]
         },
         "horizontal": {
@@ -32,13 +44,25 @@ const images = {
       currentSession: {
         "vertical": {
           "dark-theme": [
-            {src: "main-page/dark-theme/portatil-1.png"},
-            {src: "main-page/dark-theme/baje-1.png"},
-            {src: "main-page/dark-theme/baje-2.png"}
+            {
+              src: "main-page/dark-theme/portatil-1.png",
+              style: "margin-left: -6%"
+            },
+            {
+              src: "main-page/dark-theme/baje-1.png",
+              style: "transform: translate(15%, -7%); position: relative; margin-left: -13%"
+            },
+            {
+              src: "main-page/dark-theme/baje-2.png",
+              style: "margin-left: -10%"
+
+            }
           ],
           "light-theme": [
-            {src: "main-page/light-theme/portatil-2.png"},
-            {src: "main-page/light-theme/baje-1.png"}
+            {
+              src: "main-page/light-theme/baje-1.png",
+              style: "margin-left: -11%; transform: translate(-112%, -6%); z-index: 2"
+            }
           ]
         },
         "horizontal": {

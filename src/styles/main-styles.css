@@ -29,6 +29,7 @@ body {
   flex-direction: column;
   justify-content: start;
   align-items: end;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 0.4rem;
@@ -271,7 +272,7 @@ a {
 @media (min-width: 1025px) and (max-width: 4000px) {
   #main-page {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 }
@@ -286,6 +287,7 @@ a {
   justify-content: space-around;
   align-items: end;
   height: clamp(200px, 40%, 360px);
+  z-index: 5;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page {
@@ -356,6 +358,7 @@ a {
   margin-right: 3%;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   .main-content-main-page .button-wrapper {
@@ -387,14 +390,16 @@ a {
 @media (min-width: 1025px) and (max-width: 4000px) {
   #title-animation {
     order: 2;
-    width: clamp(160px, 20%, 300px);
-    aspect-ratio: 19/34;
+    height: 60%;
+    aspect-ratio: 30/37;
+    transition: opacity 800ms ease-in, margin-left 500ms ease-in;
+    z-index: 5;
+    position: relative;
   }
 }
 #title-animation canvas {
   width: 100%;
   height: 100%;
-  transition: opacity 800ms ease-in;
 }
 
 #about-me {
@@ -866,26 +871,6 @@ a {
     align-items: center;
   }
 }
-#tutdl canvas {
-  height: 95%;
-  align-self: flex-end;
-  transition: opacity 400ms ease-in;
-}
-@media (min-width: 0px) and (max-width: 1024px) {
-  #tutdl canvas {
-    position: absolute;
-    aspect-ratio: 2/3;
-    height: 90%;
-    left: 58%;
-    align-self: center;
-    justify-self: center;
-  }
-}
-@media (min-width: 1025px) and (max-width: 4000px) {
-  #tutdl canvas {
-    aspect-ratio: 57/50;
-  }
-}
 #tutdl .project-description {
   display: flex;
   flex-direction: column;
@@ -973,6 +958,31 @@ a {
     margin-top: 3vh;
     margin-right: 8%;
   }
+}
+
+#tutdl-animation {
+  height: 95%;
+  align-self: flex-end;
+  transition: opacity 400ms ease-in;
+}
+@media (min-width: 0px) and (max-width: 1024px) {
+  #tutdl-animation {
+    position: absolute;
+    aspect-ratio: 2/3;
+    height: 90%;
+    left: 58%;
+    align-self: center;
+    justify-self: center;
+  }
+}
+@media (min-width: 1025px) and (max-width: 4000px) {
+  #tutdl-animation {
+    aspect-ratio: 57/50;
+  }
+}
+#tutdl-animation canvas {
+  width: 100%;
+  height: 100%;
 }
 
 .main-content-contact {
@@ -1138,6 +1148,7 @@ a {
 #contact-animation {
   height: 100%;
   aspect-ratio: 6/7;
+  transition: opacity 800ms ease-in;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #contact-animation {
@@ -1147,7 +1158,6 @@ a {
 #contact-animation canvas {
   width: 100%;
   height: 100%;
-  transition: opacity 800ms ease-in;
 }
 
 #contact {
