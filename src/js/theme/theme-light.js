@@ -66,7 +66,10 @@ function saveTheme(classTheme) {
  */
 async function retrieveTheme() {
   let retrievedTheme = (await DatabaseInfoModule.retrieveInfo(database, "Custom preferences", { query: "theme" }))[0];
-  if (!retrievedTheme) retrievedTheme = "dark-theme";
+  if (!retrievedTheme) {
+    retrievedTheme = "dark-theme";
+    saveTheme(retrievedTheme);
+  };
   SwitchHandler.renderSwitch(".switch-container-div", ".inside-switch-div",
     {
       leftValue: "dark-theme",

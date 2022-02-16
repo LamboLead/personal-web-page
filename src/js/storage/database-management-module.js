@@ -24,22 +24,22 @@
  * );
  */
 export async function openDatabase(dbName, dbVersion = 1, objectStoresArr) {
-  let promise = new Promise((resolve, reject) => {
-      let openRequest = indexedDB.open(dbName, dbVersion);
-      openRequest.onupgradeneeded = () => {
-          console.log("Updating database...");
-          let database = openRequest.result;
-    createStores(database, objectStoresArr);
-      }
-      openRequest.onerror = (e) => {
-          reject(Error("Unable to connect to database"));
-          console.log("Error!", e);
-      }
-      openRequest.onsuccess = () => {
-          console.log("Database connected successfully!");
-          let database = openRequest.result;
-          resolve(database);
-      }
+	let promise = new Promise((resolve, reject) => {
+		let openRequest = indexedDB.open(dbName, dbVersion);
+		openRequest.onupgradeneeded = () => {
+			console.log("Updating database...");
+			let database = openRequest.result;
+			createStores(database, objectStoresArr);
+		}
+		openRequest.onerror = (e) => {
+			reject(Error("Unable to connect to database"));
+			console.log("Error!", e);
+		}
+		openRequest.onsuccess = () => {
+			console.log("Database connected successfully!");
+			let database = openRequest.result;
+			resolve(database);
+		}
   });
   return await promise.then();
 }
@@ -68,38 +68,35 @@ export function deleteDatabase(dbName) {
 * 	[
 * 		{name: "Lists", keyOptions: {keyPath: "id", autoincrement: false}},
 * 		{name: "App information"},
-* 		{name: "Custom preferences"}
+* 		{name: "Custom preferences", indexes: ["something"]}
 * 	]
 * );
 */
 export async function createStores(IDBObject, objectStoresArr) {
   console.log("Creating object stores...");
   let promise = new Promise((resolve, reject) => {
-      objectStoresArr.forEach(store => {
-          let name = store.name;
-          let keyOptions = store.keyOptions;
-          let indexes = store.indexes;
-          console.log(`Creating object store '${name}'`);
-          let newStore;
+		objectStoresArr.forEach(store => {
+			let name = store.name;
+			let keyOptions = store.keyOptions;
+			let indexes = store.indexes;
+			console.log(`Creating object store '${name}'`);
+			let newStore;
 
-          if (keyOptions) {
-              newStore = IDBObject.createObjectStore(name, {
-                  keyPath: keyOptions.keyPath,
-                  autoIncrement: keyOptions.autoIncrement
-              });
-          } else {
-              newStore = IDBObject.createObjectStore(name);
-          }
+			if (keyOptions) {
+				newStore = IDBObject.createObjectStore(name, keyOptions);
+			} else {
+				newStore = IDBObject.createObjectStore(name);
+			}
 
-          if (indexes) {
-              indexes.forEach(index => {
-                  console.log(`Creating index '${index.name}' for store '${name}'`);
-                  newStore.createIndex(index.name, index.relatesTo);
-              });
-          }
-      });
-      resolve("Object stores created successfully!");
-      reject(Error("Unable to create object stores"));
+			if (indexes) {
+				indexes.forEach(index => {
+					console.log(`Creating index '${index.name}' for store '${name}'`);
+					newStore.createIndex(index.name, index.relatesTo);
+				});
+			}
+		});
+		resolve("Object stores created successfully!");
+		reject(Error("Unable to create object stores"));
   });
   console.log(await promise.then());
 }

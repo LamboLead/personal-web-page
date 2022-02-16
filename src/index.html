@@ -221,21 +221,28 @@
       <div class="main-content-contact">
         <span class="contact-title" data-lang="contact-title">Let's create something together!</span>
         <div class="form-animation-wrapper">
-          <form action="#" class="contact-form">
-            <div class="field-wrapper">
-              <label for="your-name" data-lang="contact-form-name">Your name:</label>
-              <input type="text" name="your-name" placeholder="John Doe">
+          <form id="contact-form" action="#">
+            <div class="form-wrapper">
+              <div class="field-wrapper">
+                <label for="your-name" data-lang="contact-form-name">Your name:</label>
+                <input type="text" name="your-name" data-lang="contact-form-name-placeholder" placeholder="John Doe">
+              </div>
+              <div class="field-wrapper">
+                <label for="your-email" data-lang="contact-form-email">Your email:</label>
+                <input type="text" name="your-email" data-lang="contact-form-email-placeholder" placeholder="john@doe.com">
+              </div>
+              <div class="field-wrapper textarea-wrapper">
+                <label for="how-can-i" data-lang="contact-form-howcani">How can I help you?</label>
+                <textarea name="how-can-i" cols="30" rows="10" data-lang="contact-form-howcani-placeholder" placeholder="I need you to build me an amazing website!"></textarea>
+              </div>
+              <div class="field-wrapper button-wrapper">
+                <button type="submit" class="emphasis-button" data-lang="contact-form-submitbutton">Let's talk</button>
+              </div>
             </div>
-            <div class="field-wrapper">
-              <label for="your-email" data-lang="contact-form-email">Your email:</label>
-              <input type="text" name="your-email" placeholder="john@doe.com">
-            </div>
-            <div class="field-wrapper textarea-wrapper">
-              <label for="how-can-i" data-lang="contact-form-howcani">How can I help you?</label>
-              <textarea name="how-can-i" cols="30" rows="10" placeholder="I need you to build me an amazing website!"></textarea>
-            </div>
-            <div class="field-wrapper button-wrapper">
-              <button type="submit" class="emphasis-button" data-lang="contact-form-submitbutton">Let's talk</button>
+            <div class="confirmation-wrapper is-form-section-hidden">
+              <!-- SVG -->
+              <span class="confirmation-message">Thank you!</span>
+              <button class="emphasis-button" data-lang="contact-confirmation-button" type="button">Send another message</button>
             </div>
           </form>
           <div id="contact-animation" class="is-animation-loading">

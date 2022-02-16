@@ -47,7 +47,7 @@ export async function retrieveInfo(IDBObject, storeName, {query} = {}) {
  * @example
  * await saveInfo(database, "Lists", {key: "list2", value: {foo: "baz"}});
  */
-export function saveInfo(IDBObject, storeName, {key, value} = {value}) {
+export async function saveInfo(IDBObject, storeName, {key, value} = {value}) {
 	let promise = new Promise((resolve, reject) => {
 		let transaction = IDBObject.transaction(storeName, "readwrite");
 		let store = transaction.objectStore(storeName);
@@ -64,7 +64,7 @@ export function saveInfo(IDBObject, storeName, {key, value} = {value}) {
 			resolve(`Data saved successfully in store '${storeName}'`);
 		}
 	});
-	promise.then((result) => console.log(result));
+	await promise.then((result) => console.log(result));
 }
 
 /**

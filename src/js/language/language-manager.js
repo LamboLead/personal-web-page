@@ -17,7 +17,11 @@ let displayLang = languages.filter((lang) => {
 changeLanguage(browserLang);
 DropdownHandler.updateDisplay("drop-language", displayLang);
 
-
+/**
+ * 
+ * @param {string} langId Id of the default language used by the browser
+ * @returns {void}
+ */
 function changeLanguage(langId) {
   switch (langId) {
     case "en":
@@ -31,9 +35,15 @@ function changeLanguage(langId) {
   }
 
   function updateLang(lang) {
-    Object.entries(lang).forEach((entry) => {
+    // Change normal text
+    Object.entries(lang.text).forEach((entry) => {
       let element = document.querySelectorAll(`[data-lang=${entry[0]}]`);
       element.forEach((elem) => elem.innerHTML = entry[1])
+    });
+    // Change placeholder on inputs
+    Object.entries(lang.placeholders).forEach((entry) => {
+      let input = document.querySelectorAll(`[data-lang=${entry[0]}]`);
+      input.forEach((elem) => elem.setAttribute("placeholder", entry[1]));
     });
   }
 }

@@ -11,9 +11,8 @@ import * as DatabaseModule from './database-management-module.js';
  * @type {IDBDatabase}
  */
 const database = await DatabaseModule.openDatabase("LamboLead", 1, [
-  {
-    name: "Custom preferences"
-  }
+  {name: "Custom preferences"},
+  {name: "Contact messages", keyOptions: {autoIncrement: true}}
 ]);
 
 Object.freeze(database);

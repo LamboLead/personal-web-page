@@ -14,21 +14,21 @@ const images = {
           "dark-theme": [
             {
               src: "main-page/dark-theme/saludo-1.png",
-              style: "transform: translateX(17%); margin-left: -10%"
+              style: "transform: translate(150%, 5%)"
             },
             {
               src: "main-page/dark-theme/saludo-3.png",
-              style: "transform: translateX(13%); margin-left: -9%"
+              style: "transform: translate(145%, 0%)"
             }
           ],
           "light-theme": [
             {
               src: "main-page/light-theme/saludo-1.png",
-              style: "margin-left: -8%; transform: translate(33%, 3%)"
+              style: "transform: translate(-100%, 11%)"
             },
             {
               src: "main-page/light-theme/saludo-2.png",
-              style: "margin-left: -12%; transform: translateX(-36%); z-index: 2"
+              style: "transform: translate(85%, 5%); z-index: 2"
             }
           ]
         },
@@ -46,22 +46,22 @@ const images = {
           "dark-theme": [
             {
               src: "main-page/dark-theme/portatil-1.png",
-              style: "margin-left: -6%"
+              style: "transform: translate(127%, -2%)"
             },
             {
               src: "main-page/dark-theme/baje-1.png",
-              style: "transform: translate(15%, -7%); position: relative; margin-left: -13%"
+              style: "transform: translate(131%, -8%)"
             },
             {
               src: "main-page/dark-theme/baje-2.png",
-              style: "margin-left: -10%"
+              style: "transform: translate(120%, 0)"
 
             }
           ],
           "light-theme": [
             {
               src: "main-page/light-theme/baje-1.png",
-              style: "margin-left: -11%; transform: translate(-112%, -6%); z-index: 2"
+              style: "transform: translate(14%, -6%); z-index: 2"
             }
           ]
         },

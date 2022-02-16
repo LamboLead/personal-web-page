@@ -1,0 +1,110 @@
+#contact-form
+  position: relative
+  height: 100%
+  border-radius: 10px
+  background: var(--cardColor)
+  color: var(--subtitleColor)
+  @include screen-width($phone...)
+    width: 100%
+  @include screen-width($desktop...)
+    width: 70%
+
+  .form-wrapper
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    transition: opacity 300ms ease-in
+
+    .field-wrapper
+      width: 90%
+      padding-block: 3px
+      display: flex
+      justify-content: start
+      align-items: center
+
+      // border: 2px solid lightgreen
+      
+      @include screen-width($phone...)
+        height: 18%
+        flex-direction: column
+        margin-block: 0.1rem
+
+      @include screen-width($desktop...)
+        height: 10%
+        flex-direction: row
+        margin-block: 0.5%
+
+      label
+        // FIX THIS!!!
+        font-size: 1.3rem
+        @include screen-width($phone...)
+          width: 95%
+          height: fit-content
+          margin-bottom: 0.2rem
+        @include screen-width($desktop...)
+          width: clamp(140px, 16%, 145px)
+
+      input, textarea
+        padding: 5px 0 3px 1ch
+        background: var(--fieldColor)
+        // FIX THIS!!!
+        font-size: 1.2rem
+        font-family: 'Roboto Mono', monospace
+        color: var(--regularTextColor)
+        border: none
+        resize: none
+        &::placeholder
+          color: var(--placeholderTextColor)
+
+        @include screen-width($phone...)
+          width: 90%
+          margin-left: 1rem
+          justify-self: stretch
+          align-self: stretch
+        @include screen-width($desktop...)
+          margin-left: auto
+          flex: 2 2 82%
+          height: 100%
+
+    .textarea-wrapper
+      height: 40%
+      label
+        @include screen-width($desktop...)
+          align-self: start
+
+    .button-wrapper
+      justify-content: end
+      align-items: center
+      margin-top: 1rem
+      height: 10%
+      
+      button
+        width: clamp(200px, 90%, 300px)
+        height: 100%
+        font-size: 1.2rem
+        border-radius: 3rem
+  
+  .confirmation-wrapper
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    .confirmation-message
+      display: block
+      font-size: 1rem
+      text-align: center
+      width: 80%
+    button
+      opacity: 0
+      width: clamp(200px, 50%, 250px)
+      height: 10%
+      font-size: 1.1rem
+      border-radius: 3rem
+      transition: opacity 500ms ease-in 1s, margin-top 300ms ease-out

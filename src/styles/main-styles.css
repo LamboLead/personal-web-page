@@ -272,7 +272,7 @@ a {
 @media (min-width: 1025px) and (max-width: 4000px) {
   #main-page {
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
   }
 }
@@ -298,6 +298,7 @@ a {
   .main-content-main-page {
     order: 1;
     width: 75%;
+    right: 6%;
   }
 }
 .main-content-main-page .main-title {
@@ -392,9 +393,9 @@ a {
     order: 2;
     height: 60%;
     aspect-ratio: 30/37;
-    transition: opacity 800ms ease-in, margin-left 500ms ease-in;
+    transition: opacity 800ms ease-in;
     z-index: 5;
-    position: relative;
+    position: absolute;
   }
 }
 #title-animation canvas {
@@ -985,6 +986,16 @@ a {
   height: 100%;
 }
 
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contact .scrolling-arrows {
+  top: 1rem;
+}
+
 .main-content-contact {
   display: flex;
   flex-direction: column;
@@ -1028,6 +1039,7 @@ a {
   }
 }
 .main-content-contact .form-animation-wrapper {
+  position: relative;
   width: 100%;
   height: clamp(270px, 70%, 540px);
   display: flex;
@@ -1041,27 +1053,34 @@ a {
   }
 }
 
-.contact-form {
+#contact-form {
+  position: relative;
   height: 100%;
   border-radius: 10px;
   background: var(--cardColor);
   color: var(--subtitleColor);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  .contact-form {
+  #contact-form {
     width: 100%;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  .contact-form {
+  #contact-form {
     width: 70%;
   }
 }
-.contact-form .field-wrapper {
+#contact-form .form-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 300ms ease-in;
+}
+#contact-form .form-wrapper .field-wrapper {
   width: 90%;
   padding-block: 3px;
   display: flex;
@@ -1069,35 +1088,35 @@ a {
   align-items: center;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  .contact-form .field-wrapper {
+  #contact-form .form-wrapper .field-wrapper {
     height: 18%;
     flex-direction: column;
     margin-block: 0.1rem;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  .contact-form .field-wrapper {
+  #contact-form .form-wrapper .field-wrapper {
     height: 10%;
     flex-direction: row;
     margin-block: 0.5%;
   }
 }
-.contact-form .field-wrapper label {
+#contact-form .form-wrapper .field-wrapper label {
   font-size: 1.3rem;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  .contact-form .field-wrapper label {
+  #contact-form .form-wrapper .field-wrapper label {
     width: 95%;
     height: fit-content;
     margin-bottom: 0.2rem;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  .contact-form .field-wrapper label {
+  #contact-form .form-wrapper .field-wrapper label {
     width: clamp(140px, 16%, 145px);
   }
 }
-.contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
+#contact-form .form-wrapper .field-wrapper input, #contact-form .form-wrapper .field-wrapper textarea {
   padding: 5px 0 3px 1ch;
   background: var(--fieldColor);
   font-size: 1.2rem;
@@ -1106,11 +1125,11 @@ a {
   border: none;
   resize: none;
 }
-.contact-form .field-wrapper input::placeholder, .contact-form .field-wrapper textarea::placeholder {
+#contact-form .form-wrapper .field-wrapper input::placeholder, #contact-form .form-wrapper .field-wrapper textarea::placeholder {
   color: var(--placeholderTextColor);
 }
 @media (min-width: 0px) and (max-width: 1024px) {
-  .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
+  #contact-form .form-wrapper .field-wrapper input, #contact-form .form-wrapper .field-wrapper textarea {
     width: 90%;
     margin-left: 1rem;
     justify-self: stretch;
@@ -1118,31 +1137,72 @@ a {
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  .contact-form .field-wrapper input, .contact-form .field-wrapper textarea {
+  #contact-form .form-wrapper .field-wrapper input, #contact-form .form-wrapper .field-wrapper textarea {
     margin-left: auto;
     flex: 2 2 82%;
     height: 100%;
   }
 }
-.contact-form .textarea-wrapper {
+#contact-form .form-wrapper .textarea-wrapper {
   height: 40%;
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  .contact-form .textarea-wrapper label {
+  #contact-form .form-wrapper .textarea-wrapper label {
     align-self: start;
   }
 }
-.contact-form .button-wrapper {
+#contact-form .form-wrapper .button-wrapper {
   justify-content: end;
   align-items: center;
   margin-top: 1rem;
   height: 10%;
 }
-.contact-form .button-wrapper button {
+#contact-form .form-wrapper .button-wrapper button {
   width: clamp(200px, 90%, 300px);
   height: 100%;
   font-size: 1.2rem;
   border-radius: 3rem;
+}
+#contact-form .confirmation-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contact-form .confirmation-wrapper .confirmation-message {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  width: 80%;
+}
+#contact-form .confirmation-wrapper button {
+  opacity: 0;
+  width: clamp(200px, 50%, 250px);
+  height: 10%;
+  font-size: 1.1rem;
+  border-radius: 3rem;
+  transition: opacity 500ms ease-in 1s, margin-top 300ms ease-out;
+}
+
+#contact-confirmation {
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+}
+#contact-confirmation .contact-confirmation-message {
+  display: block;
+  color: lightgreen;
+  font-size: 1.3rem;
+}
+#contact-confirmation button {
+  width: clamp(200px, 50%, 250px);
+  height: 10%;
+  font-size: 1.1rem;
+  border-radius: 3rem;
+  transition: opacity 300ms ease-in;
 }
 
 #contact-animation {
@@ -1158,16 +1218,6 @@ a {
 #contact-animation canvas {
   width: 100%;
   height: 100%;
-}
-
-#contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#contact .scrolling-arrows {
-  top: 1rem;
 }
 
 .single-section {
@@ -1702,6 +1752,65 @@ a {
 
 .dark-theme .day {
   display: none !important;
+}
+
+.is-form-section-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.is-confirmation-button-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.is-form-submitting {
+  box-sizing: content-box;
+  animation: border-play 1s infinite ease-in-out alternate;
+}
+@keyframes border-play {
+  0% {
+    box-shadow: 0px 0px 0px var(--buttonColor);
+  }
+  100% {
+    box-shadow: 0px 0px 15px var(--buttonColor);
+  }
+}
+.is-form-submitting .confirmation-message {
+  color: var(--buttonColor);
+}
+.is-form-submitting .confirmation-wrapper button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.form-has-submitted {
+  box-shadow: 0px 0px 15px #66ff33;
+}
+.form-has-submitted .confirmation-message {
+  color: #66ff33;
+}
+.form-has-submitted .confirmation-wrapper button {
+  opacity: 1 !important;
+  margin-top: 20% !important;
+}
+
+.is-form-disabled {
+  box-shadow: 0px 0px 15px #ffcc00;
+}
+.is-form-disabled .confirmation-message {
+  color: #ffcc00;
+}
+.is-form-disabled .confirmation-wrapper button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.error-submitting-form {
+  box-shadow: 0px 0px 15px red;
+}
+.error-submitting-form .confirmation-message {
+  color: red;
 }
 
 .is-blackener-enabled {

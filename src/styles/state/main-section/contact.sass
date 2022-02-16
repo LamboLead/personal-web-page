@@ -1,0 +1,45 @@
+.is-form-section-hidden
+  opacity: 0 !important
+  pointer-events: none !important
+
+.is-confirmation-button-hidden
+  opacity: 0 !important
+  pointer-events: none !important
+
+.is-form-submitting
+  box-sizing: content-box
+  animation: border-play 1s infinite ease-in-out alternate
+  @keyframes border-play
+    0%
+      box-shadow: 0px 0px 0px var(--buttonColor)
+    100%
+      box-shadow: 0px 0px 15px var(--buttonColor)
+  .confirmation-message
+    color: var(--buttonColor)
+  .confirmation-wrapper
+    button
+      opacity: 0 !important
+      pointer-events: none !important
+
+.form-has-submitted
+  box-shadow: 0px 0px 15px hsl(105, 100%, 60%)
+  .confirmation-message
+    color: hsl(105, 100%, 60%)
+  .confirmation-wrapper
+    button
+      opacity: 1 !important
+      margin-top: 20% !important
+
+.is-form-disabled
+  box-shadow: 0px 0px 15px hsl(48, 100%, 50%)
+  .confirmation-message
+    color: hsl(48, 100%, 50%)
+  .confirmation-wrapper
+    button
+      opacity: 0 !important
+      pointer-events: none !important
+
+.error-submitting-form
+  box-shadow: 0px 0px 15px red
+  .confirmation-message
+    color: red

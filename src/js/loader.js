@@ -36,15 +36,17 @@ function init() {
       setRandomProgressBetween(0.5, 0.7);
 
       setTimeout(async () => {
+        import ("./contact/contact-new.js");
         await loadThemeAndAnimations();
+        import ("./mutation-observer.js");
         loadingProgressbar.setProgress(1);
 
         setTimeout(() => {
           hideLoader();
-        }, 1000)
-      }, 1000)
+        }, 500)
+      }, 500)
     }, 500)
-  }, 1000)
+  }, 500)
   // Load theme and animations
 }
 

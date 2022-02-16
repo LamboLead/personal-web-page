@@ -16,6 +16,7 @@ export function createDropdown(id, parentElementSelector, options, callback) {
   let container = document.createElement("div");
   container.id = id;
   container.classList = "drop-container-div";
+  container.setAttribute("data-selected-value", "undefined");
 
   let displayContainer = document.createElement("div");
   displayContainer.classList = "drop-display-container-div";
@@ -54,8 +55,10 @@ export function createDropdown(id, parentElementSelector, options, callback) {
 }
 
 export function updateDisplay(id, string) {
-  let display = document.getElementById(id).querySelector(".drop-display");
+  let dropdown = document.getElementById(id);
+  let display = dropdown.querySelector(".drop-display");
   display.innerText = string;
+  dropdown.setAttribute("data-selected-value", string.toLowerCase());
 }
 
 function closeDropdown(id) {
