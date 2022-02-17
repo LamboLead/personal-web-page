@@ -1,5 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const config = require('./config.js');
 
 const app = express();
 
@@ -12,24 +13,26 @@ app.use("/public", express.static(__dirname + "/public"));
 app.use(express.json());
 
 app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/src/index.html');
+  response.sendFile(__dirname + '/index.html');
 });
 
 // Send email from user to me (implement the sending of a confirmation email)
-app.post('/', (request, response) => {
+app.post('/src', (request, response) => {
   console.log(request.body);
-  const myEmail = "lopezlopezdavid8g@gmail.com";
+  const myEmail = config.EMAIL;
+  console.log(myEmail, config.PASSWORD);
+  process.env
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: myEmail,
-      pass: "dyilraoppdvyupqn"
+      pass: config.PASSWORD
     }
   });
   const mailOptions = {
     from: request.body.useremail,
     to: myEmail,
-    subject: `LamboLead - Message from ${request.body.useremail}: ${request.body.username}`,
+    subject: `LamboLead - Message from ${request.body.email}: ${request.body.name}`,
     text: request.body.message
   }
 
@@ -43,8 +46,6 @@ app.post('/', (request, response) => {
     }
   });
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

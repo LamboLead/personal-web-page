@@ -17,8 +17,9 @@ export class Form {
     this.disablingOptions = {
       disable: disableForm,
       attemptsPerPeriod: attempts,
-      attemptsLeft: attempts,
       disablingTime: disablingTime,
+      attemptsLeft: attempts,
+      lastSentAt: false,
       callback: disableCallback
     }
     this.stateOptions = stateOptions
@@ -44,41 +45,58 @@ export class Form {
       fields.classList.remove("is-form-section-hidden");
       confirmation.classList.add("is-form-section-hidden");
     })
+    // Inputs
+    this.inputFields.forEach((input) => {
+      let inputElement = form.querySelector(input.selector)
+      inputElement.addEventListener("keyup", () => {
+        this.checkInputs();
+      });
+    });
 
     // Check if there is any info about contact messages on initialization
     let formInfo = (await DatabaseInfoModule.retrieveInfo(database, "Contact messages", {query: 1}))[0];
     if (!formInfo) {
-      formInfo = {
-        "last sent at": undefined,
-        "messages left": this.disablingOptions.attemptsPerPeriod
-      }
-      DatabaseInfoModule.saveInfo(database, "Contact messages", {value: formInfo});
+      this.saveLastMessageInfo(this.disablingOptions.lastSentAt, this.disablingOptions.attemptsPerPeriod);
       return;
     }
     this.disablingOptions.attemptsLeft = formInfo["messages left"];
+    this.disablingOptions.lastSentAt = formInfo["last sent at"];
 
     // Check if the form is usable on initialization
     if (this.disablingOptions.disable) {
-      if (!(await this.isFormUsable())) {
-        this.changeFormState("disabled");
+      let isUsable = await this.isFormUsable();
+      if (!isUsable) {
+        this.changeFormState("disabled", [await this.usableUntil()]);
       }
     }
   }
 
   checkInputs() {
     if (this.validFields) return;
+    let submitButton = document.querySelector(`#${this.id} [type=submit]`);
     this.inputFields.forEach((input) => {
       let inputElement = document.querySelector(`#${this.id} ${input.selector}`);
       if (!input.pattern.test(inputElement.value)) {
         // Show error message
-        alert(input.errorMessages[this.language]);
+        inputElement.classList.add("invalid-input");
+        // alert(input.errorMessages[this.language]);
+        inputElement.classList.remove("valid-input");
         input.valid = false;
+        
       } else {
-        // Show correct message
+        inputElement.classList.add("valid-input");
+        inputElement.classList.remove("invalid-input")
         input.valid = true;
+        
       }
     });
-    return this.inputFields.every(input => input.valid);
+    let verification = this.inputFields.every(input => input.valid);
+    if (verification) {
+      submitButton.classList.remove("disabled-button");
+    } else {
+      submitButton.classList.add("disabled-button");
+    }
+    return verification;
   }
 
   async submitForm() {
@@ -86,20 +104,26 @@ export class Form {
     if (!this.checkInputs()) return;
     this.changeFormState("loading");
     let formData = {};
+    let submitButton = document.querySelector(`#${this.id} [type=submit]`);
     this.inputFields.forEach((input) => {
       let inputElement = document.querySelector(`#${this.id} ${input.selector}`);
       formData[input.name] = inputElement.value;
       inputElement.value = '';
+      inputElement.classList.remove("valid-input");
     });
+    submitButton.classList.add("disabled-button");
     let response = await this.onSubmit(formData);
     await this.saveInfo(formData);
 
-    // Check if the form is usable on initialization
+    // Check if the form is usable
     if (this.disablingOptions.disable) {
+      // TESTING
       this.disablingOptions.attemptsLeft--;
-      if (!(await this.isFormUsable())) {
-        this.disablingOptions.callback();
-        this.changeFormState("disabled");
+      let isUsable = await this.isFormUsable();
+      this.disablingOptions.lastSentAt = new Date();
+      await this.saveLastMessageInfo(this.disablingOptions.lastSentAt, this.disablingOptions.attemptsLeft);
+      if (!isUsable) {
+        this.changeFormState("successDisabled", [await this.usableUntil()]);
         return;
       }
     }
@@ -110,35 +134,34 @@ export class Form {
       this.changeFormState("error")
     }
   }
+  
+  async saveLastMessageInfo(lastSent, attemptsLeft) {
+    if (!this.disablingOptions.disable) return;
+    let formInfo = {
+      "last sent at": lastSent,
+      "messages left": attemptsLeft
+    }
+    await DatabaseInfoModule.saveInfo(database, "Contact messages", {key: 1, value: formInfo});
+  }
 
   async saveInfo(message) {
-    if (this.disablingOptions.disable) {
-      let formInfo = {
-        "last sent at": new Date(),
-        "messages left": this.disablingOptions.attemptsLeft
-      }
-      await DatabaseInfoModule.saveInfo(database, "Contact messages", {key: 1, value: formInfo});
-    }
     await DatabaseInfoModule.saveInfo(database, "Contact messages", {value: message});
   }
 
   async isFormUsable() {
-    let formInfo = (await DatabaseInfoModule.retrieveInfo(database, "Contact messages", {query: 1}))[0];
-    let [lastSent, messagesLeft] = [formInfo["last sent at"], formInfo["messages left"]];
-    console.log(lastSent, messagesLeft);
+    let lastSent = this.disablingOptions.lastSentAt;
+    let attemptsLeft = this.disablingOptions.attemptsLeft;
 
-    if (messagesLeft > 0 || (!lastSent)) {
+    if (attemptsLeft > 0 || (!lastSent)) {
       return true;
     } else {
       let then = new Date(lastSent);
       let now = new Date();
       let diffHours = (now - then) / (3600*1000);
+      // console.log("Difference in hours:", diffHours);
       if (diffHours > this.disablingOptions.disablingTime) {
-        let formInfo = {
-          "last sent at": then,
-          "messages left": this.disablingOptions.attemptsPerPeriod
-        }
-        DatabaseInfoModule.saveInfo(database, "Contact messages", {key: 1, value: formInfo});
+        this.disablingOptions.attemptsLeft = this.disablingOptions.attemptsPerPeriod
+        await this.saveLastMessageInfo(then, this.disablingOptions.attemptsLeft);
         return true;
       } else {
         return false;
@@ -146,7 +169,7 @@ export class Form {
     }
   }
 
-  changeFormState(state) {
+  changeFormState(state, complementInfo = undefined) {
     if (!this.stateOptions) return;
     let form = document.getElementById(this.id);
     let fields = form.querySelector(".form-wrapper");
@@ -158,11 +181,28 @@ export class Form {
     Object.keys(this.stateOptions).forEach((item) => {
       form.classList.remove(this.stateOptions[item].class);
     });
-    // Add desired state and show desired message
+    // Add desired state
     let desiredState = this.stateOptions[state];
     form.classList.add(desiredState.class);
     console.log(desiredState, this.language);
-    confirmation.querySelector(".confirmation-message").innerHTML = desiredState["message"][this.language];
+    // Show desired message
+    let message = desiredState["message"][this.language];
+    if (complementInfo) {
+      complementInfo.forEach((info) => {
+        message = message.replace(/\*/, info);
+      });
+    }
+    confirmation.querySelector(".confirmation-message").innerHTML = message
+  }
+
+  async usableUntil() {
+    let formInfo = (await DatabaseInfoModule.retrieveInfo(database, "Contact messages", {query: 1}))[0];
+    let lastSent = formInfo["last sent at"];
+    lastSent = (new Date(lastSent)).getTime();
+    let timePeriod = this.disablingOptions.disablingTime*3600*1000;
+    let timeUntil = new Date(lastSent + timePeriod);
+    timeUntil = `${timeUntil.getHours()}:${timeUntil.getMinutes()}`;
+    return timeUntil;
   }
 }
 

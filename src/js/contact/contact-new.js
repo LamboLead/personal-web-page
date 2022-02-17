@@ -54,11 +54,18 @@ const formStates = {
     },
     svg: ""
   },
+  successDisabled: {
+    class: "form-has-submitted-disabled",
+    message: {
+      "english": "Your e-mail has been sent successfully!<br>A confirmation message will arrive soon<br><br>You can send new messages until *",
+      "español": "Correo electrónico enviado con éxito!<br>Pronto le llegará un mensaje de confirmación<br><br>Puede enviar nuevos mensajes hasta las *"
+    }
+  },
   disabled: {
     class: "is-form-disabled",
     message: {
-      "english": "You can send new messages until",
-      "español": "Puede enviar nuevos mensajes hasta"
+      "english": "You can send new messages until *",
+      "español": "Puede enviar nuevos mensajes hasta las *"
     },
     svg: ""
   }
@@ -73,11 +80,6 @@ const contactForm = new FormHandler.Form("contact-form", inputFields, submitForm
   }
 }, formStates);
 
-const form = document.getElementById(contactForm.id);
-const fields = form.querySelector(".form-wrapper");
-const confirmation = form.querySelector(".confirmation-wrapper")
-const confirmationButton = confirmation.querySelector("button");
-
 async function submitForm(data) {
   console.table(data);
   return new Promise((resolve, reject) => {
@@ -85,18 +87,19 @@ async function submitForm(data) {
       resolve("success")
     }, 5000)
   });
-
+  // console.log("Submitted data:", data);
   // let xhr = new XMLHttpRequest();
-  // xhr.open('POST', '/');
-  // xhr.addEventListener("load", () => {
-  //   console.log(xhr.responseText);
-  //   if (xhr.responseText === "success") {
-  //     alert("Email sent");
-  //   } else {
-  //     alert("Something went wrong!");
-  //   }
+  // xhr.open('POST', '/src');
+  // xhr.setRequestHeader('content-type', 'application/json');
+  // let promise = new Promise((resolve, reject) => {
+  //   xhr.addEventListener("load", () => {
+  //     console.log(xhr.responseText);
+  //     resolve(xhr.responseText);
+  //   });
   // });
+  // console.log("Stringified data:", JSON.stringify(data));
   // xhr.send(JSON.stringify(data));
+  // return await promise;
 }
 
 // function changeLoadingState(state) {

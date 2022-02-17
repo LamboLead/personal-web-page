@@ -1174,7 +1174,7 @@ a {
 }
 #contact-form .confirmation-wrapper .confirmation-message {
   display: block;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
   width: 80%;
 }
@@ -1785,21 +1785,32 @@ a {
 }
 
 .form-has-submitted {
-  box-shadow: 0px 0px 15px #66ff33;
+  box-shadow: 0px 0px 15px #33cc33;
 }
 .form-has-submitted .confirmation-message {
-  color: #66ff33;
+  color: #33cc33;
 }
 .form-has-submitted .confirmation-wrapper button {
   opacity: 1 !important;
   margin-top: 20% !important;
 }
 
+.form-has-submitted-disabled {
+  box-shadow: 0px 0px 15px #33cc33;
+}
+.form-has-submitted-disabled .confirmation-message {
+  color: #33cc33;
+}
+.form-has-submitted-disabled .confirmation-wrapper button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .is-form-disabled {
-  box-shadow: 0px 0px 15px #ffcc00;
+  box-shadow: 0px 0px 15px #ff9933;
 }
 .is-form-disabled .confirmation-message {
-  color: #ffcc00;
+  color: #ff9933;
 }
 .is-form-disabled .confirmation-wrapper button {
   opacity: 0 !important;
@@ -1811,6 +1822,20 @@ a {
 }
 .error-submitting-form .confirmation-message {
   color: red;
+}
+
+.invalid-input {
+  border: 1px solid red !important;
+  color: red !important;
+}
+
+.valid-input {
+  border: 1px solid #33cc33 !important;
+}
+
+.disabled-button {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
 }
 
 .is-blackener-enabled {
