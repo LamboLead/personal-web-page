@@ -1,39 +1,52 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const config = require('./config.js');
+const dotenv = require('dotenv').config();
+const path = require('path');
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;  // Choose the environment variable for the port
 
-// Serving static files
-
-app.use("/src", express.static(__dirname + "/src"));
-app.use("/public", express.static(__dirname + "/public"));
+// Middleware for serving static folders
+app.use("/public", express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.json());
 
+
+// Send HTML file
 app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/index.html');
+  response.sendFile(__dirname + '/src/index.html');
 });
 
 // Send email from user to me (implement the sending of a confirmation email)
-app.post('/src', (request, response) => {
-  console.log(request.body);
-  const myEmail = config.EMAIL;
-  console.log(myEmail, config.PASSWORD);
-  process.env
+app.post('/', (request, response) => {
+
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: process.env.SMTPHOST,
+    port: process.env.SMTPPORT,
     auth: {
-      user: myEmail,
-      pass: config.PASSWORD
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     }
   });
+
+  const output = `
+    <p>You have a new contact request</p>
+    <h3>Contact details</h3>
+    <ul>
+      <li>Name: ${request.body.name}</li>
+      <li>Email: ${request.body.email}</li>
+    </ul>
+    <h3>Message</h3>
+    <p>${request.body.message}</p>
+  `
+
   const mailOptions = {
     from: request.body.useremail,
-    to: myEmail,
-    subject: `LamboLead - Message from ${request.body.email}: ${request.body.name}`,
-    text: request.body.message
+    to: process.env.EMAIL,
+    subject: `lambolead.com - Message from ${request.body.email}: ${request.body.name}`,
+    // text: request.body.message,
+    html: output
   }
 
   transporter.sendMail(mailOptions, (error, info) => {

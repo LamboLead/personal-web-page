@@ -74,44 +74,32 @@ const formStates = {
 const contactForm = new FormHandler.Form("contact-form", inputFields, submitForm, {
   disableForm: true,
   attempts: 3,
-  disablingTime: 1,
+  disablingTime: 0.5,
   disableCallback: () => {
     alert("This form is disabled!");
   }
 }, formStates);
 
 async function submitForm(data) {
-  console.table(data);
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("success")
-    }, 5000)
-  });
-  // console.log("Submitted data:", data);
-  // let xhr = new XMLHttpRequest();
-  // xhr.open('POST', '/src');
-  // xhr.setRequestHeader('content-type', 'application/json');
-  // let promise = new Promise((resolve, reject) => {
-  //   xhr.addEventListener("load", () => {
-  //     console.log(xhr.responseText);
-  //     resolve(xhr.responseText);
-  //   });
+  // return new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve("success")
+  //   }, 5000)
   // });
-  // console.log("Stringified data:", JSON.stringify(data));
-  // xhr.send(JSON.stringify(data));
-  // return await promise;
+  console.log("Submitted data:", data);
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', '/');
+  xhr.setRequestHeader('content-type', 'application/json');
+  let promise = new Promise((resolve, reject) => {
+    xhr.addEventListener("load", () => {
+      console.log(xhr.responseText);
+      resolve(xhr.responseText);
+    });
+  });
+  console.log("Stringified data:", JSON.stringify(data));
+  xhr.send(JSON.stringify(data));
+  return await promise;
 }
 
-// function changeLoadingState(state) {
-//   let form = document.getElementById(contactForm.id);
-//   form.classList.add("is-contact-card-hidden");
-//   confirmation.classList.remove("is-contact-card-hidden");
-//   confirmation.classList.add("is-form-submitting");
-//   // Remove other states
-//   Object.keys(formLoadingState).forEach((item) => {
-//     confirmation.classList.remove(formLoadingState[item].class)
-//   });
-//   confirmation.classList.add(formLoadingState[state].class)
-// }
 
 export default contactForm;
