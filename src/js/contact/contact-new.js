@@ -49,8 +49,8 @@ const formStates = {
   error: {
     class: "error-submitting-form",
     message: {
-      "english": "Something wrong has occurred. Try again later",
-      "español": "Hubo un error en el envío del correo electrónico. Inténtelo de nuevo más tarde"
+      "english": "Something wrong has occurred. Check your email or try again later",
+      "español": "Hubo un error en el envío. Verifique su email o inténtelo de nuevo más tarde"
     },
     svg: ""
   },

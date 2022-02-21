@@ -111,13 +111,18 @@ export class Form {
       inputElement.value = '';
       inputElement.classList.remove("valid-input");
     });
+    formData.language = this.language;
     submitButton.classList.add("disabled-button");
     let response = await this.onSubmit(formData);
+    console.log("Server response:", response);
+    if (response === "error") {
+      this.changeFormState("error");
+      return;
+    }
     await this.saveInfo(formData);
 
     // Check if the form is usable
     if (this.disablingOptions.disable) {
-      // TESTING
       this.disablingOptions.attemptsLeft--;
       let isUsable = await this.isFormUsable();
       this.disablingOptions.lastSentAt = new Date();
@@ -130,8 +135,6 @@ export class Form {
   
     if (response === "success") {
       this.changeFormState("success")
-    } else {
-      this.changeFormState("error")
     }
   }
   

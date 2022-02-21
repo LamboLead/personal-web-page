@@ -1823,6 +1823,10 @@ a {
 .error-submitting-form .confirmation-message {
   color: red;
 }
+.error-submitting-form .confirmation-wrapper button {
+  opacity: 1 !important;
+  margin-top: 20% !important;
+}
 
 .invalid-input {
   border: 1px solid red !important;

@@ -1,64 +1,129 @@
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
-const dotenv = require('dotenv').config();
+const exHandleBars = require('nodemailer-express-handlebars');
 const path = require('path');
-
 const app = express();
-
 const PORT = process.env.PORT || 5000;  // Choose the environment variable for the port
 
 // Middleware for serving static folders
 app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
+// app.use(express.static(path.join(__dirname, 'views')))
 app.use(express.json());
-
 
 // Send HTML file
 app.get('/', (request, response) => {
   response.sendFile(__dirname + '/src/index.html');
 });
 
+// Send logo
+app.get('/logo', (request, response) => {
+  response.sendFile(__dirname + '/public/dark-logo.png');
+});
+
 // Send email from user to me (implement the sending of a confirmation email)
-app.post('/', (request, response) => {
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTPHOST,
-    port: process.env.SMTPPORT,
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD
-    }
-  });
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTPHOST,
+  port: process.env.SMTPPORT,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  }
+});
 
+transporter.use('compile', exHandleBars({
+  viewEngine: {
+    extName: ".handlebars",
+    partialsDir: path.resolve(__dirname, "views"),
+    defaultLayout: false
+  },
+  viewPath: path.resolve(__dirname, "views"),
+  extName: ".handlebars"
+}));
+
+app.post('/', async (request, response) => {
+
+  let sentToAdmin = await sendMailToAdmin(request.body);
+  let sentToUser = await sendMailToUser(request.body);
+
+  if (sentToAdmin && sentToUser) {
+    response.send("success");
+  } else {
+    response.send("error");
+  }
+});
+
+async function sendMailToAdmin(formBody) {
   const output = `
     <p>You have a new contact request</p>
     <h3>Contact details</h3>
     <ul>
-      <li>Name: ${request.body.name}</li>
-      <li>Email: ${request.body.email}</li>
+      <li>Name: ${formBody.name}</li>
+      <li>Email: ${formBody.email}</li>
     </ul>
     <h3>Message</h3>
-    <p>${request.body.message}</p>
-  `
+    <p>${formBody.message}</p>`;
 
-  const mailOptions = {
-    from: request.body.useremail,
+  let mailOptions = {
+    from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: `lambolead.com - Message from ${request.body.email}: ${request.body.name}`,
+    subject: `lambolead.com - Message from ${formBody.email}: ${formBody.name}`,
     // text: request.body.message,
     html: output
+  };
+
+  let mailPromise = await transporter.sendMail(mailOptions);
+  return mailPromise.accepted.length > 0;
+}
+
+async function sendMailToUser(formBody) {
+  let language = formBody.language;
+  const subjects = {
+    "english": "You have sent a new message!",
+    "español": "Ha enviado un nuevo mensaje!"
+  };
+  const contexts = {
+    "english": {
+      title: `Hello there, ${formBody.name}!`,
+      parag1: `You have sent a message to LamboLead Tech. My name is Juan David, and I'm at your service.`,
+      messageTitle: "This was your message:",
+      message: formBody.message,
+      parag2: `In a few moments, our team (me, really) will be answering you.`,
+      footerTitle1: "What can I do for you?",
+      footerInfo1: "I can help you grow your business, improve your online presence, build confidence in your clients, and much more.",
+      footerTitle2: "Contact Info:",
+      footerInfo21: "Carrera 44 #18-56. Ciudad del Río. Medellín, Antioquia, Colombia",
+      footerInfo22: "+57 318 309 9879"
+    }, 
+    "español": {
+      title: `Hola, ${formBody.name}!`,
+      parag1: `Ha enviado un mensaje a LamboLead Tech. Mi nombre es Juan David, y estoy a su servicio.`,
+      messageTitle: "Este fue su mensaje:",
+      message: formBody.message,
+      parag2: `En unos momentos, nuestro equipo (yo, realmente) le responderá.`,
+      footerTitle1: "Qué puedo hacer por usted?",
+      footerInfo1: "Puedo ayudarle a hacer crecer su negocio y la confianza de sus clientes, mejorar su presencia online, y mucho más.",
+      footerTitle2: "Información de contacto:",
+      footerInfo21: "Carrera 44 #18-56. Ciudad del Río. Medellín, Antioquia, Colombia",
+      footerInfo22: "+57 318 309 9879"
+    }
+  }
+  
+  let mailOptions = {
+    from: `"Juan David López" <${process.env.EMAIL}>`,
+    to: formBody.email,
+    subject: subjects[language],
+    // text: `Your message: ${formBody.message}`
+    template: 'email',
+    context: contexts[language]
   }
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      response.send("error");
-    } else {
-      console.log("Email sent successfully!");
-      response.send("success");
-    }
-  });
-});
+  let mailPromise = await transporter.sendMail(mailOptions);
+  console.log(mailPromise);
+  return mailPromise.accepted.length > 0;
+}
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
