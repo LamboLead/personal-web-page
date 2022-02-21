@@ -1081,6 +1081,7 @@ a {
   transition: opacity 300ms ease-in;
 }
 #contact-form .form-wrapper .field-wrapper {
+  position: relative;
   width: 90%;
   padding-block: 3px;
   display: flex;
@@ -1142,6 +1143,15 @@ a {
     flex: 2 2 82%;
     height: 100%;
   }
+}
+#contact-form .form-wrapper .field-wrapper .input-validation {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  color: red;
+  z-index: 3;
+  font-size: 0.7rem;
 }
 #contact-form .form-wrapper .textarea-wrapper {
   height: 40%;
@@ -1514,33 +1524,36 @@ a {
   }
 }
 
-.drop-display-container-div {
+.drop-display {
+  display: flex;
   width: 100%;
   height: fit-content;
   border: 2px solid var(--switchContainerColor);
   border-radius: 2px;
   cursor: pointer;
+}
+.drop-display div {
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  padding-block: 5px;
+  padding: 5px;
 }
-.drop-display-container-div .drop-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 100%;
+.drop-display div span {
+  display: block;
+  width: fit-content;
+  height: fit-content;
 }
-.drop-display-container-div .drop-arrow {
-  width: 20%;
-  height: 100%;
+.drop-display div svg {
+  width: 15%;
+  height: auto;
 }
 
 .drop-option-container-div {
   width: clamp(6.5rem, 90%, 9.5rem);
-  height: fit-content;
+  height: 4rem;
   border: 1px solid var(--generalBorderColor);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -1548,20 +1561,33 @@ a {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  transition: height 500ms ease;
   overflow-y: hidden;
+  transition: height 300ms ease;
 }
-.drop-option-container-div span {
-  display: block;
+.drop-option-container-div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: fit-content;
-  cursor: pointer;
+  padding: 2px 5px;
+  border-bottom: 1px solid var(--generalBorderColor);
   opacity: 0.6;
-  padding-block: 2px;
+  cursor: pointer;
 }
-.drop-option-container-div span:hover {
+.drop-option-container-div div:hover {
   opacity: 1;
   background: var(--dropHighlightColor);
+}
+.drop-option-container-div div span {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.drop-option-container-div div svg {
+  width: 15%;
+  height: auto;
 }
 
 .is-dropdown-closed {
@@ -1831,6 +1857,10 @@ a {
 .invalid-input {
   border: 1px solid red !important;
   color: red !important;
+}
+
+.invalid-input-message {
+  display: block !important;
 }
 
 .valid-input {

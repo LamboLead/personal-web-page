@@ -10,10 +10,14 @@ import contactForm from "./contact/contact-new.js";
 const langObserver = new MutationObserver((mutationsList) => {
   let mutation = mutationsList[0];
   contactForm.language = mutation.target.getAttribute(mutation.attributeName); // Contact form
+  contactForm.updateMessages();
 });
 langObserver.observe(
   document.getElementById("drop-language"),
-  {attributes: true, childList: false, subtree: false}
-);
+  {
+  attributes: true,
+  childList: false,
+  subtree: false
+});
 
 // Observe mutations from theme switch

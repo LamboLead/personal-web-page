@@ -32,13 +32,13 @@ function init() {
 
     setTimeout(async () => {
       // Load multilanguage
+      import ("./mutation-observer.js");
       loadLanguage();
       setRandomProgressBetween(0.5, 0.7);
 
       setTimeout(async () => {
         import ("./contact/contact-new.js");
         await loadThemeAndAnimations();
-        import ("./mutation-observer.js");
         loadingProgressbar.setProgress(1);
 
         setTimeout(() => {

@@ -32,35 +32,36 @@
   @include screen-width($phone...)
     margin-left: 8%
 
-.drop-display-container-div
+.drop-display
+  display: flex
   width: 100%
   height: fit-content
+  
   border: 2px solid var(--switchContainerColor)
   border-radius: 2px
   cursor: pointer
 
-  display: flex
-  flex-direction: row
-  justify-content: start
-  align-items: center
-  padding-block: 5px
-
-  .drop-display
+  div
+    width: 100%
+    height: fit-content
     display: flex
-    justify-content: center
+    flex-direction: row
+    justify-content: space-between
     align-items: center
-    width: 80%
-    height: 100%
-    
+    padding: 5px
 
-  .drop-arrow
-    width: 20%
-    height: 100%
-    // background: red
+    span
+      display: block
+      width: fit-content
+      height: fit-content
+
+    svg
+      width: 15%
+      height: auto
 
 .drop-option-container-div
   width: clamp(6.5rem, 90%, 9.5rem)
-  height: fit-content
+  height: 4rem
   border: 1px solid var(--generalBorderColor)
   border-bottom-left-radius: 2px
   border-bottom-right-radius: 2px
@@ -68,20 +69,37 @@
   flex-direction: column
   justify-content: start
   align-items: center
-  transition: height 500ms ease
   overflow-y: hidden
+  // transition: transform 500ms ease, margin-bottom 500ms ease
+  // transform: scaleY(1)
+  // transform-origin: top
+  transition: height 300ms ease
 
-  span
-    display: block
+  div
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
     width: 100%
     height: fit-content
-    cursor: pointer
+    padding: 2px 5px
+    border-bottom: 1px solid var(--generalBorderColor)
     opacity: 0.6
-    padding-block: 2px
+    cursor: pointer
 
     &:hover
       opacity: 1
       background: var(--dropHighlightColor)
+
+    span
+      display: block
+      width: fit-content
+      height: fit-content
+
+    svg
+      width: 15%
+      height: auto
+
 
   // &::-webkit-scrollbar
   //   width: 4px
@@ -94,4 +112,6 @@
 .is-dropdown-closed
   border: none !important
   height: 0 !important
+  // margin-bottom: 0 !important
   pointer-events: none !important
+  // transform: scaleY(0) !important

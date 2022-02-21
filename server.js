@@ -4,7 +4,8 @@ const nodemailer = require('nodemailer');
 const exHandleBars = require('nodemailer-express-handlebars');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 5000;  // Choose the environment variable for the port
+const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || "localhost";
 
 // Middleware for serving static folders
 app.use("/public", express.static(path.join(__dirname, 'public')));
@@ -81,11 +82,11 @@ async function sendMailToAdmin(formBody) {
 async function sendMailToUser(formBody) {
   let language = formBody.language;
   const subjects = {
-    "english": "You have sent a new message!",
-    "español": "Ha enviado un nuevo mensaje!"
+    "en": "You have sent a new message!",
+    "es": "Ha enviado un nuevo mensaje!"
   };
   const contexts = {
-    "english": {
+    "en": {
       title: `Hello there, ${formBody.name}!`,
       parag1: `You have sent a message to LamboLead Tech. My name is Juan David, and I'm at your service.`,
       messageTitle: "This was your message:",
@@ -97,7 +98,7 @@ async function sendMailToUser(formBody) {
       footerInfo21: "Carrera 44 #18-56. Ciudad del Río. Medellín, Antioquia, Colombia",
       footerInfo22: "+57 318 309 9879"
     }, 
-    "español": {
+    "es": {
       title: `Hola, ${formBody.name}!`,
       parag1: `Ha enviado un mensaje a LamboLead Tech. Mi nombre es Juan David, y estoy a su servicio.`,
       messageTitle: "Este fue su mensaje:",
@@ -125,6 +126,6 @@ async function sendMailToUser(formBody) {
   return mailPromise.accepted.length > 0;
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`Server running on port ${PORT}`);
 });

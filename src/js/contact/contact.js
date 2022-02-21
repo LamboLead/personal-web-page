@@ -21,7 +21,10 @@ InputHandler.handleUserInput(
   "#contact-form [name=your-name]",
   {
     flag: "REGEX",
-    errorMessage: "Your name must have at least four letters at the beginning",
+    errorMessage: {
+      "english": "At least four letters in its beginning",
+      "español": "Al menos cuatro letras al principio"
+    },
     pattern: /^[a-zA-Z]{4,}.*/
   },
   (value) => {
@@ -46,7 +49,7 @@ InputHandler.handleUserInput(
   {
     flag: "REGEX",
     errorMessage: "Your message must have at least one word with three letters",
-    pattern: /^[a-zA-Z0-9]{3,}.*/
+    pattern: /^([\w\d\,\.]{1,}\s){2,}\.*[\w\d\,\.\s]{1,}$/
   },
   (value) => {
     console.log(value);

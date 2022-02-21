@@ -20,6 +20,7 @@
     transition: opacity 300ms ease-in
 
     .field-wrapper
+      position: relative
       width: 90%
       padding-block: 3px
       display: flex
@@ -69,6 +70,15 @@
           margin-left: auto
           flex: 2 2 82%
           height: 100%
+
+      .input-validation
+        display: none
+        position: absolute
+        right: 0
+        bottom: 5px
+        color: red
+        z-index: 3
+        font-size: 0.7rem
 
     .textarea-wrapper
       height: 40%

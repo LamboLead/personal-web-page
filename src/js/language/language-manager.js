@@ -3,19 +3,18 @@ import english from "./en.js";
 import español from "./es.js";
 
 let languages = [
-  {display: "English", id: "en"},
-  {display: "Español", id: "es"}
+  {display: "English", id: "en", svg: "language/UK.svg"},
+  {display: "Español", id: "es", svg: "language/ES.svg"}
 ];
 
-DropdownHandler.createDropdown("drop-language", "#language .change-language", languages, changeLanguage);
+(async () => {
+  await DropdownHandler.createDropdown("drop-language", "#language .change-language", languages, changeLanguage);
+  let browserLang = navigator.language.match(/[a-z]/g).join("");
+  changeLanguage(browserLang);
+  DropdownHandler.updateDisplay("drop-language", browserLang);
+})();
 
 // Retrieve browser language and render it
-let browserLang = navigator.language.match(/[a-z]/g).join("");
-let displayLang = languages.filter((lang) => {
-  return lang.id === browserLang
-})[0].display;
-changeLanguage(browserLang);
-DropdownHandler.updateDisplay("drop-language", displayLang);
 
 /**
  * 

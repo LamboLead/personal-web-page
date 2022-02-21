@@ -13,7 +13,7 @@ export class Form {
     this.inputFields = inputFields;
     this.usable = true;
     this.onSubmit = onSubmit;
-    this.language = "español";
+    this.language = "es";
     this.disablingOptions = {
       disable: disableForm,
       attemptsPerPeriod: attempts,
@@ -21,8 +21,8 @@ export class Form {
       attemptsLeft: attempts,
       lastSentAt: false,
       callback: disableCallback
-    }
-    this.stateOptions = stateOptions
+    };
+    this.stateOptions = stateOptions;
     this.initializeForm();
   }
 
@@ -47,7 +47,7 @@ export class Form {
     })
     // Inputs
     this.inputFields.forEach((input) => {
-      let inputElement = form.querySelector(input.selector)
+      let inputElement = form.querySelector(input.selector);
       inputElement.addEventListener("keyup", () => {
         this.checkInputs();
       });
@@ -76,14 +76,19 @@ export class Form {
     let submitButton = document.querySelector(`#${this.id} [type=submit]`);
     this.inputFields.forEach((input) => {
       let inputElement = document.querySelector(`#${this.id} ${input.selector}`);
+      let validMessageElement = inputElement.nextElementSibling;
+      let validMessage = input.errorMessages[this.language];
+      validMessageElement.innerText = validMessage;
       if (!input.pattern.test(inputElement.value)) {
         // Show error message
+        validMessageElement.classList.add("invalid-input-message");
         inputElement.classList.add("invalid-input");
         // alert(input.errorMessages[this.language]);
         inputElement.classList.remove("valid-input");
         input.valid = false;
         
       } else {
+        validMessageElement.classList.remove("invalid-input-message");
         inputElement.classList.add("valid-input");
         inputElement.classList.remove("invalid-input")
         input.valid = true;
@@ -206,6 +211,16 @@ export class Form {
     let timeUntil = new Date(lastSent + timePeriod);
     timeUntil = `${timeUntil.getHours()}:${timeUntil.getMinutes()}`;
     return timeUntil;
+  }
+
+  updateMessages() {
+    // Update input validation messages
+    this.inputFields.forEach((input) => {
+      let inputElement = document.querySelector(`#${this.id} ${input.selector}`);
+      let validMessageElement = inputElement.nextElementSibling;
+      let validMessage = input.errorMessages[this.language];
+      validMessageElement.innerText = validMessage;
+    });
   }
 }
 

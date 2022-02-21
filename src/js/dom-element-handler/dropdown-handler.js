@@ -1,3 +1,5 @@
+import injectSVG from "./import-svg.js";
+
 /**
  * This is the Dropdown element handler module.<br>
  * It stores functions related to the set up and handling of custom dropdown in the webpage
@@ -18,35 +20,43 @@ export function createDropdown(id, parentElementSelector, options, callback) {
   container.classList = "drop-container-div";
   container.setAttribute("data-selected-value", "undefined");
 
+  // Set up dropdown display
   let displayContainer = document.createElement("div");
-  displayContainer.classList = "drop-display-container-div";
-  let display = document.createElement("span");
-  display.classList = "drop-display";
-  let arrow = document.createElement("div");
-  arrow.classList = "drop-arrow";
+  displayContainer.classList = "drop-display";
   displayContainer.addEventListener("click", () => {
     openDropdown(id);
   });
 
+  // Set up dropdown options
   let optionContainer = document.createElement("div");
   optionContainer.classList = "drop-option-container-div is-dropdown-closed";
+
   options.forEach((option) => {
+    let optionDiv = document.createElement("div");
+    optionDiv.setAttribute("data-value", option.id);
     let optionText = document.createElement("span");
     optionText.innerText = option.display;
-    // optionText.setAttribute(option.attribute.name, option.attribute.value)
-    optionContainer.appendChild(optionText);
-    optionText.addEventListener("click", () => {
-      callback(option.id);
-      updateDisplay(id, option.display);
-      closeDropdown(id);
-    })
-  });
+    
+    optionDiv.append(optionText);
+    optionContainer.append(optionDiv);
 
-  // Append all elements
+    optionDiv.addEventListener("click", () => {
+      callback(option.id);
+      updateDisplay(id, option.id);
+      closeDropdown(id);
+    });
+  });
+  // Append all containers
   let parent = document.querySelector(parentElementSelector);
-  displayContainer.append(display, arrow);
   container.append(displayContainer, optionContainer);
   parent.appendChild(container);
+
+  // Append SVGs
+  options.forEach(async (option) => {
+    if (option.svg) {
+      await injectSVG({src: option.svg}, {parentSelector: `#${id} .drop-option-container-div [data-value=${option.id}]`});
+    }
+  });
 
   // Set up all closing events
   document.addEventListener("keyup", (e) => {
@@ -54,11 +64,22 @@ export function createDropdown(id, parentElementSelector, options, callback) {
   });
 }
 
-export function updateDisplay(id, string) {
+export function updateDisplay(id, optionId) {
   let dropdown = document.getElementById(id);
   let display = dropdown.querySelector(".drop-display");
-  display.innerText = string;
-  dropdown.setAttribute("data-selected-value", string.toLowerCase());
+  display.innerHTML = "";
+  // display.querySelectorAll("*").forEach((child) => display.remove(child));
+
+  dropdown.querySelectorAll(".drop-option-container-div div").forEach((option) => {
+    if (option.getAttribute("data-value") === optionId) {
+      let clone = option.cloneNode(true);
+      console.log("clone:", clone);
+      display.appendChild(clone);
+    }
+  });
+
+  // dropdown.setAttribute("data-selected-value", string.toLowerCase());
+  dropdown.setAttribute("data-selected-value", optionId);
 }
 
 function closeDropdown(id) {
