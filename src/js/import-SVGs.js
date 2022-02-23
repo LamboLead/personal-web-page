@@ -49,6 +49,8 @@ export default async function importAllSVG() {
   // My portfolio
   // > The Ultimate To-Do List
   await injectSVG({id: "tutdl-logo", src: "my-portfolio/the-ultimate-to-do-list.svg"}, {parentSelector: "#tutdl .project-description", beforeSelector: "#tutdl .project-description .slogan"});
+  // > Art-Democracy
+  await injectSVG({id: "artd-logo", src: "my-portfolio/art-democracy.svg"}, {parentSelector: "#artd .project-description", beforeSelector: "#artd .project-description .slogan"});
 
   // Footer
   await injectSVG({id: "signature", src: "footer/signature.svg"}, {parentSelector: "#footer .signature"});

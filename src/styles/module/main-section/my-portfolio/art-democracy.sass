@@ -1,0 +1,91 @@
+#artd
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  background: var(--artdBackgroundColor)
+  overflow: hidden
+  // display: none
+
+  @include screen-width($phone...)
+    justify-content: start
+    align-items: start
+
+  @include screen-width($desktop...)
+    justify-content: center
+    align-items: center
+
+  .project-description
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      @include screen-width($phone...)
+        width: clamp(100px, 53%, 430px)
+        height: 100%
+        align-items: flex-start
+        margin-left: 3%
+      @include screen-width($desktop...)
+        width: clamp(200px, 50%, 680px)
+        height: 100%
+        margin-inline: 0.7% 0.5rem
+        align-items: center
+
+      #artd-logo
+        position: relative
+        height: fit-content
+        @include screen-width($phone...)
+          width: 100%
+          margin-bottom: 12%
+          margin-top: -20%
+          margin-left: 13%
+        @include screen-width($desktop...)
+          width: 23vw
+          margin-top: -8%
+          margin-left: -8%
+
+      .slogan
+        display: block
+        font-weight: 500
+        font-style: italic
+        color: var(--artdTextColor)
+
+        @include screen-width($phone...)
+          font-size: clamp(0.8rem, 1.7vw, 2rem)
+          margin-left: 13%
+          width: 100%
+
+        @include screen-width($desktop...)
+          font-size: clamp(0.9rem, 1vw, 1.3rem)
+          margin-top: 4%
+          margin-left: -15%
+
+      .learn-more
+        font-size: clamp(0.9rem, 1.2vw, 1.5rem)
+
+        @include screen-width($phone...)
+          width: 87%
+          align-self: start
+          margin-top: 4rem
+          margin-left: 5%
+          padding-block: 5px
+        @include screen-width($desktop...)
+          padding: 0.2rem 1rem
+          align-self: flex-end
+          margin-top: 3vh
+          margin-right: 8%
+
+#artd-animation
+  height: 90%
+  
+  @include screen-width($phone...)
+    position: absolute
+    height: 90%
+    left: 58%
+    align-self: center
+    justify-self: center
+    aspect-ratio: 2/1.3
+
+  canvas
+    width: 100%
+    height: 100%

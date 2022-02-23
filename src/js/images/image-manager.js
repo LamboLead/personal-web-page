@@ -8,6 +8,7 @@ class ImageManager {
   }
 
   initialize() {
+    // Set up dynamic images
     let dynamicImages = images["dynamic"];
     Object.keys(dynamicImages).forEach((element) => {
       let img = dynamicImages[element].info;
@@ -39,9 +40,20 @@ class ImageManager {
         }
       });
     });
+
+    // Load and show static images
+    let staticImages = images["static"];
+    Object.entries(staticImages).forEach(async (image) => {
+      console.log("Static image:", image);
+      await this.loadImage({name: image[0], type: "static"});
+    });
+
+    // Load current section image and contactImage
+    imageManager.loadImage({name: imageManager.currentSection, type: "dynamic", subtype: "startSession"}, this.currentTheme);
+    imageManager.loadImage({name: "contactImage", type: "dynamic", subtype: "startSession"}, this.currentTheme);
   }
 
-  async loadImage({name, type, subtype = undefined}, theme) {
+  async loadImage({name, type, subtype = undefined}, theme = undefined) {
     console.table("Load image!", {name: name, info: {type, subtype}, theme: theme});
     
     let image = new CanvasImage(name, type);
@@ -50,14 +62,23 @@ class ImageManager {
 
     console.log("Image hasn't loaded!", name);
 
-    let selectedImage, imageInfo, index;
+    let selectedImage;
 
-    if (!subtype) {
-      selectedImage = images[type][name][image.orientation][theme];
-    } else {
-      imageInfo = images[type][name][subtype][image.orientation][theme];
-      index = Math.floor(Math.random() * imageInfo.length);
-      selectedImage = imageInfo[index];
+    switch (type) {
+      case "dynamic":
+        let imageInfo = images[type][name][subtype][image.orientation][theme];
+        let index = Math.floor(Math.random() * imageInfo.length);
+        selectedImage = imageInfo[index];
+        break;
+      case "normal":
+        selectedImage = images[type][name][image.orientation][theme];
+        break;
+      case "static":
+        selectedImage = images[type][name][image.orientation];
+        break;
+      default:
+        console.error("No image type selected for image:", name);
+        break;
     }
 
     let promise = new Promise((resolve, reject) => {
@@ -75,7 +96,6 @@ class ImageManager {
     if (selectedImage["style"]) {
       image.style = selectedImage["style"];
     }
-    console.log(selectedImage["src"]);
 
     // Set up rescaling
     image.canvas.width = image.file.naturalWidth;
@@ -86,7 +106,7 @@ class ImageManager {
 
     console.log("Image has loaded!", name);
 
-    if (type === "normal") this.showImage(name);
+    if (type === "normal" || type === "static") this.showImage(name);
   }
 
   showImage(name) {

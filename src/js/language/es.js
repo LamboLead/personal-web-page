@@ -42,6 +42,8 @@ const español = {
     "my-portfolio-title": "Algunas de mis creaciones...",
     "my-portfolio-tutdl-slogan": '"Una lista de tareas que tiene mucho más que una lista de tareas"',
     "my-portfolio-tutdl-button": "Ir al sitio",
+    "my-portfolio-artd-slogan": '"La tienda de arte de y para la gente"',
+    "my-portfolio-artd-button": "Muy pronto!",
   
     "contact-title": "¡Creemos algo juntos!",
     "contact-form-name": "Su nombre:",

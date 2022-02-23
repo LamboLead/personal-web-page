@@ -40,6 +40,8 @@ const english = {
     "my-portfolio-title": "Some of my creations...",
     "my-portfolio-tutdl-slogan": '"A to-do list that has much more than a to-do list"',
     "my-portfolio-tutdl-button": "Go to the site",
+    "my-portfolio-artd-slogan": '"The art store for the people"',
+    "my-portfolio-artd-button": "Coming soon!",
 
     "contact-title": "Let's create something together!",
     "contact-form-name": "Your name:",

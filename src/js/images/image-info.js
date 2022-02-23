@@ -95,7 +95,14 @@ const images = {
             {src: "contact/light-theme/contacto-1.png"}
           ]
         },
-        "horizontal": {}
+        "horizontal": {
+          "dark-theme": [
+            {src: "contact/dark-theme/contacto-1.png"}
+          ],
+          "light-theme": [
+            {src: "contact/light-theme/contacto-1.png"}
+          ]
+        }
       },
       currentSession: {
         "vertical": {
@@ -107,7 +114,14 @@ const images = {
             {src: "contact/light-theme/contacto-1.png"}
           ]
         },
-        "horizontal": {}
+        "horizontal": {
+          "dark-theme": [
+            {src: "contact/dark-theme/contacto-1.png"}
+          ],
+          "light-theme": [
+            {src: "contact/light-theme/contacto-1.png"}
+          ]
+        }
       }
     }
   },
@@ -123,6 +137,12 @@ const images = {
         ,
         "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app.png"}
       }
+    }
+  },
+  static: {
+    artdImage: {
+      "vertical": {src: "my-portfolio/art-democracy/app.png"},
+      "horizontal": {src: "my-portfolio/art-democracy/app.png"}
     }
   }
 }
