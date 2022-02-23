@@ -10,7 +10,6 @@ const HOST = process.env.HOST || "localhost";
 // Middleware for serving static folders
 app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
-// app.use(express.static(path.join(__dirname, 'views')))
 app.use(express.json());
 
 // Send HTML file
@@ -23,8 +22,7 @@ app.get('/logo', (request, response) => {
   response.sendFile(__dirname + '/public/dark-logo.png');
 });
 
-// Send email from user to me (implement the sending of a confirmation email)
-
+// Send admin and user an email
 const transporter = nodemailer.createTransport({
   host: process.env.SMTPHOST,
   port: process.env.SMTPPORT,
@@ -33,7 +31,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.PASSWORD
   }
 });
-
 transporter.use('compile', exHandleBars({
   viewEngine: {
     extName: ".handlebars",
@@ -126,6 +123,7 @@ async function sendMailToUser(formBody) {
   return mailPromise.accepted.length > 0;
 }
 
+// Port setup
 app.listen(PORT, HOST, () => {
   console.log(`Server running on port ${PORT}`);
 });

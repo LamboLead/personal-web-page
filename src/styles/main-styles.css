@@ -1275,6 +1275,9 @@ a {
 .emphasis-button:hover {
   background: var(--buttonHoverColor);
 }
+.emphasis-button a {
+  color: var(--buttonTextColor);
+}
 
 #navbar-background {
   position: absolute;
