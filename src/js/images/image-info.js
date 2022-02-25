@@ -10,7 +10,7 @@ const images = {
         end: "+=200% bottom-=1"
       },
       startSession: {
-        "vertical": {
+        "desktop": {
           "dark-theme": [
             {
               src: "main-page/dark-theme/saludo-1.png",
@@ -32,17 +32,23 @@ const images = {
             }
           ]
         },
-        "horizontal": {
+        "phone": {
           "dark-theme": [
-            {src: "main-page/dark-theme/catto-horizontal-1.png"}
+            {
+              src: "main-page/dark-theme/saludo-3-mobile.png",
+              style: "transform: translate(5%, 0) scale(2)"
+            }
           ],
           "light-theme": [
-            {src: "main-page/light-theme/catto-horizontal-1.png"}
+            {
+              src: "main-page/light-theme/saludo-2-mobile.png",
+              style: "transform: translate(31%, -4%) scale(2)"
+            }
           ]
         }
       },
       currentSession: {
-        "vertical": {
+        "desktop": {
           "dark-theme": [
             {
               src: "main-page/dark-theme/portatil-1.png",
@@ -65,14 +71,18 @@ const images = {
             }
           ]
         },
-        "horizontal": {
+        "phone": {
           "dark-theme": [
-            {src: "main-page/dark-theme/catto-red-horizontal.png"},
-            {src: "main-page/dark-theme/catto-blue-horizontal.png"}
+            {
+              src: "main-page/dark-theme/portatil-1-mobile.png",
+              style: "transform: translate(36%, 90%) scale(1)"
+            }
           ],
           "light-theme": [
-            {src: "main-page/light-theme/catto-red-horizontal.png"},
-            {src: "main-page/light-theme/catto-blue-horizontal.png"}
+            {
+              src: "main-page/light-theme/baje-1-mobile.png",
+              style: "transform: translate(14%, 24%) scale(2.2)"
+            }
           ]
         }
       }
@@ -86,18 +96,10 @@ const images = {
         end: "bottom -=30%"
       },
       startSession: {
-        "vertical": {
+        "desktop": {
           "dark-theme": [
             {src: "contact/dark-theme/contacto-1.png"},
             {src: "contact/dark-theme/contacto-2.png"}
-          ],
-          "light-theme": [
-            {src: "contact/light-theme/contacto-1.png"}
-          ]
-        },
-        "horizontal": {
-          "dark-theme": [
-            {src: "contact/dark-theme/contacto-1.png"}
           ],
           "light-theme": [
             {src: "contact/light-theme/contacto-1.png"}
@@ -105,18 +107,10 @@ const images = {
         }
       },
       currentSession: {
-        "vertical": {
+        "desktop": {
           "dark-theme": [
             {src: "contact/dark-theme/contacto-1.png"},
             {src: "contact/dark-theme/contacto-2.png"}
-          ],
-          "light-theme": [
-            {src: "contact/light-theme/contacto-1.png"}
-          ]
-        },
-        "horizontal": {
-          "dark-theme": [
-            {src: "contact/dark-theme/contacto-1.png"}
           ],
           "light-theme": [
             {src: "contact/light-theme/contacto-1.png"}
@@ -127,22 +121,22 @@ const images = {
   },
   normal: {
     tutdlImage: {
-      "vertical": {
-        "dark-theme": {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app-mobile.png"}
-        ,
-        "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app-mobile.png"}
-      },
-      "horizontal": {
+      "desktop": {
         "dark-theme": {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app.png"}
         ,
         "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app.png"}
+      },
+      "phone": {
+        "dark-theme": {src: "my-portfolio/the-ultimate-to-do-list/dark-theme/app-mobile.png"}
+        ,
+        "light-theme": {src: "my-portfolio/the-ultimate-to-do-list/light-theme/app-mobile.png"}
       }
     }
   },
   static: {
     artdImage: {
-      "vertical": {src: "my-portfolio/art-democracy/app.png"},
-      "horizontal": {src: "my-portfolio/art-democracy/app.png"}
+      "desktop": {src: "my-portfolio/art-democracy/app.png"},
+      "phone": {src: "my-portfolio/art-democracy/app.png"}
     }
   }
 }

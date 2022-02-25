@@ -261,6 +261,7 @@ a {
 
 #main-page {
   display: flex;
+  overflow: hidden;
 }
 @media (min-width: 0px) and (max-width: 1024px) {
   #main-page {
@@ -381,24 +382,26 @@ a {
   text-align: center;
 }
 
+#main-page-animation {
+  position: absolute;
+  transition: opacity 800ms ease-in;
+}
 @media (min-width: 0px) and (max-width: 1024px) {
-  #title-animation {
+  #main-page-animation {
     width: 100%;
-    height: 15%;
+    aspect-ratio: 5/3;
     align-self: flex-end;
   }
 }
 @media (min-width: 1025px) and (max-width: 4000px) {
-  #title-animation {
+  #main-page-animation {
     order: 2;
     height: 60%;
     aspect-ratio: 30/37;
-    transition: opacity 800ms ease-in;
     z-index: 5;
-    position: absolute;
   }
 }
-#title-animation canvas {
+#main-page-animation canvas {
   width: 100%;
   height: 100%;
 }

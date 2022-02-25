@@ -1,5 +1,4 @@
 import images from "./image-info.js";
-
 class ImageManager {
   constructor() {
     this.images = {};
@@ -21,13 +20,11 @@ class ImageManager {
         onEnter: () => {
           console.log("Entered!", element);
           this.currentSection = element;
-          console.log(this.currentSection);
           this.showImage(element);
         },
         onEnterBack: () => {
           console.log("Entered back!", element);
           this.currentSection = element;
-          console.log(this.currentSection);
           this.showImage(element);
         },
         onLeave: () => {
@@ -44,7 +41,6 @@ class ImageManager {
     // Load and show static images
     let staticImages = images["static"];
     Object.entries(staticImages).forEach(async (image) => {
-      console.log("Static image:", image);
       await this.loadImage({name: image[0], type: "static"});
     });
 
@@ -66,15 +62,30 @@ class ImageManager {
 
     switch (type) {
       case "dynamic":
-        let imageInfo = images[type][name][subtype][image.orientation][theme];
-        let index = Math.floor(Math.random() * imageInfo.length);
-        selectedImage = imageInfo[index];
+        try {
+          let imageInfo = images[type][name][subtype][image.orientation][theme];
+          let index = Math.floor(Math.random() * imageInfo.length);
+          selectedImage = imageInfo[index];
+        } catch (error) {
+          console.log(`${name} image wasn't found`);
+          return;
+        }
         break;
       case "normal":
-        selectedImage = images[type][name][image.orientation][theme];
+        try {
+          selectedImage = images[type][name][image.orientation][theme];
+        } catch (error) {
+          console.log(`${name} image wasn't found`);
+          return;
+        }
         break;
       case "static":
-        selectedImage = images[type][name][image.orientation];
+        try {
+          selectedImage = images[type][name][image.orientation];
+        } catch (error) {
+          console.log(`${name} image wasn't found`);
+          return;
+        }
         break;
       default:
         console.error("No image type selected for image:", name);
@@ -150,12 +161,10 @@ class CanvasImage {
     this.canvas.parentElement.classList.add("is-animation-loading");
   }
   setUpOrientation() {
-    if (this.canvas.clientHeight > this.canvas.clientWidth) {
-      return "vertical";
-    } else if (this.canvas.clientHeight < this.canvas.clientWidth) {
-      return "horizontal";
+    if (window.innerHeight >= window.innerWidth) {
+      return "phone";
     } else {
-      return "squared";
+      return "desktop";
     }
   }
   render() {
