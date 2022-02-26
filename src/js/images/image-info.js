@@ -81,7 +81,13 @@ const images = {
           "light-theme": [
             {
               src: "main-page/light-theme/baje-1-mobile.png",
-              style: "transform: translate(14%, 24%) scale(2.2)"
+              style: "transform: translate(26%, 56%) scale(2.2)",
+              elementStyling: [
+                {
+                  selector: "",
+                  style: ""
+                }
+              ]
             }
           ]
         }

@@ -13,20 +13,20 @@ const english = {
     "language": "Language",
 
     "main-page-title": "Juan David López",
-    "main-page-subtitle": "Freelance web developer",
+    "main-page-subtitle": "Freelance web developer & more",
     "main-page-button-1": "Wanna see my projects?",
     "main-page-button-2": "Know more about me",
 
     "about-me-whoami-contracted-subtitle": "Who-am-i / What can I do for you?",
     "about-me-whoami-subtitle-1": "Who am I?",
-    "about-me-whoami-text-1": "I am a freelance web developer and designer that can help you build the website that suits your needs.",
+    "about-me-whoami-text-1": "I am a freelance web developer and designer that can help you build the product that suits your needs.",
     "about-me-whoami-subtitle-2": "What can I do for you?",
-    "about-me-whoami-text-2": "From visually appealing, functional and efficient websites, to system architecture and logo design; I can help you grow your business, improve your online presence, build confidence in your clients, and much more.",
+    "about-me-whoami-text-2": "From visually appealing, functional and efficient websites, to system architecture, databases, and logo design; I can help you grow your business, improve your online presence, build confidence in your clients, and much more.",
 
     "about-me-skillset-title": "Skillset",
     "about-me-skillset-subtitle-1": "Front End:",
     "about-me-skillset-text-1-1": "Fundamentals: HTML, CSS, and JavaScript.",
-    "about-me-skillset-text-1-2": "Frameworks & libraries: React, Vue, SASS.",
+    "about-me-skillset-text-1-2": "Frameworks & libraries: React, Vue, SASS, GSAP.",
     "about-me-skillset-subtitle-2": "Back End:",
     "about-me-skillset-text-2-1": "NodeJS with Express.",
     "about-me-skillset-text-2-2": "PHP.",
@@ -35,7 +35,7 @@ const english = {
     "about-me-skillset-text-3-1": "VCS: Git & GitHub.",
     "about-me-skillset-text-3-2": "Design: Figma.",
     "about-me-skillset-text-3-3": "Automation: Python, AutoIT.",
-    "about-me-skillset-text-3-4": "Website deployment.",
+    "about-me-skillset-text-3-4": "Website deployment and server setup.",
 
     "my-portfolio-title": "Some of my creations...",
     "my-portfolio-tutdl-slogan": '"A to-do list that has much more than a to-do list"',
