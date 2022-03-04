@@ -15,7 +15,7 @@ const english = {
     "main-page-title": "Juan David López",
     "main-page-subtitle": "Freelance web developer & more",
     "main-page-button-1": "Wanna see my projects?",
-    "main-page-button-2": "Know more about me",
+    "main-page-button-2": "Wanna see my products?",
 
     "about-me-whoami-contracted-subtitle": "Who-am-i / What can I do for you?",
     "about-me-whoami-subtitle-1": "Who am I?",

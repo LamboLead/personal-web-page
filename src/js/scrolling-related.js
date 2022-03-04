@@ -41,10 +41,11 @@ ScrollTrigger.create({
 // - - - Snap scrolling - - -
 
 const snapDuration = 0.5;
-const snapDelay = 0.7
+const snapDelay = 2
 const sections = document.querySelectorAll("#main-section .single-section, .double-section");
 
 let enteredSections = [];
+
 sections.forEach((section) => {
   let id = section.id;
   ScrollTrigger.create({
@@ -52,39 +53,56 @@ sections.forEach((section) => {
     trigger: `#${id}`,
     start: "top bottom",
     end: "bottom top+=1",
-    onEnter: () => {
+    onEnter: (self) => {
       enteredSections.push(id);
-      // console.log(enteredSections);
+      console.log("Entered Sections: ", enteredSections);
       setTimeout(() => {
+        // Check that the last entered section corresponds to the section that the user is in
         if (enteredSections[enteredSections.length - 1] === id) {
-          // console.log(`${id} was the last accessed`);
-          goToSection(id);
+          console.log("Progress then:", self.progress);
+          console.log(`${id} was the last accessed`);
+          let sectionToGo;
+          if (self.progress < 0.2) {
+            sectionToGo = enteredSections[enteredSections.length - 2];
+          } else {
+            sectionToGo = enteredSections[enteredSections.length - 1];
+          }
+          console.log(`Go to ${sectionToGo}`);
+          goToSection(sectionToGo);
         }
       }, snapDelay * 1000);
 
       setTimeout(() => {
-        enteredSections = [];
-      }, 1000);
+        enteredSections = enteredSections.slice(enteredSections.length - 2, enteredSections.length);
+      }, (snapDelay * 1000) + 2000);
     },
-    onEnterBack: () => {
+    onEnterBack: (self) => {
       enteredSections.push(id);
-      // console.log(enteredSections);
+      console.log("Entered sections:", enteredSections);
       setTimeout(() => {
+        // Check that the last entered section corresponds to the section that the user is in
         if (enteredSections[enteredSections.length - 1] === id) {
-          // console.log(`${id} was the last accessed`);
-          goToSection(id);
+          console.log("Progress:", self.progress);
+          console.log(`${id} was the last accessed`);
+          let incomingSection;
+          if (self.progress > 0.8) {
+            incomingSection = enteredSections[enteredSections.length - 2];
+          } else {
+            incomingSection = enteredSections[enteredSections.length - 1];
+          }
+          console.log(`Go to ${incomingSection}`);
+          goToSection(incomingSection);
         }
       }, snapDelay * 1000);
-      
       setTimeout(() => {
-        enteredSections = [];
-      }, 1000);
+        enteredSections = enteredSections.slice(enteredSections.length - 2, enteredSections.length);
+      }, (snapDelay * 1000) + 2000);
     }
   });
 });
 
 function goToSection(section) {
-  moveNavbarBackground(section)
+  moveNavbarBackground(section);
   gsap.to(window, {
     scrollTo: {y: `#${section}`, autoKill: true},
     duration: snapDuration

@@ -10,6 +10,7 @@ const HOST = process.env.HOST || "localhost";
 // Middleware for serving static folders
 app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
+app.use("/documents", express.static(path.join(__dirname, 'documents')));
 app.use(express.json());
 
 // Send HTML file
@@ -20,6 +21,19 @@ app.get('/', (request, response) => {
 // Send logo
 app.get('/logo', (request, response) => {
   response.sendFile(__dirname + '/public/dark-logo.png');
+});
+
+// Send terms & conditions, privacy policy
+app.get("/legal/terminos-y-condiciones", (request, response) => {
+  response.sendFile(__dirname + "/documents/legal/terminos-y-condiciones.pdf");
+});
+app.get("/legal/politica-de-privacidad", (request, response) => {
+  response.sendFile(__dirname + "/documents/legal/politica-de-privacidad.pdf");
+});
+
+// Send product catalog
+app.get("/productos", (request, response) => {
+  response.sendFile(__dirname + "/documents/products/catalogo-de-productos.pdf");
 });
 
 // Send admin and user an email

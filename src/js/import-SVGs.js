@@ -57,10 +57,10 @@ export default async function importAllSVG() {
 
   // Scrolling arrows
   // > Main section
-  await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#main-section .scrolling-arrows"});
+  // await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#main-section .scrolling-arrows"});
   // > About me
   await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#about-me .scrolling-arrows-about-me"});
   // > Contact
-  await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#contact .scrolling-arrows"});
+  // await injectSVG({src: "other/scrolling-arrows.svg"}, {parentSelector: "#contact .scrolling-arrows"});
 
 }

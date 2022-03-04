@@ -2,10 +2,18 @@
   @media (min-width: $min) and (max-width: $max)
     @content
 
+@mixin screen-height($min, $max)
+  @media (min-height: $min) and (max-height: $max)
+    @content
+
 // $phone: (min: 0px, max: 768px, orientation: portrait)
 // $desktop: (min: 769px, max: 4000px, orientation: landscape)
+
+// This is width
 $phone: (min: 0px, max: 1024px)
 $desktop: (min: 1025px, max: 4000px)
+// This is height when mobile keyboard appears
+$mobileKeyboard: (min: 0px, max: 600px)
 
 :root
   font-family: 'Roboto Mono', monospace

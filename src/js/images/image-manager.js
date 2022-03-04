@@ -18,21 +18,21 @@ class ImageManager {
         start: img.start,
         end: img.end,
         onEnter: () => {
-          console.log("Entered!", element);
+          // console.log("Entered!", element);
           this.currentSection = element;
           this.showImage(element);
         },
         onEnterBack: () => {
-          console.log("Entered back!", element);
+          // console.log("Entered back!", element);
           this.currentSection = element;
           this.showImage(element);
         },
         onLeave: () => {
-          console.log("Left!", element);
+          // console.log("Left!", element);
           this.setNewImage(element);
         },
         onLeaveBack: () => {
-          console.log("Left!", element);
+          // console.log("Left!", element);
           this.setNewImage(element);
         }
       });
@@ -50,13 +50,13 @@ class ImageManager {
   }
 
   async loadImage({name, type, subtype = undefined}, theme = undefined) {
-    console.table("Load image!", {name: name, info: {type, subtype}, theme: theme});
+    // console.table("Load image!", {name: name, info: {type, subtype}, theme: theme});
     
     let image = new CanvasImage(name, type);
     if (type === "normal") image.hide();
     this.images[name] = image;
 
-    console.log("Image hasn't loaded!", name);
+    // console.log("Image hasn't loaded!", name);
 
     let selectedImage;
 
@@ -67,7 +67,7 @@ class ImageManager {
           let index = Math.floor(Math.random() * imageInfo.length);
           selectedImage = imageInfo[index];
         } catch (error) {
-          console.log(`${name} image wasn't found`);
+          // console.log(`${name} image wasn't found`);
           return;
         }
         break;
@@ -75,7 +75,7 @@ class ImageManager {
         try {
           selectedImage = images[type][name][image.orientation][theme];
         } catch (error) {
-          console.log(`${name} image wasn't found`);
+          // console.log(`${name} image wasn't found`);
           return;
         }
         break;
@@ -83,7 +83,7 @@ class ImageManager {
         try {
           selectedImage = images[type][name][image.orientation];
         } catch (error) {
-          console.log(`${name} image wasn't found`);
+          // console.log(`${name} image wasn't found`);
           return;
         }
         break;
@@ -139,7 +139,7 @@ class ImageManager {
 
   setNewImage(name) {
     this.loadImage({name: name, type: "dynamic", subtype: "currentSession"}, this.currentTheme);
-    console.log(this.images);
+    // console.log(this.images);
     this.images[name].hide();
   }
 }
