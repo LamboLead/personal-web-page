@@ -13,12 +13,8 @@ const images = {
         "desktop": {
           "dark-theme": [
             {
-              src: "main-page/dark-theme/saludo-1.png",
-              style: "transform: translate(150%, 5%)"
-            },
-            {
               src: "main-page/dark-theme/saludo-3.png",
-              style: "transform: translate(145%, 0%)"
+              style: "transform: translate(160%, 5%)"
             }
           ],
           "light-theme": [
@@ -51,23 +47,14 @@ const images = {
         "desktop": {
           "dark-theme": [
             {
-              src: "main-page/dark-theme/portatil-1.png",
-              style: "transform: translate(127%, -2%)"
-            },
-            {
-              src: "main-page/dark-theme/baje-1.png",
-              style: "transform: translate(131%, -8%)"
-            },
-            {
-              src: "main-page/dark-theme/baje-2.png",
-              style: "transform: translate(120%, 0)"
-
+              src: "main-page/dark-theme/saludo-3.png",
+              style: "transform: translate(160%, 0)"
             }
           ],
           "light-theme": [
             {
-              src: "main-page/light-theme/baje-1.png",
-              style: "transform: translate(14%, -6%); z-index: 2"
+              src: "main-page/light-theme/saludo-2.png",
+              style: "transform: translate(85%, 5%); z-index: 2"
             }
           ]
         },

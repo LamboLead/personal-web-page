@@ -1,7 +1,5 @@
 #progress-1
   position: absolute
-  bottom: 20%
-
   width: 100%
   height: fit-content
   // border: 1px dashed aqua
@@ -10,6 +8,11 @@
   flex-direction: column
   justify-content: space-between
   align-items: flex-start
+
+  @include screen-width($phone...)
+    bottom: 20%
+  @include screen-width($desktop...)
+    bottom: 10%
 
   svg
     width: 100%

@@ -1,0 +1,112 @@
+@mixin screen-width($min, $max)
+  @media (min-width: $min) and (max-width: $max)
+    @content
+
+$phone: (min: 0px, max: 1024px)
+$desktop: (min: 1025px, max: 4000px)
+
+:root
+  font-family: 'Roboto Mono', monospace
+  color: white
+  @include screen-width($phone...)
+    font-size: 13px
+
+  @include screen-width($desktop...)
+    font-size: 15px
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  width: 100vw
+  height: 100vh
+  background: black
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  @include screen-width($phone...)
+    flex-direction: column
+  @include screen-width($desktop...)
+    flex-direction: row
+
+.text
+  position: relative
+  // border: 2px solid yellow
+  padding: 1%
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  z-index: 5
+  @include screen-width($phone...)
+    width: 90%
+    height: 45%
+  @include screen-width($desktop...)
+    width: 45%
+    height: 90%
+
+  .transitioner
+    position: absolute
+    @include screen-width($desktop...)
+      width: 20%
+      height: 100%
+      right: 0
+      transform: translateX(100%)
+      background: linear-gradient(90deg, black 50%, rgba(0, 0, 0, 0) 100%)
+    @include screen-width($phone...)
+      width: 100%
+      height: 20%
+      bottom: 0
+      transform: translateY(100%)
+      background: linear-gradient(180deg, black 50%, rgba(0, 0, 0, 0) 100%)
+    
+
+.title
+  display: block
+  width: 100%
+  height: fit-content
+  font-size: 3rem
+  font-weight: 700
+
+.paragraphs
+  width: 100%
+  height: 80%
+  font-size: 1rem
+  font-weight: lighter
+  border: 1px dotted lightblue
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  align-items: flex-start
+  span
+    display: block
+    width: 100%
+    height: fit-content
+
+.images
+  position: relative
+  // border: 2px solid red
+  display: flex
+  flex-direction: row
+  justify-content: start
+  overflow: hidden
+  @include screen-width($phone...)
+    width: 90%
+    height: 45%
+  @include screen-width($desktop...)
+    width: 45%
+    height: 90%
+  img
+    position: absolute
+    width: fit-content
+    height: 100%
+    opacity: 0
+    transition: opacity 2000ms ease-in
+
+.is-image-being-shown
+  opacity: 1 !important
+  
+  

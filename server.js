@@ -6,12 +6,15 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "localhost";
+const people = require("./acknowledgements/info.js");
 
 // Middleware for serving static folders
 app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
 app.use("/documents", express.static(path.join(__dirname, 'documents')));
+app.use("/acknowledgements", express.static(path.join(__dirname, 'acknowledgements')));
 app.use(express.json());
+app.set('views', path.join(__dirname, 'acknowledgements/views'));
 
 // Send HTML file
 app.get('/', (request, response) => {
@@ -34,7 +37,7 @@ app.get("/legal/politica-de-privacidad", (request, response) => {
 // Send product catalog
 app.get("/productos", (request, response) => {
   response.sendFile(__dirname + "/documents/products/catalogo-de-productos.pdf");
-});
+});0
 
 // Send admin and user an email
 const transporter = nodemailer.createTransport({
@@ -57,14 +60,18 @@ transporter.use('compile', exHandleBars({
 
 app.post('/', async (request, response) => {
 
-  let sentToAdmin = await sendMailToAdmin(request.body);
-  let sentToUser = await sendMailToUser(request.body);
-
-  if (sentToAdmin && sentToUser) {
-    response.send("success");
-  } else {
-    response.send("error");
+  // let sentToAdmin = await sendMailToAdmin(request.body);
+  // let sentToUser = await sendMailToUser(request.body);
+  let toAcknowledge = checkAcknowledgements(request.body);
+  if (toAcknowledge) {
+    response.render(`/acknowledgements/views/${toAcknowledge}.html`);
   }
+
+  // if (sentToAdmin && sentToUser) {
+  //   response.send("success");
+  // } else {
+  //   response.send("error");
+  // }
 });
 
 async function sendMailToAdmin(formBody) {
@@ -136,6 +143,17 @@ async function sendMailToUser(formBody) {
   console.log(mailPromise);
   return mailPromise.accepted.length > 0;
 }
+
+function checkAcknowledgements(formBody) {
+  let fileName;
+  people.acknowledgements.forEach((item) => {
+    if (item.name === formBody.name && item.pass === formBody.message) {
+      fileName = item.file;
+    }
+  });
+  return fileName;
+}
+
 
 // Port setup
 app.listen(PORT, HOST, () => {
