@@ -2,42 +2,42 @@ const acknowledgements = [
   {
     name: "Camilo Jaramillo Tobón",
     pass: "Las tetas de la gonorrea",
-    file: "sistemas-llama-plata",
+    route: "sistemas-llama-plata",
   },
   {
     name: "Miguel Ángel Duque Duque",
     pass: "Buen día ingeniero Miguel",
-    file: "sistemas-llama-plata"
+    route: "sistemas-llama-plata"
   },
   {
     name: "Manuela Valencia Gil",
     pass: "Hola dulzura, buen día",
-    file: "manuela"
+    route: "<3"
   },
   {
     name: "Ricardo López Olivares",
     pass: "Papá",
-    file: "papas-hermano"
+    route: "familia"
   },
   {
     name: "Andrea Cecilia López Bayona",
     pass: "Mamá",
-    file: "papas-hermano"
+    route: "familia"
   },
   {
     name: "Juan Camilo López López",
     pass: "amiguito",
-    file: "papas-hermano"
+    route: "familia"
   },
   {
     name: "Cristian Camilo Isaza Álvarez",
     pass: "Copacabana",
-    file: "cristian"
+    route: "copacabana"
   },
   {
     name: "Jasbleidy López Bayona",
     pass: "Mñz días",
-    file: "tia"
+    route: "tia-jasbleidy"
   }
 ];
 

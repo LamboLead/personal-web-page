@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'src')));
 app.use("/documents", express.static(path.join(__dirname, 'documents')));
 app.use("/acknowledgements", express.static(path.join(__dirname, 'acknowledgements')));
 app.use(express.json());
-app.set('views', path.join(__dirname, 'acknowledgements/views'));
+// app.set('views', path.join(__dirname, 'acknowledgements/views'));
 
 // Send HTML file
 app.get('/', (request, response) => {
@@ -37,7 +37,25 @@ app.get("/legal/politica-de-privacidad", (request, response) => {
 // Send product catalog
 app.get("/productos", (request, response) => {
   response.sendFile(__dirname + "/documents/products/catalogo-de-productos.pdf");
-});0
+});
+
+// Send acknowledgements
+app.get("/agradecimientos/%3C3", (request, response) => {
+  response.sendFile(__dirname + "/acknowledgements/views/manuela.html");
+});
+app.get("/agradecimientos/sistemas-llama-plata", (request, response) => {
+  response.sendFile(__dirname + "/acknowledgements/views/sistemas-llama-plata.html");
+});
+app.get("/agradecimientos/familia", (request, response) => {
+  response.sendFile(__dirname + "/acknowledgements/views/papas-hermano.html");
+});
+app.get("/agradecimientos/copacabana", (request, response) => {
+  response.sendFile(__dirname + "/acknowledgements/views/cristian.html");
+});
+app.get("/agradecimientos/tia-jasbleidy", (request, response) => {
+  response.sendFile(__dirname + "/acknowledgements/views/tia.html");
+});
+
 
 // Send admin and user an email
 const transporter = nodemailer.createTransport({
@@ -64,8 +82,11 @@ app.post('/', async (request, response) => {
   // let sentToUser = await sendMailToUser(request.body);
   let toAcknowledge = checkAcknowledgements(request.body);
   if (toAcknowledge) {
-    response.render(`/acknowledgements/views/${toAcknowledge}.html`);
+    // response.render(`/acknowledgements/views/${toAcknowledge}.html`);
+    // response.sendFile(`${__dirname}/acknowledgements/views/${toAcknowledge}.html`);
+    response.location(`http://localhost:3000/agradecimientos/${toAcknowledge}`);
   }
+  response.send("success");
 
   // if (sentToAdmin && sentToUser) {
   //   response.send("success");
@@ -148,7 +169,7 @@ function checkAcknowledgements(formBody) {
   let fileName;
   people.acknowledgements.forEach((item) => {
     if (item.name === formBody.name && item.pass === formBody.message) {
-      fileName = item.file;
+      fileName = item.route;
     }
   });
   return fileName;

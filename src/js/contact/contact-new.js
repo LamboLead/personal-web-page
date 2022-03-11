@@ -1,12 +1,5 @@
 import * as FormHandler from '../dom-element-handler/form-handler.js';
 
-var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-if (w <= h) {
-  document.querySelector("html, body").style.width = w;
-  document.querySelector("html, body").style.height = h;
-}
-
 const inputFields = [
   new FormHandler.Input(
     "name",
@@ -99,7 +92,12 @@ async function submitForm(data) {
   xhr.setRequestHeader('content-type', 'application/json');
   let promise = new Promise((resolve, reject) => {
     xhr.addEventListener("load", () => {
-      console.log(xhr.responseText);
+      // If response is a 'redirect', then redirect
+      let location = xhr.getResponseHeader("Location");
+      console.log(location);
+      if (location) {
+        window.open(location, "_blank");
+      }
       resolve(xhr.responseText);
     });
   });

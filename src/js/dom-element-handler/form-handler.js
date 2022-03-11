@@ -32,7 +32,7 @@ export class Form {
     let fields = form.querySelector(".form-wrapper");
     let confirmation = form.querySelector(".confirmation-wrapper");
     let confirmationButton = confirmation.querySelector("button");
-    // Form submitting
+    // Form submitting --- --- ---
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       this.submitForm();
@@ -118,6 +118,7 @@ export class Form {
     });
     formData.language = this.language;
     submitButton.classList.add("disabled-button");
+    // Await for the response of the submission of the form
     let response = await this.onSubmit(formData);
     console.log("Server response:", response);
     if (response === "error") {
