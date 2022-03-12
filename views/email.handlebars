@@ -124,7 +124,7 @@
     .bg_white {background: #404040;}
     .bg_light {background: #000;}
     .bg_black {background: #000000;}
-    .bg_dark {background: rgba(0, 0, 0, .8);}
+    .bg_dark {background: rgba(0, 0, 0, 0.8);}
     .text-white {color: #fff}
     .text-gray {color: #b3b3b3;}
     .email-section {padding: 2.5em;}
@@ -258,6 +258,10 @@
       margin-right: 10px;
     }
 
+    li {
+      text-align: left !important;
+    }
+
     /*FOOTER*/
 
     .footer {
@@ -318,7 +322,7 @@
                     <h2 class="text-white">{{title}}</h2>
                     <h3 class="text-gray">{{parag1}}</h3>
                     <h4 class="text-gray">{{messageTitle}}</h4>
-                    <h5 class="text-white">{{message}}</h5>
+                    <h5 class="text-white">{{{message}}}</h5>
                     <h3 class="text-gray">{{parag2}}</h3>
                   </div>
                 </td>
