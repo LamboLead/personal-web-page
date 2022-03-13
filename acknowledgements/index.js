@@ -10,4 +10,4 @@ setInterval(() => {
   } else {
     currentImage++;
   }
-}, 3000);
+}, 7000);

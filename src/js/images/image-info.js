@@ -14,31 +14,35 @@ const images = {
           "dark-theme": [
             {
               src: "main-page/dark-theme/saludo-3.png",
-              style: "transform: translate(160%, 5%)"
+              style: "transform: translate(150%, 5%)"
             }
           ],
           "light-theme": [
             {
               src: "main-page/light-theme/saludo-1.png",
-              style: "transform: translate(-100%, 11%)"
+              style: "transform: translate(-138%, 6%)"
             },
             {
               src: "main-page/light-theme/saludo-2.png",
-              style: "transform: translate(85%, 5%); z-index: 2"
+              style: "transform: translate(67%, 2%); z-index: 2"
             }
           ]
         },
         "phone": {
           "dark-theme": [
             {
-              src: "main-page/dark-theme/saludo-3-mobile.png",
-              style: "transform: translate(5%, 0) scale(2)"
+              src: "main-page/dark-theme/saludo-3.png",
+              style: "transform: translate(10%, 0)"
             }
           ],
           "light-theme": [
             {
-              src: "main-page/light-theme/saludo-2-mobile.png",
-              style: "transform: translate(31%, -4%) scale(2)"
+              src: "main-page/light-theme/saludo-1.png",
+              style: "transform: translate(40%, 0%)"
+            },
+            {
+              src: "main-page/light-theme/saludo-2.png",
+              style: "transform: translate(27%, 2%); z-index: 2"
             }
           ]
         }
@@ -48,33 +52,27 @@ const images = {
           "dark-theme": [
             {
               src: "main-page/dark-theme/saludo-3.png",
-              style: "transform: translate(160%, 0)"
+              style: "transform: translate(150%, 0)"
             }
           ],
           "light-theme": [
             {
               src: "main-page/light-theme/saludo-2.png",
-              style: "transform: translate(85%, 5%); z-index: 2"
+              style: "transform: translate(67%, 2%); z-index: 2"
             }
           ]
         },
         "phone": {
           "dark-theme": [
             {
-              src: "main-page/dark-theme/portatil-1-mobile.png",
-              style: "transform: translate(36%, 90%) scale(1)"
+              src: "main-page/dark-theme/saludo-3.png",
+              style: "transform: translate(10%, 0)"
             }
           ],
           "light-theme": [
             {
-              src: "main-page/light-theme/baje-1-mobile.png",
-              style: "transform: translate(26%, 56%) scale(2.2)",
-              elementStyling: [
-                {
-                  selector: "",
-                  style: ""
-                }
-              ]
+              src: "main-page/light-theme/saludo-2.png",
+              style: "transform: translate(27%, 2%); z-index: 2"
             }
           ]
         }

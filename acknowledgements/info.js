@@ -1,4 +1,3 @@
-/*
 const acknowledgements = [
   {
     name: "Camilo Jaramillo Tobón",
@@ -57,14 +56,14 @@ const acknowledgements = [
     route: "tia-jasbleidy"
   }
 ];
-*/
-const acknowledgements = [
-  {
-    name: "Camilo Jaramillo Tobón",
-    pass: "Las tetas de la gonorrea",
-    pronom: "o",
-    email: "cjtlag@gmail.com",
-    route: "sistemas-llama-plata"
-  }
-]
+
+// const acknowledgements = [
+//   {
+//     name: "Camilo Jaramillo Tobón",
+//     pass: "Las tetas de la gonorrea",
+//     pronom: "o",
+//     email: "cjtlag@gmail.com",
+//     route: "sistemas-llama-plata"
+//   }
+// ]
 exports.acknowledgements = acknowledgements;

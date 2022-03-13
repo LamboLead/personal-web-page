@@ -49,18 +49,20 @@ let enteredSections = [];
 sections.forEach((section) => {
   let id = section.id;
   ScrollTrigger.create({
+    markers: true,
     id: id,
     trigger: `#${id}`,
-    start: "top bottom",
-    end: "bottom top+=1",
+    // start: "top bottom-=1",
+    // end: "bottom top+=1",
+    start: "top+=1 bottom",
+    end: "bottom-=1 top",
     onEnter: (self) => {
       enteredSections.push(id);
       console.log("Entered Sections: ", enteredSections);
       setTimeout(() => {
         // Check that the last entered section corresponds to the section that the user is in
         if (enteredSections[enteredSections.length - 1] === id) {
-          console.log("Progress then:", self.progress);
-          console.log(`${id} was the last accessed`);
+          // console.log("Progress then:", self.progress);
           let sectionToGo;
           if (self.progress < 0.2) {
             sectionToGo = enteredSections[enteredSections.length - 2];
@@ -82,8 +84,8 @@ sections.forEach((section) => {
       setTimeout(() => {
         // Check that the last entered section corresponds to the section that the user is in
         if (enteredSections[enteredSections.length - 1] === id) {
-          console.log("Progress:", self.progress);
-          console.log(`${id} was the last accessed`);
+          // console.log("Progress:", self.progress);
+          // console.log(`${id} was the last accessed`);
           let incomingSection;
           if (self.progress > 0.8) {
             incomingSection = enteredSections[enteredSections.length - 2];

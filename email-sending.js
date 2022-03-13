@@ -2,8 +2,6 @@ require('dotenv').config();
 const path = require('path');
 const nodemailer = require('nodemailer');
 const exHandleBars = require('nodemailer-express-handlebars');
-const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || "localhost";
 const people = require("./acknowledgements/info.js");
 
 const transporter = nodemailer.createTransport({
