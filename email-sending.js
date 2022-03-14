@@ -29,18 +29,19 @@ function setUpMessage(subject) {
     messageTitle: "Siga las instrucciones al pie de la letra:",
     message: `
       <ol>
-        <li>Haga click en el logo o en la dirección <a href="https://lambolead.com">lambolead.com</a></li>
+        <li>Haga click en el logo al inicio de este email o navegue a la dirección <a href="https://lambolead.com">lambolead.com</a></li>
         <li>Explore la página</li>
-        <li>Diríjase a la sección de 'Contacto'</li>
-        <li>En los siguientes campos, digite la siguiente información, <b><i>justo como se muestra en pantalla</b></i>:
+        <li>Diríjase a la sección de <i>Contacto</i></li>
+        <li>En los siguientes campos, digite la siguiente información, <b><i>exactamente como se muestra en pantalla</b></i>:
           <ul>
             <li>Nombre: <b>${subject.name}</b></li>
-            <li>E-mail: <i>(su dirección de correo, preferiblemente de gmail)</i></li>
+            <li>E-mail: <i>(su dirección de correo electrónico)</i></li>
             <li>Mensaje: <b>${subject.pass}</b></li>
           </ul>
         </li>
         <li>Haga click en 'Hablemos'</li>
         <li>Sonría :)</li>
+        <li><b>Atención:</b> Si el navegador no abre alguna pestaña nueva, verifique y vuelva a enviar la información
       </ol>
     `,
     parag2: "Gracias por su atención!",
@@ -59,7 +60,7 @@ function setUpMessage(subject) {
     let mailOptions = {
       from: `"Juan David López" <${process.env.EMAIL}>`,
       to: "lopezlopezdavid8g@gmail.com", // cambiar
-      subject: "Tiene un nuevo mensaje!",
+      subject: "Tiene un nuevo mensaje! (y una sorpresa)",
       template: 'email',
       context: setUpMessage(person)
     }

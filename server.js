@@ -78,21 +78,18 @@ transporter.use('compile', exHandleBars({
 
 app.post('/', async (request, response) => {
 
-  // let sentToAdmin = await sendMailToAdmin(request.body);
-  // let sentToUser = await sendMailToUser(request.body);
+  let sentToAdmin = await sendMailToAdmin(request.body);
+  let sentToUser = await sendMailToUser(request.body);
   let toAcknowledge = checkAcknowledgements(request.body);
   if (toAcknowledge) {
-    // response.render(`/acknowledgements/views/${toAcknowledge}.html`);
-    // response.sendFile(`${__dirname}/acknowledgements/views/${toAcknowledge}.html`);
-    response.location(`http://localhost:3000/agradecimientos/${toAcknowledge}`);
+    response.location(`${process.env.WEBSITE}/agradecimientos/${toAcknowledge}`);
   }
-  response.send("success");
 
-  // if (sentToAdmin && sentToUser) {
-  //   response.send("success");
-  // } else {
-  //   response.send("error");
-  // }
+  if (sentToAdmin && sentToUser) {
+    response.send("success");
+  } else {
+    response.send("error");
+  }
 });
 
 async function sendMailToAdmin(formBody) {
@@ -174,7 +171,6 @@ function checkAcknowledgements(formBody) {
   });
   return fileName;
 }
-
 
 // Port setup
 app.listen(PORT, HOST, () => {

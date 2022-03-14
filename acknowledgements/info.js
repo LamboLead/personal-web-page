@@ -1,69 +1,67 @@
 const acknowledgements = [
   {
     name: "Camilo Jaramillo Tobón",
-    pass: "Las tetas de la gonorrea",
+    pass: "las tetas de la gonorrea",
     pronom: "o",
     email: "cjtlag@gmail.com",
     route: "sistemas-llama-plata"
   },
   {
     name: "Miguel Ángel Duque Duque",
-    pass: "Buen día ingeniero Miguel",
+    pass: "buen día ingeniero Miguel",
     pronom: "o",
     email: "migueldchiqui@gmail.com",
     route: "sistemas-llama-plata"
   },
   {
     name: "Manuela Valencia Gil",
-    pass: "Hola dulzura, buen día",
+    pass: "hola dulzura, buen día",
     pronom: "a",
     email: "mvalenciagi@unal.edu.co",
     route: "<3"
   },
   {
     name: "Ricardo López Olivares",
-    pass: "Papá",
+    pass: "hola papá buen día",
     pronom: "o",
-    email: "",
+    email: "rlopez@fabricato.com",
     route: "familia"
   },
   {
     name: "Andrea Cecilia López Bayona",
-    pass: "Mamá",
+    pass: "david cup ronda",
     pronom: "a",
-    email: "",
+    email: "alopez@crantioquia.org.co",
     route: "familia"
   },
   {
     name: "Juan Camilo López López",
-    pass: "amiguito",
+    pass: "el amiguito llonguea",
     pronom: "o",
-    email: "jcamilol@corazonista.edu.co",
+    email: "jclopezl@corazonistamedellin.edu.co",
     route: "familia"
   },
   {
     name: "Cristian Camilo Isaza Álvarez",
-    pass: "Copacabana",
+    pass: "copacabana es una mierda",
     pronom: "o",
     email: "ccisazaa0@gmail.com",
     route: "copacabana"
   },
   {
     name: "Jasbleidy López Bayona",
-    pass: "Mñz días",
+    pass: "mñz días tía",
     pronom: "a",
-    email: "",
+    email: "jaslopb@gmail.com",
     route: "tia-jasbleidy"
+  },
+  {
+    name: "Juan David López López",
+    pass: "muy bien, muchacho",
+    pronom: "o",
+    email: "jlopezlo@unal.edu.co",
+    route: "<3"
   }
 ];
 
-// const acknowledgements = [
-//   {
-//     name: "Camilo Jaramillo Tobón",
-//     pass: "Las tetas de la gonorrea",
-//     pronom: "o",
-//     email: "cjtlag@gmail.com",
-//     route: "sistemas-llama-plata"
-//   }
-// ]
 exports.acknowledgements = acknowledgements;

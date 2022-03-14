@@ -49,7 +49,7 @@ let enteredSections = [];
 sections.forEach((section) => {
   let id = section.id;
   ScrollTrigger.create({
-    markers: true,
+    // markers: true,
     id: id,
     trigger: `#${id}`,
     // start: "top bottom-=1",

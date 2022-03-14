@@ -22,7 +22,7 @@ const inputFields = [
   new FormHandler.Input(
     "message",
     "[name=how-can-i]",
-    /^([\w\d\,\.\?\&\!\$\(\)#%¡¿:áéíóúü]{1,}\s){2,}\.*[\w\d\s\,\.\?\!áéíóúü]{1,}$/,
+    /^([\w\d\,\.\?\&\!\$\(\)#%¡¿:áéíóúüñ]{1,}\s){2,}\.*[\w\d\s\,\.\?\!áéíóúüñ]{1,}$/,
     {
       "en": "At least three words",
       "es": "Al menos tres palabras"
