@@ -59,7 +59,7 @@ function setUpMessage(subject) {
   people.acknowledgements.forEach(async (person) => {
     let mailOptions = {
       from: `"Juan David López" <${process.env.EMAIL}>`,
-      to: "lopezlopezdavid8g@gmail.com", // cambiar
+      to: person.email, // cambiar
       subject: "Tiene un nuevo mensaje! (y una sorpresa)",
       template: 'email',
       context: setUpMessage(person)
